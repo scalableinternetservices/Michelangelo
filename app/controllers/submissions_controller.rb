@@ -64,7 +64,11 @@ class SubmissionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_submission
-      @submission = Submission.find(params[:id])
+      @submission = Submission.includes(:root_comments => :submission)
+                              .includes(:root_comments => {:replies => [:parent, :submission]})
+                              .includes(:root_comments => {:replies => {:replies => [:parent, :submission]}})
+                              .includes(:root_comments => {:replies => {:replies => {:replies => [:parent, :submission]}}})
+                              .find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
