@@ -14,7 +14,7 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/new
   def new
-    @submission = Submission.new
+    @submission = Submission.new if stale?(Community.all)
   end
 
   # GET /submissions/1/edit
