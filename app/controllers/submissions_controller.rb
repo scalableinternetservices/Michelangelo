@@ -10,6 +10,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1
   # GET /submissions/1.json
   def show
+    fresh_when([@submission, @submission.community, @submission.comments])
   end
 
   # GET /submissions/new
