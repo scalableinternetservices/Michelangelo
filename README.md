@@ -4,12 +4,19 @@
 
 ## Project Description
 Have you ever experienced Instagram? Are you tired of just enjoying the pictures but without any sounds?
+
 Sometimes when you hear a fantastic song and are eager to share it with your friends, sometimes you want to have your own voice being heard by others.
+
 Or sometimes you just need some new music to light your life up. So don't hesitate to try our MusicShare!
+
 With our MusicShare, you can perform several functions includes, but not limited to, the following:
+
 1. You can upload your audio and share it with your friends;
+
 2. You can choose your favorite songs, comment on them, share with your friends;
+
 3. You can also share a list of music with your friends;
+
 4. There is an editor collecting the resources, then classifies them, finally makes lists to share with the public.
 
 ## Team Members
