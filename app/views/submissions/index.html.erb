@@ -12,12 +12,14 @@
 
   <tbody>
     <% @submissions.each do |submission| %>
-      <tr>
-        <td><%= link_to(submission.title, submission.url) %></td>
-        <td><%= submission.url %></td>
-        <td><%= submission.community.name %></td>
-        <td><%= link_to "#{submission.comments.size} comments", submission, class: 'btn btn-primary btn-xs'  %></td>
-      </tr>
+      <% cache(cache_key_for_submission_row(submission)) do %>
+        <tr>
+          <td><%= link_to(submission.title, submission.url) %></td>
+          <td><%= submission.url %></td>
+          <td><%= submission.community.name %></td>
+          <td><%= link_to "#{submission.comments.size} comments", submission, class: 'btn btn-primary btn-xs'  %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
