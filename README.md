@@ -21,10 +21,10 @@ With our MusicShare, you can perform several functions includes, but not limited
 
 ## Team Members
 
-| ![zytp9](https://media.licdn.com/mpr/mpr/shrink_200_200/p/6/005/083/26c/08e7c30.jpg) | ![kaywsy](https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAABqAAAAJDk5YzhkNzQwLTY2MWUtNDBiNC1iYWE4LTA5YTQ3NjkwNDZlNw.jpg) | ![jmnjmnjmn](https://media.licdn.com/mpr/mpr/shrink_200_200/p/7/005/098/35e/35aa40e.jpg) | ![candysweetyqi](https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAEfAAAAJGIxZmI5NTI1LTZhMDgtNDE3Mi04MzNhLTFiMzI1OTk2MDAzMA.jpg) |
-| :------------: | :------------: | :------------: | :------------: |
+| ![zytp9](https://media.licdn.com/mpr/mpr/shrink_200_200/p/6/005/083/26c/08e7c30.jpg) | ![kaywsy](https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAABqAAAAJDk5YzhkNzQwLTY2MWUtNDBiNC1iYWE4LTA5YTQ3NjkwNDZlNw.jpg) | ![jmnjmnjmn](https://media.licdn.com/mpr/mpr/shrink_200_200/p/7/005/098/35e/35aa40e.jpg) | ![candysweetyqi](https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAEfAAAAJGIxZmI5NTI1LTZhMDgtNDE3Mi04MzNhLTFiMzI1OTk2MDAzMA.jpg) | ![jiecaranda](refs/team/profile_pic.jpg)
+| :------------: | :------------: | :------------: | :------------: | :------------: | 
 | Yuntao Zhao | Shuyuan Wang | Mengnan Jia | Qi Shao |
-| [@zytp9](https://github.com/zytp9) | [@kaywsy](https://github.com/kaywsy) | [@jmnjmnjmn](https://github.com/jmnjmnjmn) | [@candysweetyqi](https://github.com/candysweetyqi) |
+| [@zytp9](https://github.com/zytp9) | [@kaywsy](https://github.com/kaywsy) | [@jmnjmnjmn](https://github.com/jmnjmnjmn) | [@candysweetyqi](https://github.com/candysweetyqi) | [@jiecaranda](https://github.com/jiecaranda)
 
 ## Pivotal Tracker Link
 ##<a href="https://www.pivotaltracker.com/n/projects/1321110">Pivotal Tracker</a>
