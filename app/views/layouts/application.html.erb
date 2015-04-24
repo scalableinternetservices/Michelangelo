@@ -1,0 +1,88 @@
+<!-- START:head -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music Sharing Platform</title>
+
+   <!-- <%= stylesheet_link_tag    "application", media: "all",
+    "data-turbolinks-track" => true %> -->
+
+  <link href="/assets/stylesheets/sidebar.css" media="all" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet"> -->
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<!-- END:head -->
+
+
+
+<body class="<%= controller.controller_name %>">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><!--<%= image_tag("logo.png") %>--><%= @page_title || "Music Sharing Platform" %></a>
+
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+            <% if session[:user_id] %>
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= button_to 'Logout', logout_path, method: :delete   %></li>
+              </ul>
+            <% else %> 
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= button_to 'Login', login_path, method: :get   %></li>
+              </ul>       
+            <% end %>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+  <div class="container">
+  <div class="row">
+    <div id="side" class="col-md-2 col-sm-3 sidebar" 
+      style="background-color: #f5f5f5;bottom: 0;left: 0;">
+      <!-- START:hidden_div -->
+      <!--      <div id = "cart">
+      <% if @cart %>
+        <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+          <%= render @cart %>
+        <% end %>
+      <% end %>
+     </div> -->
+    <!-- END:hidden_div -->
+      <% if session[:user_id] %>
+        <ul class="nav nav-sidebar">
+          <li><%= link_to 'Orders',   orders_path   %></li>
+          <li><%= link_to 'Products', products_path %></li>
+          <li><%= link_to 'Users',    users_path    %></li>
+        </ul>
+        <!--<%= button_to 'Logout', logout_path, method: :delete   %>-->
+      <% end %>
+
+    </div>
+
+    <div id="main" style="margin-bottom:20px" class="col-md-10 col-sm-9">
+      <%= yield %>
+    </div>
+  </div> <!-- end row-->
+  </div> <!-- end container -->
+
+
+</body>
+</html>
+
