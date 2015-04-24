@@ -7,6 +7,8 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 Depot::Application.routes.draw do
+  resources :musics
+
   get "admin/index"
   get "sessions/new"
   get 'admin' => 'admin#index'
@@ -14,6 +16,14 @@ Depot::Application.routes.draw do
     get  'login' => :new
     post 'login' => :create
     delete 'logout' => :destroy
+  end
+
+  controller :musics do
+    get  'home' => :index
+  end
+
+  controller :users do
+    get  'register' => :new
   end
 
   get "sessions/create"
@@ -32,7 +42,7 @@ Depot::Application.routes.draw do
   # first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
-  root 'store#index', as: 'store'
+  root 'sessions#create'
   # ...
 
   # Example of regular route:

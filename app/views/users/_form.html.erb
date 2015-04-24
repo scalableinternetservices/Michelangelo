@@ -1,5 +1,5 @@
 <div class="depot_form">
-
+<br />
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -14,30 +14,34 @@
   <% end %>
 
   <fieldset>
+  <div class="form-signin">
   <legend>Enter User Details</legend>
 
   <div class="field">
-    <%= f.label :name, 'Name:' %>
-    <%= f.text_field :name, size: 40 %>
+    <div><%= f.label :name, 'Name:' %></div>
+    <div><%= f.text_field :name, size: 40, :class => "form-control" %></div>
   </div>
 
   <div class="field">
-    <%= f.label :password, 'Password:' %>
-    <%= f.password_field :password, size: 40 %>
+    <div><%= f.label :password, 'Password:' %></div>
+    <div><%= f.password_field :password, size: 40, :class => "form-control" %></div>
   </div>
 
   
   <div class="field">
     <%= f.label :password_confirmation, 'Confirm:' %>
-    <%= f.password_field :password_confirmation, size: 40 %>
+    <%= f.password_field :password_confirmation, size: 40, :class => "form-control" %>
   </div>
 
-  <div class="actions">
+  <div class="actions btn btn-submit">
     <%= f.submit %>
   </div>
 
+  <%= link_to 'Back', login_url %>
+
+
+</div>
   </fieldset>
 <% end %>
-
 </div>
 
