@@ -7,9 +7,9 @@
    <!-- <%= stylesheet_link_tag    "application", media: "all",
     "data-turbolinks-track" => true %> -->
 
-  <link href="/assets/stylesheets/sidebar.css" media="all" rel="stylesheet" />
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-  <!-- <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet"> -->
+  <%= stylesheet_link_tag "sidebar", media: "all" %>
+  <%= stylesheet_link_tag "common", media: "all" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <%= csrf_meta_tags %>
@@ -21,7 +21,7 @@
 <body class="<%= controller.controller_name %>">
 
       <!-- Static navbar -->
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -41,11 +41,11 @@
             </ul>
             <% if session[:user_id] %>
               <ul class="nav navbar-nav navbar-right">
-                <li><%= button_to 'Logout', logout_path, method: :delete   %></li>
+                <li><%= link_to 'Logout', logout_path, method: :delete, class: "btn btn-default"   %></li>
               </ul>
             <% else %> 
               <ul class="nav navbar-nav navbar-right">
-                <li><%= button_to 'Login', login_path, method: :get   %></li>
+                <li><%= link_to 'Login', login_path, method: :get, class: "btn btn-default"    %></li>
               </ul>       
             <% end %>
           </div><!--/.nav-collapse -->
@@ -76,7 +76,7 @@
 
     </div>
 
-    <div id="main" style="margin-bottom:20px" class="col-md-10 col-sm-9">
+    <div id="main" style="margin-top:50px;margin-bottom:20px" class="col-md-10 col-sm-9 col-sm-offset-3 col-md-offset-2">
       <%= yield %>
     </div>
   </div> <!-- end row-->
