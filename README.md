@@ -25,7 +25,7 @@ With our MusicShare, you can perform several functions includes, but not limited
 
 ## Team Members
 
-| ![zytp9](https://media.licdn.com/mpr/mpr/shrink_200_200/p/6/005/083/26c/08e7c30.jpg) | ![kaywsy](https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAABqAAAAJDk5YzhkNzQwLTY2MWUtNDBiNC1iYWE4LTA5YTQ3NjkwNDZlNw.jpg) | ![jmnjmnjmn](https://media.licdn.com/mpr/mpr/shrink_200_200/p/7/005/098/35e/35aa40e.jpg) | ![candysweetyqi](https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAEfAAAAJGIxZmI5NTI1LTZhMDgtNDE3Mi04MzNhLTFiMzI1OTk2MDAzMA.jpg) | ![jiecaranda](https://scontent-sjc.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10409690_715995388490614_3929851405245887387_n.jpg?oh=8e71bb3afab9756a79c1557e2c1c2340&oe=55CE0406)
+| ![zytp9](https://media.licdn.com/mpr/mpr/shrink_200_200/p/6/005/083/26c/08e7c30.jpg) | ![kaywsy](https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAABqAAAAJDk5YzhkNzQwLTY2MWUtNDBiNC1iYWE4LTA5YTQ3NjkwNDZlNw.jpg) | ![jmnjmnjmn](https://media.licdn.com/mpr/mpr/shrink_200_200/p/7/005/098/35e/35aa40e.jpg) | ![candysweetyqi](https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAEfAAAAJGIxZmI5NTI1LTZhMDgtNDE3Mi04MzNhLTFiMzI1OTk2MDAzMA.jpg) | ![jiecaranda](https://media.licdn.com/mpr/mpr/shrink_200_200/p/6/005/0ae/18a/236cf1b.jpg)
 | :------------: | :------------: | :------------: | :------------: | :------------: | 
 | Yuntao Zhao | Shuyuan Wang | Mengnan Jia | Qi Shao | Jie Yu
 | [@zytp9](https://github.com/zytp9) | [@kaywsy](https://github.com/kaywsy) | [@jmnjmnjmn](https://github.com/jmnjmnjmn) | [@candysweetyqi](https://github.com/candysweetyqi) | [@jiecaranda](https://github.com/jiecaranda)
