@@ -26888,6 +26888,7 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.2ms)
 
 
+<<<<<<< HEAD
 Started GET "/musics" for 127.0.0.1 at 2015-04-24 15:00:29 -0700
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
 Processing by MusicsController#index as HTML
@@ -27394,3 +27395,412 @@ Started GET "/login" for 127.0.0.1 at 2015-04-24 17:29:25 -0700
 Processing by SessionsController#new as HTML
   Rendered sessions/new.html.erb within layouts/application (0.9ms)
 Completed 200 OK in 31ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+=======
+Started GET "/" for 127.0.0.1 at 2015-04-24 16:08:16 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT 1
+Redirected to http://localhost:3000/login
+Completed 302 Found in 51ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 274ms (Views: 273.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/common.css?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/sidebar.css?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/jquery-ui/effect.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/jquery-ui/effect-blind.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/musics.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/line_items.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/oders.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/orders.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:17 -0700
+
+
+Started POST "/login" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ex9BBNelagHq/uyYBYjKI+lsaFlRRqt9tKIpqzxe098=", "name"=>"dava", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'dava' LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 59ms (Views: 58.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/common.css?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/jquery-ui/effect-blind.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/jquery-ui/effect.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/sidebar.css?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/line_items.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/oders.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/orders.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-24 16:08:29 -0700
+
+
+Started GET "/musics" for 127.0.0.1 at 2015-04-24 16:08:44 -0700
+Processing by MusicsController#index as HTML
+  [1m[35mMusic Load (0.6ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered musics/index.html.erb within layouts/application (49.5ms)
+Completed 200 OK in 101ms (Views: 95.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-04-24 16:08:50 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users".name ASC[0m
+  Rendered users/index.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 82ms (Views: 79.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/musics" for 127.0.0.1 at 2015-04-24 16:08:52 -0700
+Processing by MusicsController#index as HTML
+  [1m[35mMusic Load (0.5ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered musics/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 48ms (Views: 46.2ms | ActiveRecord: 0.5ms)
+>>>>>>> bdd4dd1afa46c961a0867b25e74547320d531d61
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 17:45:54 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+SyntaxError (/Users/Elvis/Dropbox/219/test/version3/Michelangelo/app/controllers/application_controller.rb:10: syntax error, unexpected <<
+<<<<<<< HEAD
+  ^
+/Users/Elvis/Dropbox/219/test/version3/Michelangelo/app/controllers/application_controller.rb:12: syntax error, unexpected ===, expecting keyword_end
+=======
+   ^):
+  app/controllers/sessions_controller.rb:9:in `<top (required)>'
+
+
+  Rendered /Users/Elvis/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/Elvis/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/Elvis/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.7ms)
+  Rendered /Users/Elvis/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (38.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 17:45:54 -0700
+
+SyntaxError (/Users/Elvis/Dropbox/219/test/version3/Michelangelo/app/controllers/application_controller.rb:10: syntax error, unexpected <<
+<<<<<<< HEAD
+  ^
+/Users/Elvis/Dropbox/219/test/version3/Michelangelo/app/controllers/application_controller.rb:12: syntax error, unexpected ===, expecting keyword_end
+=======
+   ^):
+  app/controllers/sessions_controller.rb:9:in `<top (required)>'
+
+
+  Rendered /Users/Elvis/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/Elvis/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/Elvis/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/Elvis/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 17:46:36 -0700
+Processing by SessionsController#create as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT 1
+Redirected to http://localhost:3000/login
+Completed 302 Found in 17ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2015-04-24 17:46:36 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 238ms (Views: 237.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-ui/effect.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:36 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:36 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:36 -0700
+
+
+Started GET "/assets/common.css?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/sidebar.css?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/jquery-ui/effect-blind.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/line_items.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/oders.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/orders.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/musics.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:37 -0700
+
+
+Started GET "/register" for 127.0.0.1 at 2015-04-24 17:46:39 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (30.7ms)
+  Rendered users/new.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 71ms (Views: 69.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2015-04-24 17:46:42 -0700
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"+9et7nEsbK/eo4yYyAAFRQYsLh4SYxo/dYvADbEvAlY="}
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sidebar.css?body=1" for 127.0.0.1 at 2015-04-24 17:46:42 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:42 -0700
+
+
+Started GET "/assets/jquery-ui/effect-blind.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:42 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:42 -0700
+
+
+Started GET "/assets/jquery-ui/effect.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:42 -0700
+
+
+Started GET "/assets/common.css?body=1" for 127.0.0.1 at 2015-04-24 17:46:42 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:42 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:42 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:42 -0700
+
+
+Started GET "/assets/line_items.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:42 -0700
+
+
+Started GET "/assets/musics.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:42 -0700
+
+
+Started GET "/assets/oders.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:42 -0700
+
+
+Started GET "/assets/orders.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:43 -0700
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:43 -0700
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:43 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:43 -0700
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:43 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:43 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:43 -0700
+
+
+Started POST "/login" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+9et7nEsbK/eo4yYyAAFRQYsLh4SYxo/dYvADbEvAlY=", "name"=>"Elvis", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'Elvis' LIMIT 1[0m
+Redirected to http://localhost:3000/musics
+Completed 302 Found in 72ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/musics" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+Processing by MusicsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mMusic Load (1.9ms)[0m  [1mSELECT "musics".* FROM "musics"[0m
+  Rendered musics/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 34ms (Views: 27.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/sidebar.css?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/common.css?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/jquery-ui/effect.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/jquery-ui/effect-blind.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/oders.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/line_items.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/musics.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/orders.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-24 17:46:44 -0700
