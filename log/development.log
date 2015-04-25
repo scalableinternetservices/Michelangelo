@@ -28025,3 +28025,138 @@ Started GET "/assets/jquery-ui/effect.js?body=1" for 127.0.0.1 at 2015-04-24 19:
 
 
 Started GET "/assets/jquery-ui/effect-blind.js?body=1" for 127.0.0.1 at 2015-04-24 19:52:04 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 20:26:21 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT 1
+Redirected to http://localhost:3000/login
+Completed 302 Found in 61ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2015-04-24 20:26:21 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 613ms (Views: 611.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sidebar.css?body=1" for 127.0.0.1 at 2015-04-24 20:26:22 -0700
+
+
+Started GET "/assets/jquery-ui/effect-blind.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:22 -0700
+
+
+Started GET "/assets/jquery-ui/effect.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:22 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:22 -0700
+
+
+Started GET "/assets/common.css?body=1" for 127.0.0.1 at 2015-04-24 20:26:22 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:22 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:23 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:23 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:23 -0700
+
+
+Started GET "/assets/line_items.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:23 -0700
+
+
+Started GET "/assets/musics.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:23 -0700
+
+
+Started GET "/assets/oders.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:23 -0700
+
+
+Started GET "/assets/orders.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:23 -0700
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:23 -0700
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:23 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:23 -0700
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:23 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:23 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-24 20:26:23 -0700
+
+
+Started GET "/login" for 127.0.0.1 at 2015-04-24 21:08:42 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 278ms (Views: 270.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sidebar.css?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/common.css?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/jquery-ui/effect-blind.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/jquery-ui/effect.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/line_items.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/musics.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/oders.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/orders.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-24 21:08:43 -0700
