@@ -6,6 +6,7 @@
 <br />  
 <table class="table table-striped">
 <% @musics.each do |music| %>
+  
   <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td>
       <%= image_tag("http://www.umflint.edu/sites/default/files/groups/CSEP/images/unknown_user_0.jpg", class: 'list_image') %>
@@ -22,6 +23,8 @@
       <%= link_to 'Edit', edit_music_path(music) %><br/>
       <%= link_to 'Delete', music, method: :delete,
                   data: { confirm: 'Are you sure?' } %>
+  
+
     </td>
   </tr>
 <% end %>

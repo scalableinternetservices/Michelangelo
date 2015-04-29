@@ -2,6 +2,12 @@ class UsersController < ApplicationController
   skip_before_action :authorize
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  
+
+  # def postmusics
+  #   # @mymusics = Music.find(params[:uid])
+  #   # @mymusics = Music.where(:uid => params[:uid]).paginate(:page => params[:page], :per_page => 15).order('id DESC')
+  # end
   # GET /users
   # GET /users.json
   def index
@@ -11,6 +17,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @mymusics = Music.where(:uid => params[:id]).order('id DESC')
   end
 
   # GET /users/new
@@ -77,6 +84,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation)
+        params.require(:user).permit(:name, :password, :password_confirmation, :gender, :age, :interest, :picurl)
     end
 end

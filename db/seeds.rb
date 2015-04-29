@@ -15,20 +15,20 @@
 #---
 # encoding: utf-8
 Music.delete_all
-Music.create!(title: 'Sugar',
-  artist: 'Maroon5',
-  comment: "Guys check this out!",
-  hashtag: '#Pop #AdamLevine',
-  link:   'http://music.163.com/outchain/player?type=2&id=29019227&auto=0&height=66')
+# Music.create!(title: 'Sugar',
+#   artist: 'Maroon5',
+#   comment: "Guys check this out!",
+#   hashtag: '#Pop #AdamLevine',
+#   link:   'http://music.163.com/outchain/player?type=2&id=29019227&auto=0&height=66')
 
-Music.create!(title: 'See You Again',
-  artist: 'Wiz Khalifa / Charlie Puth',
-  comment: "R.I.P Paul Walker",
-  hashtag: '#Pop #Rap #Furious7',
-  link:   'http://music.163.com/outchain/player?type=2&id=30953009&auto=0&height=66')
+# Music.create!(title: 'See You Again',
+#   artist: 'Wiz Khalifa / Charlie Puth',
+#   comment: "R.I.P Paul Walker",
+#   hashtag: '#Pop #Rap #Furious7',
+#   link:   'http://music.163.com/outchain/player?type=2&id=30953009&auto=0&height=66')
 
-Music.create!(title: 'Rose',
-  artist: 'Olivia Ong',
-  comment: "Calm rainy night. :)",
-  hashtag: '#Country #Guitar',
-  link:   'http://music.163.com/outchain/player?type=2&id=280561&auto=0&height=66')
+# Music.create!(title: 'Rose',
+#   artist: 'Olivia Ong',
+#   comment: "Calm rainy night. :)",
+#   hashtag: '#Country #Guitar',
+#   link:   'http://music.163.com/outchain/player?type=2&id=280561&auto=0&height=66')

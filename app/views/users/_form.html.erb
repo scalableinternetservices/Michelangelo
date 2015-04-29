@@ -23,6 +23,26 @@
   </div>
 
   <div class="field">
+    <div><%= f.label :gender, 'Gender:' %></div>
+    <div><%= f.text_field :gender, size: 40, :class => "form-control" %></div>
+  </div>
+
+  <div class="field">
+    <div><%= f.label :age, 'Age:' %></div>
+    <div><%= f.text_field :age, size: 40, :class => "form-control" %></div>
+  </div>
+
+  <div class="field">
+    <div><%= f.label :interest, 'Interest:' %></div>
+    <div><%= f.text_field :interest, size: 40, :class => "form-control" %></div>
+  </div>
+
+  <div class="field">
+    <div><%= f.label :picurl, 'Picture:' %></div>
+    <div><%= f.text_field :picurl, size: 40, :class => "form-control" %></div>
+  </div>
+
+  <div class="field">
     <div><%= f.label :password, 'Password:' %></div>
     <div><%= f.password_field :password, size: 40, :class => "form-control" %></div>
   </div>

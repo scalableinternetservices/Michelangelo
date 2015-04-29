@@ -5,5 +5,54 @@
   <%= @user.name %>
 </p>
 
+<p>
+  <strong>Gender:</strong>
+  <%= @user.gender %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @user.age %>
+</p>
+
+<p>
+  <strong>Interest:</strong>
+  <%= @user.interest %>
+</p>
+
+<p>
+<%= image_tag(@user.picurl) %>
+</p>
+
+
+<div >
+<br />  
+MyPosts:
+<table class="table table-striped">
+
+<% @mymusics.each do |music| %>
+ 
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <td>
+      <%= image_tag(@user.picurl, class: 'list_image') %>
+    </td>
+    <td class="list_description">
+      <dl>
+        <dt><%= music.comment %> <%= music.hashtag %></dt>        
+        <dt id="title">&nbsp&nbsp&nbsp<%= music.title %> - <%= music.artist %></dt>
+        <dd><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=80 src="<%= music.link %>"></iframe></dd>
+      </dl>
+    </td>
+    <td class="list_actions">
+
+
+  </tr>
+<% end %>
+</table>
+<br />
+</div>
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+

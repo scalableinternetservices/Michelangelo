@@ -21,10 +21,15 @@ class MusicsController < ApplicationController
   def edit
   end
 
+
+   
+
   # POST /musics
   # POST /musics.json
   def create
     @music = Music.new(music_params)
+
+    @music.uid = session[:user_id]
 
     respond_to do |format|
       if @music.save
@@ -69,6 +74,6 @@ class MusicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def music_params
-      params.require(:music).permit(:title, :artist, :comment, :hashtag, :link)
+      params.require(:music).permit(:title, :artist, :comment, :hashtag, :link, :uid)
     end
 end
