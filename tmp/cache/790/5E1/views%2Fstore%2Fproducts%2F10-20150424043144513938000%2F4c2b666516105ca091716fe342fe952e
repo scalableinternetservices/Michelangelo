@@ -1,10 +1,0 @@
-o: ActiveSupport::Cache::Entry:@valueI"A  <div class="entry">
-    <!-- <img alt="Player?type=2&amp;id=29019227&amp;auto=0&amp;height=32" src="http://music.163.com/outchain/player?type=2&amp;id=29019227&amp;auto=0&amp;height=32" /> -->
-    <h3>Sugar</h3>
-    testing
-    <div class="price_line">
-      <span class="price">$1.00</span>
-      <form action="/line_items?product_id=10" class="button_to" data-remote="true" method="post"><div><input type="submit" value="Add to Cart" /><input name="authenticity_token" type="hidden" value="+9et7nEsbK/eo4yYyAAFRQYsLh4SYxo/dYvADbEvAlY=" /></div></form> 
-    </div>
-  </div>
-:ET:@created_atf1429902479.3413959:@expires_in0

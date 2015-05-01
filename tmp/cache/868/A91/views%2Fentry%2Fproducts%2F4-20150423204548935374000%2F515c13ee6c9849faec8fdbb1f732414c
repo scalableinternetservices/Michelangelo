@@ -1,10 +1,0 @@
-o: ActiveSupport::Cache::Entry:@valueI"Á  <div class="entry">
-    <img alt="Baidu" src="http://baidu.com" />
-    <h3>Only you</h3>
-    aaa
-    <div class="price_line">
-      <span class="price">$1.00</span>
-      <form action="/line_items?product_id=4" class="button_to" data-remote="true" method="post"><div><input type="submit" value="Add to Cart" /><input name="authenticity_token" type="hidden" value="ex9BBNelagHq/uyYBYjKI+lsaFlRRqt9tKIpqzxe098=" /></div></form> 
-    </div>
-  </div>
-:ET:@created_atf1429831222.2460291:@expires_in0
