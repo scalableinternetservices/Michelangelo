@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<%= image_tag(@user.picurl) %>
+</p>
+
+<p>
+  <%= @user.name %>
+</p>
+
+
+<p>
+MyFriends:
+</p>
+
+<% @friends.each do |friend| %>
+      <p>  
+      <%= friend.name %> 
+      </p>
+ <% end %>
+
+

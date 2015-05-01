@@ -10,7 +10,7 @@ class MusicsController < ApplicationController
   # GET /musics/1
   # GET /musics/1.json
   def show
-    # @user = User.where(:uid => params[:id])
+     # @user = User.where(session[:user_id] => params[:uid])
   end
 
   # GET /musics/new
@@ -23,7 +23,6 @@ class MusicsController < ApplicationController
   end
 
 
-   
 
   # POST /musics
   # POST /musics.json
