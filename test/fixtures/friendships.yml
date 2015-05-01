@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  friender_id: 1
+  friended_id: 1
+  accepted: false
+  created_at: 2015-04-29 21:13:59
+  updated_at: 2015-04-29 21:13:59
+
+two:
+  friender_id: 1
+  friended_id: 1
+  accepted: false
+  created_at: 2015-04-29 21:13:59
+  updated_at: 2015-04-29 21:13:59

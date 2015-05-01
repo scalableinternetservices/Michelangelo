@@ -1,13 +1,9 @@
 class UsersController < ApplicationController
   skip_before_action :authorize
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :friends, :mytimeline]
 
-  
 
-  # def postmusics
-  #   # @mymusics = Music.find(params[:uid])
-  #   # @mymusics = Music.where(:uid => params[:uid]).paginate(:page => params[:page], :per_page => 15).order('id DESC')
-  # end
+
   # GET /users
   # GET /users.json
   def index
@@ -17,6 +13,14 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @mymusics = Music.where(:uid => params[:id]).order('id DESC')
+  end
+
+  def friends
+    @friends = User.find(params[:id]).friends
+  end
+
+  def mytimeline
     @mymusics = Music.where(:uid => params[:id]).order('id DESC')
   end
 
@@ -76,6 +80,8 @@ class UsersController < ApplicationController
   def index
     @users=User.order(:name)
   end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
