@@ -25,7 +25,9 @@ Depot::Application.routes.draw do
   end
 
   controller :users do
-    get  'register' => :new
+    get 'register' => :new
+    # get 'profile' => :show
+    post 'profile' => :show
   end
 
   get "sessions/create"
