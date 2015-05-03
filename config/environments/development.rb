@@ -29,5 +29,4 @@ Depot::Application.configure do
 
   config.action_mailer.delivery_method = :test
 
-  Paperclip.options[:command_path] = "/Users/kay/Downloads/ImageMagick-6.9.0/bin/"
 end
