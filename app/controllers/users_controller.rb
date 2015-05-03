@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authorize
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :friends, :mytimeline]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :friends, :mytimeline, :requests]
 
 
 
@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @mymusics = Music.where(:uid => params[:id]).order('id DESC')
+    @current_user = User.find(session[:user_id])
   end
 
   def friends
@@ -22,6 +23,10 @@ class UsersController < ApplicationController
 
   def mytimeline
     @mymusics = Music.where(:uid => params[:id]).order('id DESC')
+  end
+
+  def requests_from
+    @requests_from = User.find(params[:id]).requests_from
   end
 
   # GET /users/new

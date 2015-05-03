@@ -3,6 +3,8 @@ class FriendshipsController < ApplicationController
 
   # GET /friendships
   # GET /friendships.json
+
+
   def index
     @friendships = Friendship.all
   end
@@ -24,40 +26,51 @@ class FriendshipsController < ApplicationController
   # POST /friendships
   # POST /friendships.json
   def create
-    @friendship = Friendship.new(friendship_params)
-    
+    # @friendship = Friendship.new(friendship_params)
+    user = User.find(params[:friended_id])
+    current_user = User.find(session[:user_id])
+    current_user.friend_request(user)
+
     respond_to do |format|
-      if @friendship.save
-        format.html { redirect_to @friends_path, notice: 'Friendship was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @friendship }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
-      end
+      # if @friendship.save
+      #   format.html { redirect_to @friends_path, notice: 'Friendship was successfully created.' }
+      #   format.json { render action: 'show', status: :created, location: @friendship }
+      # else
+        format.html { redirect_to :back  }
+        # format.json { render json: @friendship.errors, status: :unprocessable_entity }
+        format.js
+      # end
     end
   end
 
   # PATCH/PUT /friendships/1
   # PATCH/PUT /friendships/1.json
   def update
+    user = User.find(params[:friended_id])
+    current_user = User.find(session[:user_id])
+    current_user.friend_request_accept(user)
+
     respond_to do |format|
-      if @friendship.update(friendship_params)
-        format.html { redirect_to @friends_path, notice: 'Friendship was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
-      end
+      # if @friendship.update(friendship_params)
+      #   format.html { redirect_to @friends_path, notice: 'Friendship was successfully updated.' }
+      #   format.json { head :no_content }
+      # else
+        format.html { redirect_to :back  }
+        format.js
+      # end
     end
   end
 
   # DELETE /friendships/1
   # DELETE /friendships/1.json
   def destroy
-    @friendship.destroy
+    user = User.find(params[:friended_id])
+    current_user = User.find(session[:user_id])
+    current_user.friend_request_reject(user)
+
     respond_to do |format|
-      format.html { redirect_to friendships_url }
-      format.json { head :no_content }
+      format.html { redirect_to :back}
+      format.js
     end
   end
 
@@ -67,7 +80,7 @@ class FriendshipsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_friendship
-    @friendship = Friendship.find(params[:id])
+    #@friendship = Friendship.find(params[:id])
   end
 
     # Never trust parameters from the scary internet, only allow the white list through.

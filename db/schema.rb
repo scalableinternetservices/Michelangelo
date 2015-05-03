@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502174655) do
+ActiveRecord::Schema.define(version: 20150503214944) do
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150502174655) do
   create_table "friendships", force: true do |t|
     t.integer  "friender_id"
     t.integer  "friended_id"
-    t.boolean  "accepted"
+    t.integer  "accepted"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

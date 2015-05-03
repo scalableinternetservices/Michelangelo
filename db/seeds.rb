@@ -33,94 +33,94 @@ Music.delete_all
 #   hashtag: '#Country #Guitar',
 #   link:   'http://music.163.com/outchain/player?type=2&id=280561&auto=0&height=66')
 
-Friendship.create!(friender_id: 1,
-  friended_id: 2)
+# Friendship.create!(friender_id: 1,
+#   friended_id: 2, accepted: false)
 
-Friendship.create!(friender_id: 1,
-  friended_id: 3)
+# Friendship.create!(friender_id: 1,
+#   friended_id: 3, accepted: false)
 
-Friendship.create!(friender_id: 1,
-  friended_id: 4)
+# Friendship.create!(friender_id: 1,
+#   friended_id: 4, accepted: false)
 
-Friendship.create!(friender_id: 1,
-  friended_id: 5)
+# Friendship.create!(friender_id: 1,
+#   friended_id: 5, accepted: false)
 
-Friendship.create!(friender_id: 1,
-  friended_id: 6)
+# Friendship.create!(friender_id: 1,
+#   friended_id: 6, accepted: false)
 
-Friendship.create!(friender_id: 2,
-  friended_id: 1)
+# Friendship.create!(friender_id: 2,
+#   friended_id: 1, accepted: false)
 
-Friendship.create!(friender_id: 2,
-  friended_id: 3)
+# Friendship.create!(friender_id: 2,
+#   friended_id: 3, accepted: false)
 
-Friendship.create!(friender_id: 2,
-  friended_id: 4)
+# Friendship.create!(friender_id: 2,
+#   friended_id: 4, accepted: false)
 
-Friendship.create!(friender_id: 2,
-  friended_id: 5)
+# Friendship.create!(friender_id: 2,
+#   friended_id: 5, accepted: false)
 
-Friendship.create!(friender_id: 2,
-  friended_id: 6)
-
-
-Friendship.create!(friender_id: 3,
-  friended_id: 1)
-
-Friendship.create!(friender_id: 3,
-  friended_id: 2)
-
-Friendship.create!(friender_id: 3,
-  friended_id: 4)
-
-Friendship.create!(friender_id: 3,
-  friended_id: 5)
-
-Friendship.create!(friender_id: 3,
-  friended_id: 6)
+# Friendship.create!(friender_id: 2,
+#   friended_id: 6, accepted: false)
 
 
-Friendship.create!(friender_id: 4,
-  friended_id: 1)
+# Friendship.create!(friender_id: 3,
+#   friended_id: 1, accepted: false)
 
-Friendship.create!(friender_id: 4,
-  friended_id: 2)
+# Friendship.create!(friender_id: 3,
+#   friended_id: 2, accepted: false)
 
-Friendship.create!(friender_id: 4,
-  friended_id: 3)
+# Friendship.create!(friender_id: 3,
+#   friended_id: 4, accepted: false)
 
-Friendship.create!(friender_id: 4,
-  friended_id: 5)
+# Friendship.create!(friender_id: 3,
+#   friended_id: 5, accepted: false)
 
-Friendship.create!(friender_id: 4,
-  friended_id: 6)
+# Friendship.create!(friender_id: 3,
+#   friended_id: 6, accepted: false)
 
-Friendship.create!(friender_id: 5,
-  friended_id: 1)
 
-Friendship.create!(friender_id: 5,
-  friended_id: 2)
+# Friendship.create!(friender_id: 4,
+#   friended_id: 1, accepted: false)
 
-Friendship.create!(friender_id: 5,
-  friended_id: 3)
+# Friendship.create!(friender_id: 4,
+#   friended_id: 2, accepted: false)
 
-Friendship.create!(friender_id: 5,
-  friended_id: 4)
+# Friendship.create!(friender_id: 4,
+#   friended_id: 3, accepted: false)
 
-Friendship.create!(friender_id: 5,
-  friended_id: 6)
+# Friendship.create!(friender_id: 4,
+#   friended_id: 5, accepted: false)
 
-Friendship.create!(friender_id: 6,
-  friended_id: 1)
+# Friendship.create!(friender_id: 4,
+#   friended_id: 6, accepted: false)
 
-Friendship.create!(friender_id: 6,
-  friended_id: 2)
+# Friendship.create!(friender_id: 5,
+#   friended_id: 1, accepted: false)
 
-Friendship.create!(friender_id: 6,
-  friended_id: 3)
+# Friendship.create!(friender_id: 5,
+#   friended_id: 2, accepted: false)
 
-Friendship.create!(friender_id: 6,
-  friended_id: 4)
+# Friendship.create!(friender_id: 5,
+#   friended_id: 3, accepted: false)
 
-Friendship.create!(friender_id: 6,
-  friended_id: 5)
+# Friendship.create!(friender_id: 5,
+#   friended_id: 4, accepted: false)
+
+# Friendship.create!(friender_id: 5,
+#   friended_id: 6, accepted: false)
+
+# Friendship.create!(friender_id: 6,
+#   friended_id: 1, accepted: false)
+
+# Friendship.create!(friender_id: 6,
+#   friended_id: 2, accepted: false)
+
+# Friendship.create!(friender_id: 6,
+#   friended_id: 3, accepted: false)
+
+# Friendship.create!(friender_id: 6,
+#   friended_id: 4, accepted: false)
+
+# Friendship.create!(friender_id: 6,
+#   friended_id: 5, accepted: false)

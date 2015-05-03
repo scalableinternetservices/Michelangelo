@@ -7,7 +7,14 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 Depot::Application.routes.draw do
-  resources :friendships
+
+resources :friendships do
+  member do
+    post 'friend_request'
+    put 'friend_request_accept'
+    delete 'friend_request_reject'
+  end
+end
 
   resources :musics
 
