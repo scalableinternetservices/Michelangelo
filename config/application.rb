@@ -5,6 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
+Paperclip.options[:command_path] = "/Users/kay/Downloads/ImageMagick-6.9.0/bin/"
 
 module Depot
   class Application < Rails::Application
