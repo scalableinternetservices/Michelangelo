@@ -2,6 +2,13 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   has_secure_password
 
+  has_attached_file :image, :styles => { :small => "150x150" },
+                    :url => "/assets/users/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
+  validates_attachment_presence :image
+  validates_attachment_size :image, :less_than => 5.megabytes
+  validates_attachment_content_type :image, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
+
   after_destroy :ensure_an_admin_remains
   
 
