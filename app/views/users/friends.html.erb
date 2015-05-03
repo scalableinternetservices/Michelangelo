@@ -15,8 +15,10 @@ MyFriends:
 
 <% @friends.each do |friend| %>
       <p>  
-       <%= image_tag(friend.picurl) %> 
-       <%= friend.name %> 
+       <%= link_to image_tag(friend.picurl), friend %> 
+      </p>
+      <p>
+      	<%= link_to friend.name, friend %> 
       </p>
  <% end %>
 
