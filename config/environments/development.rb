@@ -29,4 +29,12 @@ Depot::Application.configure do
 
   config.action_mailer.delivery_method = :test
 
+# config.paperclip_defaults = {
+#   :storage => :s3,
+#   :s3_host_name => 'REMOVE_THIS_LINE_IF_UNNECESSARY',
+#   :s3_credentials => {
+#     :bucket => 'S3_BUCKET_NAME'
+#   }
+# }
+
 end
