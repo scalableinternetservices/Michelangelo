@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # MusicShareDemo
 Ruby on Rails Project for CS 219
 =======
@@ -33,4 +32,3 @@ With our MusicShare, you can perform several functions includes, but not limited
 ## Pivotal Tracker Link
 ##<a href="https://www.pivotaltracker.com/n/projects/1321110">Pivotal Tracker</a>
 https://www.pivotaltracker.com/n/projects/1321110
->>>>>>> bdd4dd1afa46c961a0867b25e74547320d531d61
