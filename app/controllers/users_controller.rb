@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
 
   def mytimeline
+    @current_user = User.find(session[:user_id])
     @mymusics = Music.where(:uid => params[:id]).order('id DESC')
   end
 

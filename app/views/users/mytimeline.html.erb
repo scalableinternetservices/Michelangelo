@@ -11,26 +11,27 @@
 <div >
 <br />  
 
-<table class="table table-striped">
+  <% if @user != @current_user and @user.check_friendship(@current_user.id) %>
+    <table class="table table-striped">
 
-<% @mymusics.each do |music| %>
- 
-  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-    <td>
-      <%= image_tag(@user.picurl, class: 'list_image') %>
-    </td>
-    <td class="list_description">
-      <dl>
-        <dt><%= music.comment %> <%= music.hashtag %></dt>        
-        <dt id="title">&nbsp&nbsp&nbsp<%= music.title %> - <%= music.artist %></dt>
-        <dd><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=50 src="<%= music.link %>"></iframe></dd>
-      </dl>
-    </td>
-    <td class="list_actions">
+    <% @mymusics.each do |music| %>
+     
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td>
+          <%= image_tag(@user.picurl, class: 'list_image') %>
+        </td>
+        <td class="list_description">
+          <dl>
+            <dt><%= music.comment %> <%= music.hashtag %></dt>        
+            <dt id="title">&nbsp&nbsp&nbsp<%= music.title %> - <%= music.artist %></dt>
+            <dd><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=50 src="<%= music.link %>"></iframe></dd>
+          </dl>
+        </td>
+        <td class="list_actions">
 
-
-  </tr>
-<% end %>
-</table>
+      </tr>
+    <% end %>
+    </table>
+  <% end %>
 <br />
 </div>
