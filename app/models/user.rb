@@ -46,8 +46,8 @@ class User < ActiveRecord::Base
 
   def check_friendship(friend_id)
     result1 = Friendship.where(friender_id: self.id, friended_id: friend_id, accepted: 1 ) 
-    result2 = Friendship.where(friender_id: friend_id, friended_id: self.id, accepted: 1)
-    (result1 || result2).any?
+    result2 = Friendship.where(friender_id: friend_id, friended_id: self.id, accepted: 1 )
+    (result1.any? || result2.any?)
   end
 
 def friend_request_accept(friender)
