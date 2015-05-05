@@ -4,7 +4,9 @@ class MusicsController < ApplicationController
   # GET /musics
   # GET /musics.json
   def index
-    @musics = Music.all
+    #@musics = Music.all
+    current_user = User.find(session[:user_id])
+    @musics = current_user.discover_musics
   end
 
   # GET /musics/1

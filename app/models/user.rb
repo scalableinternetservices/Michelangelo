@@ -29,11 +29,18 @@ class User < ActiveRecord::Base
        
   end
 
+  # Only display the sharing contents of the user and his friends
+  def discover_musics
+    valid_ids = self.friends.map {|friend| friend.id}
+    valid_ids.push(self.id)
+    Music.where(:uid => valid_ids)
+  end
+
   def requests_from
     # frienders_ids = "SELECT friender_id FROM friendships 
     #                  WHERE friended_id = :user_id AND accepted = false"
     frienders_ids = "SELECT friender_id FROM friendships 
-                     WHERE friended_id = :user_id And accepted = 0"
+                     WHERE friended_id = :user_id AND accepted = 0"
 
     User.where("id IN (#{frienders_ids})", user_id: self.id)
   end

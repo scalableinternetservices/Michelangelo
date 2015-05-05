@@ -5,9 +5,10 @@ class Music < ActiveRecord::Base
   validates :hashtag, presence: true
   validates :uid, presence: true
 
-  def user(uid)
-  	User.find(uid)
+  def user
+  	User.find(self.uid)
   end
+
 end
 
 
