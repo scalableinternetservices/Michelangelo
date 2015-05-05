@@ -33,7 +33,6 @@ end
 
   controller :users do
     get 'register' => :new
-    # get 'profile' => :show
     post 'profile' => :show
   end
 
@@ -44,11 +43,10 @@ end
   resources :line_items
   resources :carts
 
-  # get "/users/friends/:id", to: "friendships#show",  as: :friends
 
   get 'users/friends/:id',        to: 'users#friends',         as: :friends
   get 'users/mytimeline/:id',        to: 'users#mytimeline',         as: :mytimeline
-  # get 'friends/:id',         to: 'users#friends',         as: :friends
+  get 'users/:id',        to: 'users#show',         as: :homepage
 
 
   get "store/index"

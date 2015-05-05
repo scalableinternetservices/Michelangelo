@@ -21,13 +21,14 @@ class UsersController < ApplicationController
     @friends = User.find(params[:id]).friends
   end
 
+
   def mytimeline
     @mymusics = Music.where(:uid => params[:id]).order('id DESC')
   end
 
-  def requests_from
-    @requests_from = User.find(params[:id]).requests_from
-  end
+  # def requests_from
+  #   @requests_from = User.find(params[:id]).requests_from
+  # end
 
   # GET /users/new
   def new

@@ -44,7 +44,13 @@ class User < ActiveRecord::Base
     friendship = Friendship.create(friender_id: friender_id, friended_id: friended.id, accepted: 0)
   end
 
-   def friend_request_accept(friender)
+  def check_friendship(friend_id)
+    result1 = Friendship.where(friender_id: self.id, friended_id: friend_id, accepted: 1 ) 
+    result2 = Friendship.where(friender_id: friend_id, friended_id: self.id, accepted: 1)
+    (result1 || result2).any?
+  end
+
+def friend_request_accept(friender)
   # accepting a friend request is done by the recipient of the friend request.
   # thus the current user is identified by friended_id.
   friendship = Friendship.where(friended_id: self.id,  friender_id: friender.id).first

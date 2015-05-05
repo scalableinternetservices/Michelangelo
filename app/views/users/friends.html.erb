@@ -1,26 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<!-- <p>
 
 <%= image_tag @user.image.url(:small) %>
 </p>
 
 <p>
   <%= @user.name %>
-</p>
+</p> -->
 
 
-<p>
-MyFriends:
-</p>
+<h2>MyFriends</h2>
 
+<table class="table table-striped">
 <% @friends.each do |friend| %>
-      <p>  
-       <%= link_to (image_tag friend.image.url(:small)), friend %> 
-      </p>
-      <p>
-      	<%= link_to friend.name, friend %> 
-      </p>
+	<tr>
+		<td class='list_description'>
+    	<%= link_to (image_tag friend.image.url(:small)), friend %> 
+    	<%= link_to friend.name, friend %> 
+    	</td>
+    </tr>
  <% end %>
+ </table>
 
 

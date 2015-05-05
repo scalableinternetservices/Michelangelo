@@ -25,16 +25,18 @@
 </p>
 
 
-<p>
+<!-- <p>
 <%= link_to 'MyFriends', friends_path(@user) %> 
-</p>
+</p> -->
 
 <p>
-<%= link_to 'MyTimeline', mytimeline_path(@user) %> 
+<%= link_to 'Timeline', mytimeline_path(@user) %> 
 </p>
 
  <% unless @current_user == @user %>
+      <% unless @current_user.check_friendship(@user.id) %>
         <%= link_to "Add Friend", friendships_path(:friended_id => @user.id), :method => :post %>
+      <% end %>
     <% end %>
 
     <h4>Friends</h4>
@@ -49,7 +51,7 @@
       <% end %>
     </ul>
 
-    <% if @current_user == @user %>
+    <% if @current_user == @user && @user.requests_from.any? %>
         <h4>Friend Requests</h4>
         <ul>
             <% @user.requests_from.each do |request| %>

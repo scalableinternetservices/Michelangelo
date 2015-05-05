@@ -56,19 +56,14 @@
   <div class="row">
     <div id="side" class="col-md-2 col-sm-3 sidebar" 
       style="background-color: #f5f5f5;bottom: 0;left: 0;">
-      <!-- START:hidden_div -->
-      <!--      <div id = "cart">
-      <% if @cart %>
-        <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
-          <%= render @cart %>
-        <% end %>
-      <% end %>
-     </div> -->
-    <!-- END:hidden_div -->
+
       <% if session[:user_id] %>
         <ul class="nav nav-sidebar">
           <li><%= link_to 'Discoveries', musics_path %></li>
-          <li><%= link_to 'Users',    users_path    %></li>
+          <!-- <li><%= link_to 'Users',    users_path    %></li> -->
+          <li><%= link_to 'Homepage',    homepage_path(session[:user_id])    %></li>
+          <li><%= link_to 'My Timeline',    mytimeline_path(session[:user_id])    %></li>
+          <li><%= link_to 'My Friends',    friends_path(session[:user_id]) %></li>
         <!--<%= button_to 'Logout', logout_path, method: :delete   %>-->
       <% else %>
           <li><%= link_to 'Log In',    login_url    %></li>
