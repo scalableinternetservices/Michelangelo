@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @mymusics = Music.where(:uid => params[:id]).order('id DESC')
+    @mymusics = Music.where(:uid => params[:id]).order('created_at DESC')
     @current_user = User.find(session[:user_id])
   end
 
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def mytimeline
     @current_user = User.find(session[:user_id])
-    @mymusics = Music.where(:uid => params[:id]).order('id DESC')
+    @mymusics = Music.where(:uid => params[:id]).order('created_at DESC')
   end
 
   # def requests_from

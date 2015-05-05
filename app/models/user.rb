@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   def discover_musics
     valid_ids = self.friends.map {|friend| friend.id}
     valid_ids.push(self.id)
-    Music.where(:uid => valid_ids)
+    Music.where(:uid => valid_ids).order("created_at DESC")
   end
 
   def requests_from
