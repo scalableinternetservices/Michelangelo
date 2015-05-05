@@ -11,3 +11,16 @@
 	height: 40px;
 	margin-top: 10px;
 }
+
+ul.music-item {
+	list-style-type: none;
+}
+
+ul.music-item li{
+
+}
+
+.profile-img {
+	width: 100px;
+	height: 100px;
+}

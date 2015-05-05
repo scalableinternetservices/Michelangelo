@@ -9,15 +9,26 @@
   
   <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td>
-      <%= image_tag("http://www.umflint.edu/sites/default/files/groups/CSEP/images/unknown_user_0.jpg", class: 'list_image') %>
-      
+      <div>
+      <%= image_tag(music.user(music.uid).image.url(:small), :class => "profile-img", :alt=>"http://osinskiartur.pl/img/news/unknow.png") %>
+      </div>
+      <div>
+      <%= link_to music.uid, user_path(music.uid) %>
+      </div>
     </td>
     <td class="list_description">
-      <dl>
-        <dt><%= music.comment %> <%= music.hashtag %></dt>        
+      <!-- <dl>
+        <dt><%= music.comment %></dt>        
+        <dd><%= music.hashtag %></dd>
         <dt id="title">&nbsp&nbsp&nbsp<%= music.title %> - <%= music.artist %></dt>
         <dd><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=80 src="<%= music.link %>"></iframe></dd>
-      </dl>
+      </dl> -->
+      <ul class="music-item">
+        <li> <%= music.comment %> </li>
+        <li> <%= music.hashtag %> </li>
+        <li style="color:grey"><%= music.created_at %></li>
+        <li> <p><iframe frameborder="no" border="0" width=320 height=80 src="<%= music.link %>"></iframe></p></li>
+      </ul>
     </td>
     <td class="list_actions">
       <%= link_to 'Show', music %><br/>
