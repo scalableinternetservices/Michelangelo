@@ -18,7 +18,12 @@ class UsersController < ApplicationController
   end
 
   def friends
+    @current_user = User.find(session[:user_id])
     @friends = User.find(params[:id]).friends
+    # if params[:id] != session[:user_id]
+    #   redirect_to homepage_path(session[:user_id])
+    # end
+
   end
 
 

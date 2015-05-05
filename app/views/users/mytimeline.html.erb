@@ -1,17 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-<%= image_tag(@user.picurl) %>
-</p>
-
-<p>
-  <%= @user.name %>
+<%= image_tag(@user.image.url(:small), :class => "profile-img") %> 
+<%= link_to @user.name, homepage_path(@user.id)%>
 </p>
 
 <div >
 <br />  
 
-  <% if @user != @current_user and @user.check_friendship(@current_user.id) %>
+  <% if @user == @current_user or @user.check_friendship(@current_user.id) %>
     <table class="table table-striped">
 
     <% @mymusics.each do |music| %>
@@ -33,5 +30,6 @@
     <% end %>
     </table>
   <% end %>
+
 <br />
 </div>

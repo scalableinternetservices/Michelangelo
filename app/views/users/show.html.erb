@@ -29,17 +29,20 @@
 <%= link_to 'MyFriends', friends_path(@user) %> 
 </p> -->
 
-<p>
+<!-- <p>
 <%= link_to 'Timeline', mytimeline_path(@user) %> 
-</p>
+</p> -->
+
 
  <% unless @current_user == @user %>
       <% unless @current_user.check_friendship(@user.id) %>
+      <div>
         <%= link_to "Add Friend", friendships_path(:friended_id => @user.id), :method => :post %>
+      </div>
       <% end %>
     <% end %>
 
-    <h4>Friends</h4>
+<!--     <h4>Friends</h4>
     <ul>
         <% @user.friends.each do |friend| %>
         <li>
@@ -62,7 +65,7 @@
             </li>
           <% end %>
         </ul>
-    <% end %>
+    <% end %> -->
 
 
 
@@ -70,5 +73,5 @@
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', :back %>
 

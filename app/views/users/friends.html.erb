@@ -1,26 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<!-- <p>
-
-<%= image_tag @user.image.url(:small) %>
-</p>
-
-<p>
-  <%= @user.name %>
-</p> -->
-
 
 <h2>MyFriends</h2>
 
-<table class="table table-striped">
-<% @friends.each do |friend| %>
-	<tr>
-		<td class='list_description'>
-    	<%= link_to (image_tag friend.image.url(:small), :class => "profile-img"), friend %> 
-    	<%= link_to friend.name, friend %> 
-    	</td>
-    </tr>
- <% end %>
- </table>
 
+    <table class="table table-striped">
+        <% @user.friends.each do |friend| %>
+        <tr>
+        <td>
+          <%= link_to (image_tag friend.image.url(:small), :class => "profile-img"), mytimeline_path(friend.id) %>
+          <%= friend.name %> 
+          <% if @current_user == @user %>
+        </td>
+        <td>
+            <%= link_to "Remove", friendship_path(:friended_id => friend.id), :method => :delete %>
+          <% end %>
+        </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <% if @current_user == @user && @user.requests_from.any? %>
+        <h4>Friend Requests</h4>
+        <ul>
+            <% @user.requests_from.each do |request| %>
+            <li>
+              <%= link_to request.name, user_path(request.name) %> 
+              <%= link_to "Accept", friendship_path(:friended_id => request.id), :method => :put %> 
+              <%= link_to "Decline", friendship_path(:friended_id => request.id), :method => :delete %>
+            </li>
+          <% end %>
+        </ul>
+    <% end %>
 

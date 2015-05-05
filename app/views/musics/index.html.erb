@@ -10,19 +10,13 @@
   <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td>
       <div>
-      <%= image_tag(music.user.image.url(:small), :class => "profile-img", :alt=>"http://osinskiartur.pl/img/news/unknow.png") %>
+      <%= image_tag(music.user.image.url(:small), :class => "profile-img") %>
       </div>
       <div>
-      <%= link_to music.user.name, user_path(music.uid) %>
+      <%= link_to music.user.name, mytimeline_path(music.uid) %>
       </div>
     </td>
     <td class="list_description">
-      <!-- <dl>
-        <dt><%= music.comment %></dt>        
-        <dd><%= music.hashtag %></dd>
-        <dt id="title">&nbsp&nbsp&nbsp<%= music.title %> - <%= music.artist %></dt>
-        <dd><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=80 src="<%= music.link %>"></iframe></dd>
-      </dl> -->
       <ul class="music-item">
         <li> <%= music.comment %> </li>
         <li> <%= music.hashtag %> </li>
