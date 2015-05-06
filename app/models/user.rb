@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :users, through: :friendships
 
-  has_attached_file :image, :styles => { :small => "150x150" },
+  has_attached_file :image, :styles => { :small => "150x150" }
                     # #for production uploads
-                    :storage=> :s3,
-                    :s3_credentials => "#{Rails.root}/config/aws.yml",
-                    :path => "/profile/:id/:style:extension"
+                    # :storage=> :s3,
+                    # :s3_credentials => "#{Rails.root}/config/aws.yml",
+                    # :path => "/profile/:id/:style:extension"
                     
                     # #for development uploads:
                     # :url => "/assets/users/:id/:style/:basename.:extension",
