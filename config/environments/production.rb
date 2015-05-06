@@ -88,12 +88,13 @@ Depot::Application.configure do
       :bucket => ENV['S3_BUCKET_NAME']
     }
   }
+   # Paperclip::Attachment.default_options[:url] = '/assets/users/:id/:style/:basename.:extension'
+    # Paperclip::Attachment.default_options[:path] = ':rails_root/public/assets/users/:id/:style/:basename.:extension'
+
 Paperclip::Attachment.default_options[:storage] = :s3
 Paperclip::Attachment.default_options[:s3_credentials] = '#{Rails.root}/config/aws.yml'
 Paperclip::Attachment.default_options[:path] = '/profile/:id/:style:extension'
 
- # :storage=> :s3,
-                    # :s3_credentials => "#{Rails.root}/config/aws.yml",
-                    # :path => "/profile/:id/:style:extension"
+
 
 end
