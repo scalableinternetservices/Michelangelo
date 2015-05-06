@@ -5,9 +5,12 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :users, through: :friendships
 
-  has_attached_file :image, :styles => { :small => "150x150" },
-                    :url => "/assets/users/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
+  has_attached_file :image, :styles => { :small => "150x150" }
+                    # :storage=> :s3,
+                    # :s3_credentials => "#{Rails.root}/config/aws.yml",
+                    # :path => "/profile/:id/:style:extension"
+                    # :url => "/assets/users/:id/:style/:basename.:extension",
+                    # :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
 
   validates_attachment_size :image, :less_than => 5.megabytes
   validates_attachment_content_type :image, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']

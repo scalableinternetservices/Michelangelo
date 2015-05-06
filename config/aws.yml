@@ -1,9 +1,9 @@
 development:
-  access_key_id: YOUR_ACCESS_KEY_ID
-  secret_access_key: YOUR_SECRET_ACCESS_KEY
-  # simple_db_consistent_reads: false
+  access_key_id: "AKIAJZXYITSWAXJATQLQ"
+  secret_access_key: "QkDkj2Y2jeh4H7WH84b01Qygh6+vkrXmXorouCf+"
+  bucket: "scalableinternetservices/Michelangelo"
 
 production:
-  access_key_id: YOUR_ACCESS_KEY_ID
-  secret_access_key: YOUR_SECRET_ACCESS_KEY
-  # simple_db_consistent_reads: true
+  access_key_id: "AKIAJZXYITSWAXJATQLQ"
+  secret_access_key: "QkDkj2Y2jeh4H7WH84b01Qygh6+vkrXmXorouCf+"
+  bucket: "scalableinternetservices/Michelangelo"
