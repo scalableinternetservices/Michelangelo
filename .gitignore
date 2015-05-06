@@ -5,6 +5,7 @@
 # git config --global core.excludesfile '~/.gitignore_global'
 # Ignore bundler config.
 /.bundle
+/confit/aws.yml
 # Ignore the default SQLite database.
 ./db/*.sqlite3
 ./db/*.sqlite3-journal
