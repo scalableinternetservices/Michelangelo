@@ -1,9 +1,0 @@
-development:
-  access_key_id: "AKIAJZXYITSWAXJATQLQ"
-  secret_access_key: "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"
-  bucket: "scalableinternetservices/Michelangelo"
-
-production:
-  access_key_id: "AKIAJZXYITSWAXJATQLQ"
-  secret_access_key: "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"
-  bucket: "scalableinternetservices/Michelangelo"
