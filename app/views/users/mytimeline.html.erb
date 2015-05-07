@@ -33,6 +33,9 @@
           </dl>
         </td>
         <td class="list_actions">
+      <%= link_to 'Delete', music, method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+    </td>
 
       </tr>
     <% end %>
