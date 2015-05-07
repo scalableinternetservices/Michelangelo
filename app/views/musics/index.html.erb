@@ -12,26 +12,23 @@
       <div>
       <%= image_tag(music.user.image.url(:small), :class => "profile-img") %>
       </div>
-      <div>
-      <%= link_to music.user.name, mytimeline_path(music.uid) %>
-      </div>
     </td>
     <td class="list_description">
       <ul class="music-item">
+        <li>
+        <strong><%= link_to music.user.name, mytimeline_path(music.uid) %></strong>
+        </li>
         <li> <%= music.comment %> </li>
-        <li> <%= music.hashtag %> </li>
         <li> <p><iframe frameborder="no" border="0" width=320 height=50 src="<%= music.link %>"></iframe></p></li>
         <li style="color:grey"><%= music.created_at %></li>
       </ul>
     </td>
-    <td class="list_actions">
+<!--     <td class="list_actions">
       <%= link_to 'Show', music %><br/>
       <%= link_to 'Edit', edit_music_path(music) %><br/>
       <%= link_to 'Delete', music, method: :delete,
                   data: { confirm: 'Are you sure?' } %>
-  
-
-    </td>
+    </td> -->
   </tr>
 <% end %>
 </table>

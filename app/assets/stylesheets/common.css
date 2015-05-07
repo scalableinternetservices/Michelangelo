@@ -21,6 +21,16 @@ ul.music-item li{
 }
 
 .profile-img {
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
+}
+
+.middle-page {
+	margin: 0 auto;
+	width: 30%;
+	text-align: center;
+}
+
+.borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+    border: none;
 }

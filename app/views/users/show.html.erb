@@ -1,77 +1,57 @@
 <p id="notice"><%= notice %></p>
+<div class="col-md-6 col-md-offset-4">
+<div class="well">
+<div class="middle-page">
+  <div>
+  <%= image_tag(@user.image.url(:small), :class => "profile-img") %> 
+  </div>
+</div>
 
-<p>
-<%= image_tag(@user.image.url(:small), :class => "profile-img") %>
-</p>
+<hr>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<table class="borderless table">
+<tr>
+<td align="right"><strong>Name:</strong></td>
+<td><%= @user.name %></td>
+</tr>
+<tr>
+<td align="right"><strong>UID:</strong></td>
+<td><%= @user.id %></td>
+</tr>
+<tr>
+<td align="right"><strong>Gender:</strong></td>
+<td><%= @user.gender %></td>
+</tr>
+<tr>
+<td align="right"><strong>Age:</strong></td>
+<td><%= @user.age %></td> 
+</tr>
+<tr>
+<td align="right"><strong>Interest:</strong></td>
+<td><%= @user.interest %></td> 
+</tr>
+<tr>
+<td align="right"><strong>Register Time:</strong></td>
+<td><%= @user.created_at %></td> 
+</tr>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @user.gender %>
-</p>
+</table>
 
-<p>
-  <strong>Age:</strong>
-  <%= @user.age %>
-</p>
-
-<p>
-  <strong>Interest:</strong>
-  <%= @user.interest %>
-</p>
-
-
-<!-- <p>
-<%= link_to 'MyFriends', friends_path(@user) %> 
-</p> -->
-
-<!-- <p>
-<%= link_to 'Timeline', mytimeline_path(@user) %> 
-</p> -->
-
-
+<div style="text-align:center">
  <% unless @current_user == @user %>
       <% unless @current_user.check_friendship(@user.id) %>
       <div>
-        <%= link_to "Add Friend", friendships_path(:friended_id => @user.id), :method => :post %>
+        <%= button_to "Add Friend", friendships_path(:friended_id => @user.id), :class => "btn btn-primary", :method => :post %>
       </div>
       <% end %>
     <% end %>
-
-<!--     <h4>Friends</h4>
-    <ul>
-        <% @user.friends.each do |friend| %>
-        <li>
-          <%= friend.name %> 
-          <% if @current_user == @user %>
-            <%= link_to "Remove", friendship_path(:friended_id => friend.id), :method => :delete %>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-
-    <% if @current_user == @user && @user.requests_from.any? %>
-        <h4>Friend Requests</h4>
-        <ul>
-            <% @user.requests_from.each do |request| %>
-            <li>
-              <%= request.name %> 
-              <%= link_to "Accept", friendship_path(:friended_id => request.id), :method => :put %> 
-              <%= link_to "Decline", friendship_path(:friended_id => request.id), :method => :delete %>
-            </li>
-          <% end %>
-        </ul>
-    <% end %> -->
+</div>
 
 
+</div>
 
-
-
-
+<div class="middle-page">
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', :back %>
 
+</div>

@@ -1,35 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 
-<h2>MyFriends</h2>
+<h4>My Friends</h4>
 
 
     <table class="table table-striped">
         <% @user.friends.each do |friend| %>
         <tr>
-        <td>
+        <td class="col-md-6">
           <%= link_to (image_tag friend.image.url(:small), :class => "profile-img"), mytimeline_path(friend.id) %>
-          <%= friend.name %> 
+           <%= link_to friend.name, user_path(friend.id) %> 
           <% if @current_user == @user %>
         </td>
-        <td>
-            <%= link_to "Remove", friendship_path(:friended_id => friend.id), :method => :delete %>
+        <td class="col-md-2" style="vertical-align:middle">
+            <%= link_to "Remove", friendship_path(:friended_id => friend.id), :method => :delete, :class=>"btn btn-default" %>
           <% end %>
         </td>
         </tr>
       <% end %>
     </table>
 
+    <br>
     <% if @current_user == @user && @user.requests_from.any? %>
         <h4>Friend Requests</h4>
-        <ul>
+        <table class="table table-striped">
             <% @user.requests_from.each do |request| %>
-            <li>
+        <tr>
+          <td class="col-md-6">
+              <%= link_to (image_tag request.image.url(:small), :class => "profile-img"), mytimeline_path(request.id) %>
               <%= link_to request.name, user_path(request.id) %> 
-              <%= link_to "Accept", friendship_path(:friended_id => request.id), :method => :put %> 
-              <%= link_to "Decline", friendship_path(:friended_id => request.id), :method => :delete %>
-            </li>
+          </td>
+          <td class="col-md-2" style="vertical-align:middle">
+              <div >
+              <%= link_to "Accept", friendship_path(:friended_id => request.id), :method => :put, :class=>"btn btn-primary"  %> 
+              <%= link_to "Decline", friendship_path(:friended_id => request.id), :method => :delete, :class=>"btn btn-default" %>
+              </div>
           <% end %>
-        </ul>
+          </td>
+        </tr>
+        </table>
     <% end %>
 

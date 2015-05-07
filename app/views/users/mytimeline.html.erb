@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-<%= image_tag(@user.image.url(:small), :class => "profile-img") %> 
-<%= link_to @user.name, homepage_path(@user.id)%>
-</p>
+<div class="homepage-header">
+  <div>
+  <%= image_tag(@user.image.url(:small), :class => "profile-img") %> 
+  </div>
+  <div>
+  <strong><%= link_to @user.name, homepage_path(@user.id)%></strong>
+  </div>
+</div>
+
+
+<br>
+<br>
 
 <div >
 <br />  
@@ -19,8 +27,7 @@
         </td>
         <td class="list_description">
           <dl>
-            <dt><%= music.comment %> <br><%= music.hashtag %></dt>        
-            <!-- <dt id="title">&nbsp&nbsp&nbsp<%= music.title %> - <%= music.artist %></dt> -->
+            <dt><%= music.comment %>        
             <dd><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=50 src="<%= music.link %>"></iframe></dd>
             <dd style="color:grey"><%= music.created_at %></dd>
           </dl>
