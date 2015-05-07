@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503214944) do
+ActiveRecord::Schema.define(version: 20150507171137) do
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"
@@ -40,10 +40,7 @@ ActiveRecord::Schema.define(version: 20150503214944) do
   add_index "line_items", ["product_id"], name: "index_line_items_on_product_id"
 
   create_table "musics", force: true do |t|
-    t.string   "title"
-    t.string   "artist"
     t.text     "comment"
-    t.string   "hashtag"
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,17 +1,24 @@
 class MusicsController < ApplicationController
   before_action :set_music, only: [:show, :edit, :update, :destroy]
+  before_action :all_musics, only: [:index, :create]
+  respond_to :html, :js
 
   # GET /musics
   # GET /musics.json
-  def index
-    #@musics = Music.all
-    current_user = User.find(session[:user_id])
-    @musics = current_user.discover_musics
-  end
+  # def index
+  #   current_user = User.find(session[:user_id])
+  #   @musics = current_user.discover_musics
+
+  #   respond_to do |format|
+  #     format.html
+  #     format.js
+  #   end
+  
+  # end
 
   # GET /musics/1
   # GET /musics/1.json
-  def show
+  def show  
      # @user = User.where(session[:user_id] => params[:uid])
   end
 
@@ -36,6 +43,7 @@ class MusicsController < ApplicationController
     respond_to do |format|
       if @music.save
         format.html { redirect_to @music, notice: 'Music was successfully created.' }
+        # format.html { redirect_to @musics_url }
         format.json { render action: 'show', status: :created, location: @music }
       else
         format.html { render action: 'new' }
@@ -76,6 +84,11 @@ class MusicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def music_params
-      params.require(:music).permit(:title, :artist, :comment, :hashtag, :link, :uid)
+      params.require(:music).permit( :comment, :link, :uid)
+    end
+
+    def all_musics
+      current_user = User.find(session[:user_id])
+      @musics = current_user.discover_musics
     end
 end

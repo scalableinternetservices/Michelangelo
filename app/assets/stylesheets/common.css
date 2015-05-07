@@ -27,10 +27,14 @@ ul.music-item li{
 
 .middle-page {
 	margin: 0 auto;
-	width: 30%;
+	width: 80%;
 	text-align: center;
 }
 
 .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
     border: none;
+}
+
+.inline {
+	display: inline;
 }

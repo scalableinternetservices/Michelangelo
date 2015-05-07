@@ -1,7 +1,9 @@
-<%= form_for(@music) do |f| %>
+<div class="middle-page">
+<hr>
+<%= form_for(@music, :html => {:class => "form-group"}) do |f| %>
   <% if @music.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@music.errors.count, "error") %> prohibited this music from being saved:</h2>
+      <h3><%= pluralize(@music.errors.count, "error") %> prohibited this music from being saved:</h3>
 
       <ul>
       <% @music.errors.full_messages.each do |msg| %>
@@ -12,39 +14,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <label class="sr-only">Comment:</label>
+    <%= f.text_area :comment,rows:4, placeholder: 'Say something to your friends...', :class => "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :artist %><br>
-    <%= f.text_field :artist %>
+  <br>
+  <div class="field row">
+    <%= f.label :link, :class => "col-md-1" %>
+    <%= f.text_field :link, :class => " col-md-10", placeholder: 'http://music.163.com/outchain/player?type=2&id=31545366......'%>
   </div>
 
-  <div class="field">
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment,rows:5 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :hashtag %><br>
-    <%= f.text_field :hashtag %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :link %><br>
-    <%= f.text_field :link %>
-  </div>
-
-  <br />
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", :class => 'btn btn-primary'%>
   </div>
-
-
-
 
 
   <br />
 <% end %>
+</div>
