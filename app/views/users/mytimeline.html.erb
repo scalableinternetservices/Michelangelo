@@ -26,19 +26,23 @@
           <%= image_tag(@user.picurl, class: 'list_image') %>
         </td>
         <td class="list_description">
-          <dl>
-            <dt><%= music.comment %>        
-            <dd><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=90  src="<%= music.link %>"></iframe></dd>
-            <dd style="color:grey"><%= music.created_at %></dd> 
-            <%= link_to 'Add Comment', new_comment_path(:post_id => music.id) %>
-             <% music.comments.each do |comment| %>
-            <td>
-            <%= comment.content %>  
-            </td>
-            <% end %>  
-            <%= link_to 'Like', new_like_path(:post_id => music.id)%>
-            <%= music.likecount %>  
-          </dl>
+
+          
+            <div><%= music.comment %></div>        
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=90  src="<%= music.link %>"></iframe>
+            <div style="color:grey"><%= music.created_at %></div> 
+            <%= link_to 'Add Comment', new_comment_path(:post_id => music.id)%>
+            <%= link_to 'Like', new_like_path(:post_id => music.id)%><%= music.likecount %> 
+            <table>
+            <% music.comments.each do |comment| %>
+            <tr>
+              <td>
+                <%= comment.content %>  
+              </td>
+            </tr>
+            <% end %>   
+            </table>
+
         </td>
         <td class="list_actions">
       <%= link_to 'Delete', music, method: :delete,
