@@ -24,6 +24,8 @@ class Music < ActiveRecord::Base
     Unlike.where(post_id: self.id).count
   end
 
+
+
 end
 
 

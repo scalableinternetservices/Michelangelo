@@ -8,6 +8,8 @@ class Comment < ActiveRecord::Base
   validates :user_id, presence: true
 
 
- 
+  def user
+  	User.find(self.user_id)
+  end
 
 end
