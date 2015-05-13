@@ -32,12 +32,16 @@
             <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=90  src="<%= music.link %>"></iframe>
             <div style="color:grey"><%= music.created_at %></div> 
             <%= link_to 'Add Comment', new_comment_path(:post_id => music.id),remote: true %>
-            <%= link_to 'Like', new_like_path(:post_id => music.id)%><%= music.likecount %> 
+            <%= link_to 'Like', new_like_path(:post_id => music.id)%>
+            <%= music.likecount %> 
+            <%= link_to 'Unlike', new_unlike_path(:post_id => music.id)%>
+            <%= music.unlikecount %> 
             <table>
             <% music.comments.each do |comment| %>
             <tr>
               <td>
-                <%= comment.content %>  
+                <%= music.user.name %> :
+                <%= comment.content %> 
               </td>
             </tr>
             <% end %>   

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :users, through: :friendships
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :unlikes, dependent: :destroy
 
   has_attached_file :image, :styles => { :small => "150x150" }
                     # #for production uploads

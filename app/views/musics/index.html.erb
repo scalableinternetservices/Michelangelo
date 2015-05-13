@@ -29,14 +29,17 @@
         <li> <%= music.comment %> </li>
         <li> <p><iframe frameborder="no" border="0" width=320 height=90 src="<%= music.link %>"></iframe></p></li>
         <li>
-            <%= link_to 'Add Comment', new_comment_path(:post_id => music.id)%>
+            <%= link_to 'Add Comment', new_comment_path(:post_id => music.id)%> 
             <%= link_to 'Like', new_like_path(:post_id => music.id)%>
             <%= music.likecount %>
+            <%= link_to 'Unlike', new_unlike_path(:post_id => music.id)%>
+            <%= music.unlikecount %>
             <!-- <div id="comment-form" style="display:none;"></div>  -->
            <table>
              <% music.comments.each do |comment| %>
               <tr>
                 <td>
+                <%= music.user.name %> :
                 <%= comment.content %>  
                 </td>
               </tr>

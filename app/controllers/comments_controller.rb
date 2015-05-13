@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
   # POST /comments.json
  def create
     current_user = User.find(session[:user_id])
-    puts "params ", comment_params
+    #puts "params ", comment_params
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     @comment.save

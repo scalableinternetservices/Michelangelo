@@ -8,6 +8,8 @@
 #---
 Depot::Application.routes.draw do
 
+  resources :unlikes
+
   resources :likes
 
   resources :comments

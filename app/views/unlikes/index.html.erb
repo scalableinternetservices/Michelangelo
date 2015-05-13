@@ -1,0 +1,29 @@
+<h1>Listing unlikes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Post</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unlikes.each do |unlike| %>
+      <tr>
+        <td><%= unlike.post_id %></td>
+        <td><%= unlike.user_id %></td>
+        <td><%= link_to 'Show', unlike %></td>
+        <td><%= link_to 'Edit', edit_unlike_path(unlike) %></td>
+        <td><%= link_to 'Destroy', unlike, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Unlike', new_unlike_path %>
