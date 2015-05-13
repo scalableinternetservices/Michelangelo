@@ -5,4 +5,12 @@ class Like < ActiveRecord::Base
 
   validates :post_id,      presence: true
   validates :user_id, presence: true
+
+  before_save :check_duplicate
+
+  def check_duplicate
+    (Like.where(  post_id: self.post_id, 
+                  user_id: self.user_id ).exists?) ? false : true
+  end
+
 end
