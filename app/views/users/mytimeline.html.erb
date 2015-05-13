@@ -31,7 +31,7 @@
             <div><%= music.comment %></div>        
             <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=90  src="<%= music.link %>"></iframe>
             <div style="color:grey"><%= music.created_at %></div> 
-            <%= link_to 'Add Comment', new_comment_path(:post_id => music.id)%>
+            <%= link_to 'Add Comment', new_comment_path(:post_id => music.id),remote: true %>
             <%= link_to 'Like', new_like_path(:post_id => music.id)%><%= music.likecount %> 
             <table>
             <% music.comments.each do |comment| %>

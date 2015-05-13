@@ -32,6 +32,7 @@
             <%= link_to 'Add Comment', new_comment_path(:post_id => music.id)%>
             <%= link_to 'Like', new_like_path(:post_id => music.id)%>
             <%= music.likecount %>
+            <!-- <div id="comment-form" style="display:none;"></div>  -->
            <table>
              <% music.comments.each do |comment| %>
               <tr>
