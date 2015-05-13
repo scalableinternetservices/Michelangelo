@@ -23,13 +23,14 @@ class UsersController < ApplicationController
     # if params[:id] != session[:user_id]
     #   redirect_to homepage_path(session[:user_id])
     # end
-
   end
 
 
   def mytimeline
     @current_user = User.find(session[:user_id])
     @mymusics = Music.where(:uid => params[:id]).order('created_at DESC')
+    #mymusic id->post_id->comment
+    # @comments = Comment.all
   end
 
   # def requests_from

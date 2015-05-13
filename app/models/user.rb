@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   has_many :friendships
   has_many :users, through: :friendships
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   has_attached_file :image, :styles => { :small => "150x150" }
                     # #for production uploads
@@ -74,6 +76,7 @@ def friend_request_reject(friender)
   friendship = Friendship.where(friended_id: self.id,  friender_id: friender.id).first
   friendship.destroy
 end
+
 
   private
     def ensure_an_admin_remains

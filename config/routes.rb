@@ -8,6 +8,10 @@
 #---
 Depot::Application.routes.draw do
 
+  resources :likes
+
+  resources :comments
+
 resources :friendships do
   member do
     post 'friend_request'
