@@ -40,7 +40,7 @@
             <% music.comments.each do |comment| %>
             <tr>
               <td>
-                <%= comment.user_id %> :
+                <%= comment.user.name %> :
                 <%= comment.content %> 
               </td>
             </tr>
