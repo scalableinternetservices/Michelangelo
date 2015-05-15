@@ -8,6 +8,8 @@
 #---
 Depot::Application.routes.draw do
 
+  resources :audios
+  
   resources :unlikes
 
   resources :likes
@@ -46,6 +48,7 @@ resources :musics
   controller :users do
     get 'register' => :new
     post 'profile' => :show
+    get 'search' => :index
   end
 
   get "sessions/create"

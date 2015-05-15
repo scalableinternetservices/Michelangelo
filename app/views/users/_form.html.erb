@@ -56,8 +56,8 @@
 
 
   <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image, :class => "form-control" %>
+    <%= f.label :image, "Profile Photo" %><br />
+    <%= f.file_field :image, size: 40, :class => "form-control" %>
   </div>
 
   <div class="actions btn btn-submit">

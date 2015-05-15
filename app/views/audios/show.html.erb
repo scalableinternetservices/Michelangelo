@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @audio.comment %>
+</p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @audio.uid %>
+</p>
+
+<p>
+	<strong>Audio:</strong>
+    <!-- <%= audio_tag(@audio.audioFile.url) %> -->
+<!--     <audio src= <%= @audio.audioFile.url %> >
+	<p>Your browser does not support the <code>audio</code> element.</p>
+	</audio> -->
+	<audio controls>
+	  <source src=<%= @audio.audioFile.url %> type="audio/mpeg">
+	Your browser does not support the audio element.
+	</audio>
+</p>
+
+<%= link_to 'Edit', edit_audio_path(@audio) %> |
+<%= link_to 'Back', audios_path %>

@@ -40,6 +40,17 @@ class MusicsController < ApplicationController
 
     @music.uid = session[:user_id]
 
+    # create outchain player
+    if (@music.sharetype == 0)
+      pre = "http://music.163.com/#/song?id="
+      @music.link.sub!(pre, "http://music.163.com/outchain/player?type=2&id=")
+      @music.link = @music.link + "&auto=0&height=66"
+    else
+      pre = "http://music.163.com/#/playlist?id="
+      @music.link.sub!(pre, "http://music.163.com/outchain/player?type=0&id=")
+      @music.link = @music.link + "&auto=0&height=430"
+    end
+
     respond_to do |format|
       if @music.save
         format.html { redirect_to @music, notice: 'Music was successfully created.' }
@@ -100,7 +111,7 @@ class MusicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def music_params
-      params.require(:music).permit( :comment, :link, :uid)
+      params.require(:music).permit( :comment, :link, :uid, :sharetype)
     end
 
     def all_musics
