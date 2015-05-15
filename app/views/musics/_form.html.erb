@@ -25,6 +25,14 @@
   </div>
 
   <br>
+  <div class="field row">
+  <%= f.radio_button :sharetype, 0, :checked => true %> 
+  <%= label :shareSingle, 'Single Song' %>
+  <%= f.radio_button :sharetype, 1 %>
+  <%= label :shareList, 'Playlist' %>
+  </div>
+
+  <br>
   <div class="actions">
     <%= f.submit "Submit", :class => 'btn btn-primary'%>
   </div>
