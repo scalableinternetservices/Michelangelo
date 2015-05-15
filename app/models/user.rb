@@ -85,7 +85,6 @@ def friend_request_reject(friender)
   friendship.destroy
 end
 
-<<<<<<< HEAD
 def self.search(user_name)
     # if user_name
     #     user_name.downcase!
@@ -95,8 +94,6 @@ def self.search(user_name)
     # end
     where("name like ?", "%#{user_name}%") 
 end
-=======
->>>>>>> 97c9d196b3dce61f7f76740c837d2b77ad8fd1fc
 
   private
     def ensure_an_admin_remains

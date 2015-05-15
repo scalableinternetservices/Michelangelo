@@ -8,15 +8,13 @@
 #---
 Depot::Application.routes.draw do
 
-<<<<<<< HEAD
   resources :audios
-=======
+  
   resources :unlikes
 
   resources :likes
 
   resources :comments
->>>>>>> 97c9d196b3dce61f7f76740c837d2b77ad8fd1fc
 
 resources :friendships do
   member do
