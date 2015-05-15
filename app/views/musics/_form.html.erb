@@ -1,0 +1,43 @@
+<div class="middle-page">
+<hr>
+<%= form_for(@music, :html => {:class => "form-group"}) do |f| %>
+  <% if @music.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@music.errors.count, "error") %> prohibited this music from being saved:</h3>
+
+      <ul>
+      <% @music.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label class="sr-only">Comment:</label>
+    <%= f.text_area :comment,rows:4, placeholder: 'Say something to your friends...', :class => "form-control" %>
+  </div>
+
+  <br>
+  <div class="field row">
+    <%= f.label :link, :class => "col-md-1" %>
+    <%= f.text_field :link, :class => " col-md-10", placeholder: 'http://music.163.com/outchain/player?type=2&id=31545366......'%>
+  </div>
+
+  <br>
+  <div class="field row">
+  <%= f.radio_button :sharetype, 0, :checked => true %> 
+  <%= label :shareSingle, 'Single Song' %>
+  <%= f.radio_button :sharetype, 1 %>
+  <%= label :shareList, 'Playlist' %>
+  </div>
+
+  <br>
+  <div class="actions">
+    <%= f.submit "Submit", :class => 'btn btn-primary'%>
+  </div>
+
+
+  <br />
+<% end %>
+</div>

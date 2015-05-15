@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-6 col-md-offset-4">
+<div class="well">
+<div class="middle-page">
+  <div>
+  <%= image_tag(@user.image.url(:small), :class => "profile-img") %> 
+  </div>
+</div>
+
+<hr>
+
+<table class="borderless table">
+<tr>
+<td align="right"><strong>Name:</strong></td>
+<td><%= @user.name %></td>
+</tr>
+<tr>
+<td align="right"><strong>UID:</strong></td>
+<td><%= @user.id %></td>
+</tr>
+<tr>
+<td align="right"><strong>Gender:</strong></td>
+<td><%= @user.gender %></td>
+</tr>
+<tr>
+<td align="right"><strong>Age:</strong></td>
+<td><%= @user.age %></td> 
+</tr>
+<tr>
+<td align="right"><strong>Interest:</strong></td>
+<td><%= @user.interest %></td> 
+</tr>
+<tr>
+<td align="right"><strong>Register Time:</strong></td>
+<td><%= @user.created_at %></td> 
+</tr>
+
+</table>
+
+<div style="text-align:center">
+ <% unless @current_user == @user %>
+      <% unless @current_user.check_friendship(@user.id) %>
+      <div>
+        <%= button_to "Add Friend", friendships_path(:friended_id => @user.id), :class => "btn btn-primary", :method => :post %>
+      </div>
+      <% end %>
+    <% end %>
+</div>
+
+
+</div>
+
+<div class="middle-page">
+<% if @current_user == @user %>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<% end %>
+<%= link_to 'Back', :back %>
+
+</div>

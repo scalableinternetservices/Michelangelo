@@ -1,0 +1,40 @@
+.form-signin {
+	width: 350px;
+	height: 200px;
+	margin-left: 15%;
+	margin-right: auto;
+
+}
+
+.btn-submit {
+	width: 350px;
+	height: 40px;
+	margin-top: 10px;
+}
+
+ul.music-item {
+	list-style-type: none;
+}
+
+ul.music-item li{
+
+}
+
+.profile-img {
+	width: 80px;
+	height: 80px;
+}
+
+.middle-page {
+	margin: 0 auto;
+	width: 80%;
+	text-align: center;
+}
+
+.borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+    border: none;
+}
+
+.inline {
+	display: inline;
+}

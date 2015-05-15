@@ -1,0 +1,33 @@
+<div class="depot_form">
+  <% if flash[:alert] %>
+    <p id="notice"><%= flash[:alert] %></p>
+  <% end %>
+  <%= form_tag('/login') do %>
+  <div class="form-signin">
+    <fieldset>
+      <legend>Please Log In</legend>
+      <div>
+        <%= label_tag :name, 'Name:' %>
+        <!-- <%= text_field_tag :name, params[:name], place_holder: "username" %> -->
+        <%= text_field_tag :name, params[:name], {:class => 'form-control'} %>
+
+      </div>
+      <div>
+        <%= label_tag :password, 'Password:' %>
+        <%= password_field_tag :password, params[:password], {:class => 'form-control'} %>
+      </div>
+      <div>
+        <%= submit_tag("Login", :class => "btn btn-primary btn-submit") %>
+      </div>
+      <div>
+        <br />
+        <%= link_to 'New User', register_url %>
+      </div>      
+    </fieldset>
+
+  </div>
+  <% end %>
+
+</div>
+
+

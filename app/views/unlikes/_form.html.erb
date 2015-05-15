@@ -1,0 +1,23 @@
+<%= form_for(@unlike) do |f| %>
+  <% if @unlike.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@unlike.errors.count, "error") %> prohibited this unlike from being saved:</h2>
+
+      <ul>
+      <% @unlike.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :post_id, :value => params[:post_id]%>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

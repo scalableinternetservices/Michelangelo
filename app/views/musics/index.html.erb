@@ -1,0 +1,90 @@
+
+<div class="row">
+<div class="col-md-8"><h1>Discover music</h1></div>
+<!-- <button class="btn btn-default"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span><%= link_to 'New Music', new_music_path %></button> -->
+
+<div class="col-md-2"><%= link_to 'New Music', new_music_path, remote: true, class: "btn btn-primary" %></div>
+<div class="col-md-2"><%= link_to 'See audios', audios_path, class: "btn btn-default" %></div>
+</div>
+
+<div id="music-form" style="display:none;"></div> 
+<br>
+
+<div >
+
+<table class="table table-striped">
+<% @musics.each do |music| %>
+  
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <td>
+      <div>
+      <%= image_tag(music.user.image.url(:small), :class => "profile-img") %>
+      </div>
+    </td>
+    <td class="list_description">
+      <ul class="music-item">
+        <li>
+        <strong><%= link_to music.user.name, mytimeline_path(music.uid) %></strong>
+        </li>
+        <li> <%= music.comment %> </li>
+        <li> 
+          <p>
+            <% if music.sharetype == 1 %>
+              <iframe frameborder="no" border="0" width=310 height=430 src="<%= music.link %>"></iframe>
+            <% else %>
+              <iframe frameborder="no" border="0" width=320 height=90 src="<%= music.link %>"></iframe>
+            <% end %>
+          </p>
+        </li>
+        <li>
+            <%= link_to 'Add Comment',new_comment_path(:post_id => music.id), :class=> "add-comment", 
+            :id => "add-comment" + music.id.to_s, :remote => true %> 
+            <%= music.comments.size %>
+             
+            <%= link_to 'Like', like_music_path(music.id), class:"like-vote", method: :put, remote: true%>
+            <span class="like-count" data-id="<%= music.id %>">
+              <%= music.likecount %>
+            </span>
+            
+            <%= link_to 'Dislike', new_unlike_path(:post_id => music.id)%>
+            <%= music.unlikecount %>
+            <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div> 
+           <table>
+             <% music.comments.each do |comment| %>
+              <tr>
+                <td>
+                <%= link_to comment.user.name + ':', mytimeline_path(comment.user.id) %>
+                <%= comment.content %>  
+                </td>
+              </tr>
+              <% end %>  
+            </table>
+        </li>
+
+
+        <li style="color:grey"><%= music.created_at %></li>
+      </ul>
+    </td>
+<!--     <td class="list_actions">
+      <%= link_to 'Show', music %><br/>
+      <%= link_to 'Edit', edit_music_path(music) %><br/>
+      <%= link_to 'Delete', music, method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+    </td> -->
+  </tr>
+<% end %>
+</table>
+<br />
+
+</div>
+
+<script type="text/javascript">
+var add_comment_btns = document.getElementsByClassName("add-comment");
+
+var myFunction = function() {
+    var id = this.getAttribute("id");
+    alert(id);
+};
+
+add_comment_btns.addEventListener('click', myFunction(), false);     
+</script>

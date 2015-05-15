@@ -1,0 +1,40 @@
+
+
+<!-- <div class="col-md-2"><%= link_to 'New Music', new_music_path, remote: true, class: "btn btn-primary" %></div>
+<div class="col-md-2"><%= link_to 'See audios', audios_path, class: "btn btn-default" %></div> -->
+
+<%= form_tag(search_url, :method => 'get', :id => 'users_search') do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Users"%>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+<%
+    if params[:search]
+      @searchedUsers = User.search(params[:search]).order("created_at DESC")
+    else
+      @searchedUsers = User.order("created_at DESC")
+    end    
+%>
+
+<br />
+
+<div >
+
+<% if (@searchedUsers) %>
+
+    <table class="table table-striped">
+        <% @searchedUsers.each do |searchedUser| %>
+        <tr>
+        <td class="col-md-6">
+          <%= link_to (image_tag searchedUser.image.url(:small), :class => "profile-img"), mytimeline_path(searchedUser.id) %>
+           <%= link_to searchedUser.name, user_path(searchedUser.id) %> 
+        </td>
+        </tr>
+      <% end %>
+    </table>
+
+<br />
+
+<% end %>
+
+</div>

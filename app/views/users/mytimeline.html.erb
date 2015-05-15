@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Back', :back %>
+
+<div class="middle-page">
+  <div>
+  <%= image_tag(@user.image.url(:small), :class => "profile-img") %> 
+  </div>
+  <div>
+  <strong><%= link_to @user.name, homepage_path(@user.id)%></strong>
+  </div>
+</div>
+
+
+<br>
+<br>
+
+<div >
+<br />  
+
+  <% if @user == @current_user or @user.check_friendship(@current_user.id) %>
+    <table class="table table-striped">
+
+    <% @mymusics.each do |music| %>
+     
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td>
+          <%= image_tag(@user.picurl, class: 'list_image') %>
+        </td>
+        <td class="list_description">
+
+          
+            <div><%= music.comment %></div>        
+            <% if music.sharetype == 1 %>
+              <iframe frameborder="no" border="0" width=310 height=430 src="<%= music.link %>"></iframe>
+            <% else %>
+              <iframe frameborder="no" border="0" width=320 height=90 src="<%= music.link %>"></iframe>
+            <% end %>
+            <div style="color:grey"><%= music.created_at %></div> 
+            <%= link_to 'Add Comment', new_comment_path(:post_id => music.id)%> 
+            <%= music.comments.size %>
+            <%= link_to 'Like', like_music_path(music.id), class:"like-vote", method: :put, remote: true%>
+            <span class="like-count" data-id="<%= music.id %>">
+              <%= music.likecount %>
+            </span>
+            <%= link_to 'Dislike', new_unlike_path(:post_id => music.id)%>
+            <%= music.unlikecount %>
+            <table>
+            <% music.comments.each do |comment| %>
+            <tr>
+              <td>
+                <%= link_to comment.user.name + ':', mytimeline_path(comment.user.id) %>
+                <%= comment.content %> 
+              </td>
+            </tr>
+            <% end %>   
+            </table>
+
+        </td>
+        <td class="list_actions">
+          <% if @user == @current_user %>
+            <%= link_to 'Delete', music, method: :delete,
+                        data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
+
+      </tr>
+    <% end %>
+    </table>
+  <% end %>
+
+<br />
+</div>
