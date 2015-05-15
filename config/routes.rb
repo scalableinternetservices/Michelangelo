@@ -22,7 +22,13 @@ resources :friendships do
   end
 end
 
-  resources :musics
+resources :musics
+# resources :musics do 
+#   member do
+#         put "like", to: "musics#like"
+#         put "dislike", to: "musics#dislike"
+#   end
+# end
 
   get "admin/index"
   get "sessions/new"
@@ -54,6 +60,7 @@ end
   get 'users/mytimeline/:id',        to: 'users#mytimeline',         as: :mytimeline
   get 'users/:id',        to: 'users#show',         as: :homepage
 
+  put 'musics/likes/:id', to: "musics#like", as: :like_music
 
   get "store/index"
   resources :products do

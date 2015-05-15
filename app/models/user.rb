@@ -66,17 +66,28 @@ class User < ActiveRecord::Base
     (result1.any? || result2.any?)
   end
 
-def friend_request_accept(friender)
-  # accepting a friend request is done by the recipient of the friend request.
-  # thus the current user is identified by friended_id.
-  friendship = Friendship.where(friended_id: self.id,  friender_id: friender.id).first
-  friendship.update_attributes(accepted: 1)
-end
+  def friend_request_accept(friender)
+    # accepting a friend request is done by the recipient of the friend request.
+    # thus the current user is identified by friended_id.
+    friendship = Friendship.where(friended_id: self.id,  friender_id: friender.id).first
+    friendship.update_attributes(accepted: 1)
+  end
 
-def friend_request_reject(friender)
-  friendship = Friendship.where(friended_id: self.id,  friender_id: friender.id).first
-  friendship.destroy
-end
+  def friend_request_reject(friender)
+    friendship = Friendship.where(friended_id: self.id,  friender_id: friender.id).first
+    friendship.destroy
+  end
+
+  def like(post)
+
+    like = Like.new(post_id: post.id, user_id: self.id)
+    like.save
+
+  end
+
+  def already_like?(post_id)
+    self.likes.find(:all, :conditions => ['post_id = ?', post_id]).size > 0
+  end
 
 
   private

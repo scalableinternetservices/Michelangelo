@@ -29,12 +29,20 @@
         <li> <%= music.comment %> </li>
         <li> <p><iframe frameborder="no" border="0" width=320 height=90 src="<%= music.link %>"></iframe></p></li>
         <li>
-            <%= link_to 'Add Comment', new_comment_path(:post_id => music.id)%> 
-            <%= link_to 'Like', new_like_path(:post_id => music.id)%>
-            <%= music.likecount %>
+            <%= link_to 'Add Comment',new_comment_path(:post_id => music.id), :class=> "add-comment", 
+            :id => "add-comment" + music.id.to_s %> 
+
+            <div>
+            <%= link_to 'Like', like_music_path(music.id), class:"like-vote", method: :put, remote: true%>
+
+            <span class="like-count" data-id="<%= music.id %>">
+              <%= music.likecount %>
+            </span>
+
+            </div>
             <%= link_to 'Unlike', new_unlike_path(:post_id => music.id)%>
             <%= music.unlikecount %>
-            <!-- <div id="comment-form" style="display:none;"></div>  -->
+            <div id="comment-form-<%= music.id %>>" class="comment-form" style="display:none;"></div> 
            <table>
              <% music.comments.each do |comment| %>
               <tr>
@@ -63,3 +71,14 @@
 <br />
 
 </div>
+
+<script type="text/javascript">
+var add_comment_btns = document.getElementsByClassName("add-comment");
+
+var myFunction = function() {
+    var id = this.getAttribute("id");
+    alert(id);
+};
+
+add_comment_btns.addEventListener('click', myFunction(), false);     
+</script>

@@ -52,6 +52,19 @@ class MusicsController < ApplicationController
     end
   end
 
+  # PUT
+  def like 
+    @music = Music.find(params[:id])
+    current_user = User.find(session[:user_id])
+    current_user.like(@music)
+
+    if request.xhr?
+      render json: { count: @music.likecount, id: params[:id] }
+    else
+      redirect_to @music
+    end
+  end
+
   # PATCH/PUT /musics/1
   # PATCH/PUT /musics/1.json
   def update
@@ -66,12 +79,15 @@ class MusicsController < ApplicationController
     end
   end
 
+
+
   # DELETE /musics/1
   # DELETE /musics/1.json
   def destroy
+    
     @music.destroy
     respond_to do |format|
-      format.html { redirect_to musics_url }
+      format.html { redirect_to mytimeline_path(session[:user_id]) }
       format.json { head :no_content }
     end
   end

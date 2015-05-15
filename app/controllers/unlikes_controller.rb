@@ -27,6 +27,7 @@ class UnlikesController < ApplicationController
     current_user = User.find(session[:user_id])
     #puts "params ", comment_params
     @unlike = Unlike.new(unlike_params)
+    print unlike_params
     @unlike.user = current_user
     @unlike.save
     redirect_to (:back)
