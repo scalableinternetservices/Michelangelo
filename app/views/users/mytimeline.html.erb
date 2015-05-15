@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Back', :back %>
+
 <div class="middle-page">
   <div>
   <%= image_tag(@user.image.url(:small), :class => "profile-img") %> 
@@ -49,9 +51,11 @@
 
         </td>
         <td class="list_actions">
-      <%= link_to 'Delete', music, method: :delete,
-                  data: { confirm: 'Are you sure?' } %>
-    </td>
+          <% if @user == @current_user %>
+            <%= link_to 'Delete', music, method: :delete,
+                        data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
 
       </tr>
     <% end %>

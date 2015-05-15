@@ -1,0 +1,42 @@
+
+
+<div class="middle-page">
+<hr>
+<%= form_for(@audio, :html => {:multipart => true, :class => "form-group"}) do |f| %>
+  <% if @audio.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@audio.errors.count, "error") %> prohibited this audio from being saved:</h3>
+
+      <ul>
+      <% @audio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label class="sr-only">Comment:</label>
+    <%= f.text_area :comment,rows:4, placeholder: 'Say something to your friends...', :class => "form-control" %>
+  </div>
+
+  <br>
+
+<!--   <div class="field">
+    <%= f.label :audioFile, "Audio" %><br />
+    <%= f.file_field :audioFile, :class => "form-control" %>
+  </div> -->
+
+  <div class="field row">
+    <%= f.label :audioFile, "Audio" %>
+    <%= f.file_field :audioFile, :class => "form-control" %>
+  </div>  
+
+  <br>
+  <div class="actions">
+    <%= f.submit "Submit", :class => 'btn btn-primary'%>
+  </div>
+
+  <br />
+<% end %>
+</div>

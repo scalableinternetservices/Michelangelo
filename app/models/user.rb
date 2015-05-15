@@ -45,6 +45,13 @@ class User < ActiveRecord::Base
     Music.where(:uid => valid_ids).order("created_at DESC")
   end
 
+  # Only display the sharing contents of the user and his friends
+  def discover_audios
+    valid_ids = self.friends.map {|friend| friend.id}
+    valid_ids.push(self.id)
+    Audio.where(:uid => valid_ids).order("created_at DESC")
+  end  
+
   def requests_from
     # frienders_ids = "SELECT friender_id FROM friendships 
     #                  WHERE friended_id = :user_id AND accepted = false"
@@ -78,6 +85,15 @@ def friend_request_reject(friender)
   friendship.destroy
 end
 
+def self.search(user_name)
+    # if user_name
+    #     user_name.downcase!
+    #     User.where('LOWER(name) LIKE ?', "%#{user_name}%")
+    # else
+    #     all
+    # end
+    where("name like ?", "%#{user_name}%") 
+end
 
   private
     def ensure_an_admin_remains

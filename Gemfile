@@ -7,6 +7,8 @@ gem 'rails', '4.0.0'
 gem 'paperclip'
 gem 'aws-sdk'
 
+# gem 'aws-s3', :require => 'aws/s3'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 

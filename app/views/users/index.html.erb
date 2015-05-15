@@ -1,34 +1,40 @@
-<h1>Listing users</h1>
-<!-- START_HIGHLIGHT -->
-<% if notice %>
-<p id="notice"><%= notice %></p>
+
+
+<!-- <div class="col-md-2"><%= link_to 'New Music', new_music_path, remote: true, class: "btn btn-primary" %></div>
+<div class="col-md-2"><%= link_to 'See audios', audios_path, class: "btn btn-default" %></div> -->
+
+<%= form_tag(search_url, :method => 'get', :id => 'users_search') do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Users"%>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
-<!-- END_HIGHLIGHT -->
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%
+    if params[:search]
+      @searchedUsers = User.search(params[:search]).order("created_at DESC")
+    else
+      @searchedUsers = User.order("created_at DESC")
+    end    
+%>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete,
-        data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<br />
 
-<br>
+<div >
 
-<%= link_to 'New User', new_user_path %>
+<% if (@searchedUsers) %>
 
+    <table class="table table-striped">
+        <% @searchedUsers.each do |searchedUser| %>
+        <tr>
+        <td class="col-md-6">
+          <%= link_to (image_tag searchedUser.image.url(:small), :class => "profile-img"), mytimeline_path(searchedUser.id) %>
+           <%= link_to searchedUser.name, user_path(searchedUser.id) %> 
+        </td>
+        </tr>
+      <% end %>
+    </table>
+
+<br />
+
+<% end %>
+
+</div>
