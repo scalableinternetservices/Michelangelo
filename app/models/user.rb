@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
 
   has_many :friendships
   has_many :users, through: :friendships
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :unlikes, dependent: :destroy
 
   has_attached_file :image, :styles => { :small => "150x150" }
                     # #for production uploads
@@ -82,6 +85,7 @@ def friend_request_reject(friender)
   friendship.destroy
 end
 
+<<<<<<< HEAD
 def self.search(user_name)
     # if user_name
     #     user_name.downcase!
@@ -91,6 +95,8 @@ def self.search(user_name)
     # end
     where("name like ?", "%#{user_name}%") 
 end
+=======
+>>>>>>> 97c9d196b3dce61f7f76740c837d2b77ad8fd1fc
 
   private
     def ensure_an_admin_remains
