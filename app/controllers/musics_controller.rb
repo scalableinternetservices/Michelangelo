@@ -53,9 +53,9 @@ class MusicsController < ApplicationController
 
     respond_to do |format|
       if @music.save
-        format.html { redirect_to @music, notice: 'Music was successfully created.' }
-        # format.html { redirect_to @musics_url }
-        format.json { render action: 'show', status: :created, location: @music }
+        # format.html { redirect_to @music, notice: 'Music was successfully created.' }
+        format.html { redirect_to home_url }
+        # format.json { render action: 'show', status: :created, location: @music }
       else
         format.html { render action: 'new' }
         format.json { render json: @music.errors, status: :unprocessable_entity }
