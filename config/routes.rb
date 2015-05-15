@@ -8,6 +8,8 @@
 #---
 Depot::Application.routes.draw do
 
+  resources :audios
+
 resources :friendships do
   member do
     post 'friend_request'
@@ -34,6 +36,7 @@ end
   controller :users do
     get 'register' => :new
     post 'profile' => :show
+    get 'search' => :index
   end
 
   get "sessions/create"

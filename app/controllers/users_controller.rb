@@ -6,8 +6,22 @@ class UsersController < ApplicationController
 
   # GET /users
   # GET /users.json
+  # def index
+  #   @users = User.all
+  # end
+  # def index
+  #   @searchedUsers = User.search(params[:search])
+  # end
+
   def index
-    @users = User.all
+    # @searchedUsers = User.order("created_at DESC")
+    
+    # if params[:search]
+    #   @searchedUsers = User.search(params[:search]).order("created_at DESC")
+    # else
+    #   @searchedUsers = User.order("created_at DESC")
+    # end
+
   end
 
   # GET /users/1

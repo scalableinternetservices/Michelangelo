@@ -21,5 +21,11 @@ module Depot
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # AWS::S3::Base.establish_connection!(
+    #     :access_key_id     => 'Put your Access Key ID here',
+    #     :secret_access_key => 'Put your Secret Access Key here'
+    # )
+    
   end
 end

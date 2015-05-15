@@ -40,6 +40,11 @@ class MusicsController < ApplicationController
 
     @music.uid = session[:user_id]
 
+    # create outchain player
+    pre = "http://music.163.com/#/song?id="
+    @music.link.sub!(pre, "http://music.163.com/outchain/player?type=2&id=")
+    @music.link = @music.link + "&auto=0&height=66"
+
     respond_to do |format|
       if @music.save
         format.html { redirect_to @music, notice: 'Music was successfully created.' }

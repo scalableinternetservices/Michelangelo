@@ -1,0 +1,49 @@
+
+<div class="row">
+<div class="col-md-8"><h1>Discover audio</h1></div>
+<!-- <button class="btn btn-default"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span><%= link_to 'New Music', new_music_path %></button> -->
+
+<div class="col-md-2"><%= link_to 'New Audio', new_audio_path, class: "btn btn-primary" %></div>
+<div class="col-md-2"><%= link_to 'See musics', musics_path, class: "btn btn-default" %></div>
+</div>
+
+<div id="music-form" style="display:none;"></div> 
+<br>
+
+<div >
+
+<table class="table table-striped">
+<% @audios.each do |audio| %>
+  
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <td>
+      <div>
+      <%= image_tag(audio.user.image.url(:small), :class => "profile-img") %>
+      </div>
+    </td>
+    <td class="list_description">
+      <ul class="music-item">
+        <li>
+        <strong><%= link_to audio.user.name, mytimeline_path(audio.uid) %></strong>
+        </li>
+        <li> <%= audio.comment %> </li>
+        <li>  
+          <audio controls>
+          <source src=<%= audio.audioFile.url %> type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio></li>
+        <li style="color:grey"><%= audio.created_at %></li>
+      </ul>
+    </td>
+<!--     <td class="list_actions">
+      <%= link_to 'Show', audio %><br/>
+      <%= link_to 'Edit', edit_audio_path(audio) %><br/>
+      <%= link_to 'Delete', audio, method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+    </td> -->
+  </tr>
+<% end %>
+</table>
+<br />
+
+</div>
