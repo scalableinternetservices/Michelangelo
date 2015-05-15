@@ -12,20 +12,19 @@
   <% end %>
 
 
-
-  <div class="field">
+<div class="row">
+  <div class="field col-md-9">
     <label class="sr-only">Comment:</label>
-    <%= f.text_area :content,rows:4, placeholder: 'Say something to your friends...', :class => "form-control" %>
+    <%= f.text_area :content,rows:1, placeholder: "Comment on your friend's post...", :class => "form-control" %>
   </div>
 
-  <br>
    <div class="field">
     <%= f.hidden_field :post_id, :value => params[:post_id]%>
   </div>
 
-  <br>
-  <div class="actions">
+  <div class="actions col-md-1">
     <%= f.submit "Submit", :class => 'btn btn-primary'%>
   </div>
+</div>
 
 <% end %>

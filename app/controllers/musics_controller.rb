@@ -53,7 +53,7 @@ class MusicsController < ApplicationController
 
     respond_to do |format|
       if @music.save
-        format.html { redirect_to @music, notice: 'Music was successfully created.' }
+        format.html { redirect_to home_url, notice: 'Music was successfully created.' }
         # format.html { redirect_to @musics_url }
         format.json { render action: 'show', status: :created, location: @music }
       else

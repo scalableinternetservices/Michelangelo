@@ -1,2 +1,2 @@
-$('#comment-form-'+<%= music.id %>).html("<%= j (render 'form') %>");
-// $('#comment-form').slideDown(350);
+$('#comment-form-'+ <%= params[:post_id] %>).html("<%= j (render 'form') %>");
+$('#comment-form-'+ <%= params[:post_id] %>).slideDown(350);

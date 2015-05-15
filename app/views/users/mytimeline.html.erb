@@ -38,15 +38,18 @@
             <% end %>
             <div style="color:grey"><%= music.created_at %></div> 
             <%= link_to 'Add Comment', new_comment_path(:post_id => music.id)%> 
-            <%= link_to 'Like', new_like_path(:post_id => music.id)%>
-            <%= music.likecount %>
-            <%= link_to 'Unlike', new_unlike_path(:post_id => music.id)%>
+            <%= music.comments.size %>
+            <%= link_to 'Like', like_music_path(music.id), class:"like-vote", method: :put, remote: true%>
+            <span class="like-count" data-id="<%= music.id %>">
+              <%= music.likecount %>
+            </span>
+            <%= link_to 'Dislike', new_unlike_path(:post_id => music.id)%>
             <%= music.unlikecount %>
             <table>
             <% music.comments.each do |comment| %>
             <tr>
               <td>
-                <%= comment.user.name %> :
+                <%= link_to comment.user.name + ':', mytimeline_path(comment.user.id) %>
                 <%= comment.content %> 
               </td>
             </tr>

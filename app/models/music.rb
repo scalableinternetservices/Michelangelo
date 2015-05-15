@@ -14,7 +14,7 @@ class Music < ActiveRecord::Base
 
 
   def comments
-  	Comment.where(post_id: self.id)
+  	Comment.where(post_id: self.id).order("created_at DESC")
   end
 
   def likecount
