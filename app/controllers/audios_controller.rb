@@ -30,17 +30,15 @@ class AudiosController < ApplicationController
 
     @audio.uid = session[:user_id]
 
-    redirect_to audios_path
-
-    # respond_to do |format|
-    #   if @audio.save
-    #     format.html { redirect_to @audio, notice: 'Audio was successfully created.' }
-    #     format.json { render action: 'show', status: :created, location: @audio }
-    #   else
-    #     format.html { render action: 'new' }
-    #     format.json { render json: @audio.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    respond_to do |format|
+      if @audio.save
+        format.html { redirect_to audios_path, notice: 'Audio was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @audio }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @audio.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /audios/1

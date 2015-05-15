@@ -14,12 +14,47 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 # encoding: utf-8
+
+User.delete_all
 Music.delete_all
-# Music.create!(title: 'Sugar',
-#   artist: 'Maroon5',
-#   comment: "Guys check this out!",
-#   hashtag: '#Pop #AdamLevine',
-#   link:   'http://music.163.com/outchain/player?type=2&id=29019227&auto=0&height=66')
+
+100.times do |i|
+
+	user = User.create(
+	  name: "#{i}",
+	  password: "123",
+	  password_confirmation: "123")
+	user.save!
+
+	if i == 0
+		start = user.id
+		puts "start id: #{start}"
+	end
+
+	if i % 10 == 0
+		puts "user ", i
+	end
+end
+
+100.times do |i|
+
+	k = start + i
+
+	10.times do |j|
+		music = Music.create(
+		  comment: "scaling test",
+		  sharetype: 0,
+		  uid: k,
+		  link:   'http://music.163.com/outchain/player?type=2&id=29019227&auto=0&height=66')
+		music.save!
+	end
+
+	if i % 10 == 0
+		puts "music for user ", i
+	end
+end
+
+
 
 # Music.create!(title: 'See You Again',
 #   artist: 'Wiz Khalifa / Charlie Puth',
