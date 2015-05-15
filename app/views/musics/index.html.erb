@@ -27,7 +27,15 @@
         <strong><%= link_to music.user.name, mytimeline_path(music.uid) %></strong>
         </li>
         <li> <%= music.comment %> </li>
-        <li> <p><iframe frameborder="no" border="0" width=320 height=90 src="<%= music.link %>"></iframe></p></li>
+        <li> 
+          <p>
+            <% if music.sharetype == 1 %>
+              <iframe frameborder="no" border="0" width=310 height=430 src="<%= music.link %>"></iframe>
+            <% else %>
+              <iframe frameborder="no" border="0" width=320 height=90 src="<%= music.link %>"></iframe>
+            <% end %>
+          </p>
+        </li>
         <li>
             <%= link_to 'Add Comment', new_comment_path(:post_id => music.id)%> 
             <%= link_to 'Like', new_like_path(:post_id => music.id)%>

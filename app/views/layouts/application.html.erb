@@ -42,13 +42,7 @@
             </ul>
             <% if session[:user_id] %>
               <ul class="nav navbar-nav navbar-right">
-<!--                 <li>
-                <%= form_tag(users_path, :method => 'get', :id => 'users_search') do %>
-                  <%= text_field_tag :search, params[:search] %>
-                  <%= submit_tag "Search", :name => nil %>
-                <% end %>
-                </li> -->
-                <li height><%= link_to 'Logout', logout_path, method: :delete, class: "btn btn-default"  %></li>
+                <li><%= link_to 'Logout', logout_path, method: :delete, class: "btn btn-default"  %></li>
               </ul>
             <% else %> 
               <ul class="nav navbar-nav navbar-right">
