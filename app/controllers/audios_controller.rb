@@ -65,6 +65,19 @@ class AudiosController < ApplicationController
     end
   end
 
+    # PUT
+  def like 
+    @audio = Audio.find(params[:id])
+    current_user = User.find(session[:user_id])
+    current_user.like(@audio)
+
+    if request.xhr?
+      render json: { count: @audio.likecount, id: params[:id] }
+    else
+      redirect_to @audio
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_audio

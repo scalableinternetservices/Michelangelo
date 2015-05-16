@@ -45,9 +45,7 @@
             <span class="like-count" data-id="<%= music.id %>">
               <%= music.likecount %>
             </span>
-            
-            <%= link_to 'Dislike', new_unlike_path(:post_id => music.id)%>
-            <%= music.unlikecount %>
+ 
             <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div> 
            <table>
              <% music.comments.each do |comment| %>

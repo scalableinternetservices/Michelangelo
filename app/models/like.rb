@@ -1,6 +1,7 @@
 class Like < ActiveRecord::Base
   belongs_to :music
   belongs_to :user
+  belongs_to :audio
 
   
  # has_many   :likes, as: :likeable, dependent: :destroy
