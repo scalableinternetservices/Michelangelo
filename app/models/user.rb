@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :users, through: :friendships
   has_many :comments, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :unlikes, dependent: :destroy
 

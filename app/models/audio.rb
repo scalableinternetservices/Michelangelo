@@ -1,4 +1,6 @@
 class Audio < ActiveRecord::Base
+	has_many   :comments, :foreign_key => :post_id, dependent: :destroy
+    has_many   :likes, :foreign_key => :post_id, dependent: :destroy
 
 	has_attached_file :audioFile
 
@@ -12,5 +14,17 @@ class Audio < ActiveRecord::Base
   def user
   	User.find(self.uid)
   end
+
+
+  def comments
+  	Comment.where(post_id: self.id).order("created_at DESC")
+  end
+
+  def likecount
+  	Like.where(post_id: self.id).count
+  end
+
+
+
 
 end

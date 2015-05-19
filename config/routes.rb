@@ -64,6 +64,7 @@ resources :musics
   get 'users/:id',        to: 'users#show',         as: :homepage
 
   put 'musics/likes/:id', to: "musics#like", as: :like_music
+  put 'audios/likes/:id', to: "audios#like", as: :like_audio
 
   get "store/index"
   resources :products do
