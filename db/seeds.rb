@@ -40,7 +40,7 @@ end
 
 	k = start + i
 
-	10.times do |j|
+	100.times do |j|
 		music = Music.create(
 		  comment: "scaling test",
 		  sharetype: 0,

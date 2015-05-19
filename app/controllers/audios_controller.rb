@@ -32,7 +32,7 @@ class AudiosController < ApplicationController
 
     respond_to do |format|
       if @audio.save
-        format.html { redirect_to audios_path, notice: 'Audio was successfully created.' }
+        format.html { redirect_to audios_path }
         format.json { render action: 'show', status: :created, location: @audio }
       else
         format.html { render action: 'new' }
