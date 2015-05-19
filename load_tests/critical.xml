@@ -9,18 +9,18 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="ec2-52-24-77-177.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
+    <server host="ec2-52-25-81-167.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
   </servers>
 
 
   <load>
-    <arrivalphase phase="1" duration="30" unit="second">
+    <arrivalphase phase="1" duration="20" unit="second">
       <users arrivalrate="1" unit="second"></users>
     </arrivalphase>
-    <arrivalphase phase="2" duration="30" unit="second">
+    <arrivalphase phase="2" duration="20" unit="second">
       <users arrivalrate="2" unit="second"></users>
     </arrivalphase>
-    <arrivalphase phase="3" duration="30" unit="second">
+    <arrivalphase phase="3" duration="20" unit="second">
       <users arrivalrate="4" unit="second"></users>
     </arrivalphase>
 <!--
@@ -66,7 +66,7 @@
       </request>
 
       <!-- wait for up to 2 seconds, user is looking at posts -->
-      <thinktime value="2" random="true"></thinktime>
+      <thinktime value="1" random="true"></thinktime>
 
       <!-- visit the New Community form, as a user would do.  -->
       <request>
@@ -90,31 +90,28 @@
           url='/users'
           version='1.1'
           method='POST'
-          contents='user%5Bname%5D=name%%_random_user_name%%&amp;user%5Bpassword%5D=1234&amp;user%5Bpassword_confirmation%5D=1234&amp; commit=Creat+User'>
+          contents='user%5Bname%5D=name%%_random_user_name%%&amp;user%5Bpassword%5D=1234&amp;user%5Bpassword_confirmation%5D=1234&amp; commit=Create+User'>
         </http>
       </request>
 
       
-      <!-- wait for up to 2 seconds, user is fillinf in new submission form -->
       <thinktime value="2" random="true"></thinktime>
 
       <request>
         <http url='/login' version='1.1' method='GET'></http>
       </request>
 
-      <!-- wait for up to 2 seconds, user is fillinf in new submission form -->
       <thinktime value="2" random="true"></thinktime>
 
       <request subst="true">
        <http
        url='/login'
        version='1.1'
-       method='POST' contents='users%5Bname%5D=name%%_random_user_name%%&amp;users%5Bpassword%5D=1234&amp;commit=Login'>
+       method='POST' contents='name=name%%_random_user_name%%&amp;password=1234&amp;commit=Login'>
        </http>
      </request>
 
-     <!-- wait for up to 2 seconds, user is fillinf in new submission form -->
-     <thinktime value="2" random="true"></thinktime>
+     <thinktime value="1" random="true"></thinktime>
 
       <request>
         <http url='/musics' version='1.1' method='GET'></http>
@@ -125,15 +122,17 @@
         <http url='/musics/new' version='1.1' method='GET'></http>
       </request>
 
+     <thinktime value="3" random="true"></thinktime>
+
       <request subst="true">
        <http
        url='/musics'
        version='1.1'
-       method='POST' contents='music%5Bcomment%5D=abcdefgasdfasdfasdfasdf&amp;music%5Blink%5D=52.25.62.242&amp;music%5Bsharetype%5D=0&amp;commit=Submit'>
+       method='POST' contents='music%5Bcomment%5D=commentcommentcommentcomment&amp;music%5Blink%5D=52.25.62.242&amp;music%5Bsharetype%5D=0&amp;commit=Submit'>
        </http>
      </request>
       
-      <thinktime value="3" random="true"></thinktime>
+      <!-- <thinktime value="3" random="true"></thinktime> -->
 
       <request>
         <http url='/comments/new?post_id=1' version='1.1' method='GET'></http>
@@ -145,26 +144,19 @@
        <http
        url='/comments'
        version='1.1'
-       method='POST' contents='comment%5Bcontent%5D=asdfasdfasdfasdf%%&amp;comment%5Bpost_id%5D=1&amp;commit=Submit'>
+       method='POST' contents='comment%5Bcontent%5D=commentcommentcommentcomment%%&amp;comment%5Bpost_id%5D=1&amp;commit=Submit'>
        </http>
       </request>
 
-      <thinktime value="3" random="true"></thinktime>
+      <thinktime value="1" random="true"></thinktime>
+
       <request>
-        <http url='/likes/new?post_id=1' version='1.1' method='GET'></http>
+        <http url='/musics/likes/1' version='1.1' method='PUT'></http>
       </request>
 
-      <thinktime value="3" random="true"></thinktime>
-
-      <request subst="true">
-       <http
-       url='/likes'
-       version='1.1'
-       method='POST' contents='like%5Bpost_id%5D=1&amp;commit=Create+Like'>
-       </http>
-      </request>
+      
     
-     <thinktime value="3" random="true"></thinktime>
+    <!--  <thinktime value="3" random="true"></thinktime>
 
       <request>
         <http url='/audios' version='1.1' method='GET'></http>
@@ -173,7 +165,7 @@
 
       <request>
         <http url='/audios/new' version='1.1' method='GET'></http>
-      </request>
+      </request> -->
 
       <thinktime value="3" random="true"></thinktime>
       <request>
@@ -185,50 +177,32 @@
         <http url='/users/friends/1' version='1.1' method='GET'></http>
       </request>
 
-      <!-- create a new submission in the community we just created -->
-     <!--  <setdynvars sourcetype="random_number" start="1000" end="9999999">
-        <var name="random_submission_name" />
-      </setdynvars>
-
-      <request subst="true">
-        <dyn_variable name="created_submission_url" re="[Ll]ocation: (http://.*)\r"/>
-        <dyn_variable name="created_submission_id" re="[Ll]ocation: http://.*/submissions/(.*)\r"/>
-        <http
-          url='/submissions'
-          version='1.1'
-          method='POST'
-          contents='submission%5Btitle%5D=link_%%_random_submission_name%%&amp;submission%5Burl%5D=http%3A%2F%2Fwww.article.com%2F%%_random_submission_name%%&amp;submission%5Bcommunity_id%5D=%%_created_community_id%%&amp;commit=Create+Submission'>
-        </http>
+      <thinktime value="3" random="true"></thinktime>
+      <request>
+        <http url='/search' version='1.1' method='GET'></http>
       </request>
- -->
-      <!-- wait for up to 2 seconds, user decides to delete submission -->
-      <!-- <thinktime value="2" random="true"></thinktime> -->
-
-      <!-- delete the submission we just created -->
-     <!--  <request subst="true">
-        <http url="%%_created_submission_url%%" method="DELETE">
-        </http>
-      </request> -->
-
-      <!-- wait for up to 2 seconds, user decides to delete community -->
-      <!-- <thinktime value="2" random="true"></thinktime> -->
+      <request>
+        <http url='/search?search=1' version='1.1' method='GET'></http>
+      </request>
+     
+     
 
       <!-- Uncomment the following to debug print your dynamic variables  --> 
-      <!--
-      <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->
+      
+     <!--  <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->
         io:format([126, $p, 126, $n, 126, $n], [DynVars]),
         ok end.">
         <var name="dump" />
       </setdynvars>
-      -->
+       -->
 
       <!-- delete the community we created -->
 
-      <request subst="true">
+    <!--   <request subst="true">
         <http url="/users" method="DELETE">
         </http>
       </request>
-
+ -->
     </session>
   </sessions>
 </tsung>
