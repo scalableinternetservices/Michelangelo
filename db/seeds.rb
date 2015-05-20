@@ -17,7 +17,7 @@
 
 User.delete_all
 Music.delete_all
-
+start = 0
 100.times do |i|
 
 	user = User.create(
