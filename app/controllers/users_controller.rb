@@ -29,6 +29,8 @@ class UsersController < ApplicationController
   def show
     @mymusics = Music.where(:uid => params[:id]).order('created_at DESC')
     @current_user = User.find(session[:user_id])
+
+    @date = @user.created_at.strftime('%B %d, %Y')
   end
 
   def friends
