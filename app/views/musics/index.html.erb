@@ -32,10 +32,22 @@
             <% if music.sharetype == 1 %>
               <iframe frameborder="no" border="0" width=310 height=430 src="<%= music.link %>"></iframe>
             <% else %>
-              <iframe frameborder="no" border="0" width=320 height=90 src="<%= music.link %>"></iframe>
+              <iframe frameborder="no" border="0" width=320 height=80 src="<%= music.link %>"></iframe>
             <% end %>
           </p>
         </li>
+
+        <!-- <li style="color:grey"><%= music.created_at %></li> -->
+            <% 
+              dayDiff = (Time.zone.now - music.created_at).to_i / 1.day
+              if dayDiff == 0 
+                hourDiff = (Time.zone.now - music.created_at).to_i / 1.hour
+            %>
+              <li style="color:grey"><%= hourDiff%> hours ago</li> 
+            <% else %>
+              <li style="color:grey"><%= dayDiff%> days ago</li>
+            <% end %>    
+
         <li>
             <%= link_to 'Add Comment',new_comment_path(:post_id => music.id), :class=> "add-comment", 
             :id => "add-comment" + music.id.to_s, :remote => true %> 
@@ -60,14 +72,14 @@
         </li>
 
 
-        <!-- <li style="color:grey"><%= music.created_at %></li> -->
+        
       </ul>
     </td>
-    <td>
+<!--     <td>
       <ul>
-        <li style="color:grey"><%= music.created_at %></li>
+        <li style="color:grey"><%= music.created_at %></li>      
       </ul>
-    </td>
+    </td> -->
 <!--     <td class="list_actions">
       <%= link_to 'Show', music %><br/>
       <%= link_to 'Edit', edit_music_path(music) %><br/>
