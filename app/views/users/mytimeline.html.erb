@@ -36,8 +36,13 @@
               dayDiff = (Time.zone.now - music.created_at).to_i / 1.day
               if dayDiff == 0 
                 hourDiff = (Time.zone.now - music.created_at).to_i / 1.hour
+                if hourDiff == 0
+                  minDiff = (Time.zone.now - music.created_at).to_i / 1.minute
             %>
-              <div style="color:grey"><%= hourDiff%> hours ago</div> 
+                <div style="color:grey"><%= minDiff%> min ago</div> 
+                <% else %>
+                <div style="color:grey"><%= hourDiff%> hours ago</div> 
+                <% end %>
             <% else %>
               <div style="color:grey"><%= dayDiff%> days ago</div>
             <% end %>
