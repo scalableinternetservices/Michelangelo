@@ -22,6 +22,8 @@ class UsersController < ApplicationController
     #   @searchedUsers = User.order("created_at DESC")
     # end
 
+    @current_user = User.find(session[:user_id])
+    # @friends = User.find(session[:user_id]).friends
   end
 
   # GET /users/1
