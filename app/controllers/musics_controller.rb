@@ -5,16 +5,16 @@ class MusicsController < ApplicationController
 
   # GET /musics
   # GET /musics.json
-  # def index
-  #   current_user = User.find(session[:user_id])
-  #   @musics = current_user.discover_musics
+  def index
+    current_user = User.find(session[:user_id])
+    @musics = current_user.discover_musics.paginate(:page => params[:page], per_page: 5)
 
-  #   respond_to do |format|
-  #     format.html
-  #     format.js
-  #   end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   
-  # end
+  end
 
   # GET /musics/1
   # GET /musics/1.json
