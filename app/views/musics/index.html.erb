@@ -63,8 +63,8 @@
               <%= music.likecount %>
             </span>
  
-            <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div> 
-           <table>
+          <!-- <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div>  -->
+            <table>
              <% music.comments.each do |comment| %>
               <tr>
                 <td>
@@ -99,13 +99,3 @@
 
 </div>
 
-<script type="text/javascript">
-var add_comment_btns = document.getElementsByClassName("add-comment");
-
-var myFunction = function() {
-    var id = this.getAttribute("id");
-    alert(id);
-};
-
-add_comment_btns.addEventListener('click', myFunction(), false);     
-</script>
