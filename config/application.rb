@@ -7,6 +7,8 @@ require 'rails/all'
 Bundler.require(:default, Rails.env)
 #Paperclip.options[:command_path] = "/Users/kay/Downloads/ImageMagick-6.9.0/bin/"
 
+# ActsAsTaggableOn.force_lowercase = true
+
 module Depot
   class Application < Rails::Application
 
@@ -26,6 +28,8 @@ module Depot
     #     :access_key_id     => 'Put your Access Key ID here',
     #     :secret_access_key => 'Put your Secret Access Key here'
     # )
+
+    # ActsAsTaggableOn.force_lowercase = true
     
   end
 end

@@ -46,4 +46,6 @@ Depot::Application.configure do
     Paperclip::Attachment.default_options[:path] = '/profile/:id/:style:extension'
     Paperclip::Attachment.default_options[:bucket]= "scalableinternetservices/Michelangelo"
 
+  # ActsAsTaggableOn.force_lowercase = true
+
 end

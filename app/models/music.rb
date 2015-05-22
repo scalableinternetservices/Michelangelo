@@ -2,6 +2,7 @@ class Music < ActiveRecord::Base
   
   acts_as_taggable
   
+
   has_many   :comments, :foreign_key => :post_id, dependent: :destroy
   has_many   :likes, :foreign_key => :post_id, dependent: :destroy
   # has_many   :unlikes, :foreign_key => :post_id, dependent: :destroy
