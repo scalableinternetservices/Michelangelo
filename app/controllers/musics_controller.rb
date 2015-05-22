@@ -76,6 +76,16 @@ class MusicsController < ApplicationController
     end
   end
 
+  #GET
+#   def comments
+#     @comments = self.comments.paginate(page => params[:page], per_page: 5)
+#     respond_to do |format|
+#       format.html # index.html.erb
+#       format.json { render json: @comments }
+#       format.js
+#   end
+# end
+
   # PATCH/PUT /musics/1
   # PATCH/PUT /musics/1.json
   def update
