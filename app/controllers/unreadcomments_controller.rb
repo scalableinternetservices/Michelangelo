@@ -69,6 +69,6 @@ class UnreadcommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unreadcomment_params
-      params.require(:unreadcomment).permit(:comment_id, :post_id, :user_id)
+      params.require(:unreadcomment).permit(:comment_id, :post_id, :user_id, :commenter)
     end
 end
