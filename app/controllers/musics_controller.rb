@@ -31,6 +31,11 @@ class MusicsController < ApplicationController
   def edit
   end
 
+  def view_comm
+    Unreadcomment.delete(params[:id])
+    redirect_to mytimeline_path
+  end
+
 
 
   # POST /musics
@@ -76,12 +81,8 @@ class MusicsController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
-  def view_comm
-    Unreadcomment.delete(params[:id])
-    redirect_to mytimeline_path
-  end
-=======
+
+
   #GET
 #   def comments
 #     @comments = self.comments.paginate(page => params[:page], per_page: 5)
@@ -92,7 +93,7 @@ class MusicsController < ApplicationController
 #   end
 # end
 
->>>>>>> 4e05f1f9414aa0b6d1dd77575416ee56c490694e
+
   # PATCH/PUT /musics/1
   # PATCH/PUT /musics/1.json
   def update
