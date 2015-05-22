@@ -37,7 +37,8 @@
             <ul class="nav navbar-nav">
               <li><a href=<%=home_url%>>Home</a></li>
               <li><a href=<%=search_url%>>Search</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href=<%=tag_cloud_path%>><font color="#FF6262"><b>What's hot?</b></font></a></li>
+              <!-- <li><a href="#">Contact</a></li> -->
 
             </ul>
             <% if session[:user_id] %>

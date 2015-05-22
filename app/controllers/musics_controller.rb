@@ -111,7 +111,7 @@ class MusicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def music_params
-      params.require(:music).permit( :comment, :link, :uid, :sharetype)
+      params.require(:music).permit( :comment, :link, :uid, :sharetype, :tag_list)
     end
 
     def all_musics

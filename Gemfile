@@ -51,3 +51,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'debugger', group: [:development, :test]
 
 gem 'byebug', group: [:development, :test]
+
+# act as taggable on
+gem 'acts-as-taggable-on'
