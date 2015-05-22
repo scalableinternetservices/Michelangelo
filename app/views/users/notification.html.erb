@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<h4>Notification</h4>
+
+<table class="table table-striped">
+        <% @mynotification.each do |notification| %>
+        <tr>
+        <td class="col-md-6">
+           <%="You have received a new comment."%>
+           <%= link_to "View", mytimeline_path, :class=>"btn btn-default" %>
+        </td>
+        </tr>
+      <% end %>
+    </table>
+
+
+

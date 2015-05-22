@@ -27,6 +27,12 @@ class CommentsController < ApplicationController
     current_user = User.find(session[:user_id])
     #puts "params ", comment_params
     @comment = Comment.new(comment_params)
+
+    @host = Music.find(@comment.post_id).uid
+    if (@host != current_user)
+      Unreadcomment.create(post_id: @comment.post_id, user_id: @host, comment_id: @comment.id )
+    end
+    
     @comment.user = current_user
     @comment.save
     redirect_to (:back)

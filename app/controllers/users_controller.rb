@@ -52,6 +52,19 @@ class UsersController < ApplicationController
     # @comments = Comment.all
   end
 
+  def newfriend
+    @user = User.find(params[:id])
+    @current_user = User.find(session[:user_id])
+    @friends = User.find(params[:id]).friends
+    
+  end
+
+  def notification
+    @user = User.find(params[:id])
+    @current_user = User.find(session[:user_id])
+    @mynotification = Unreadcomment.where(:user_id => params[:id]).order('created_at DESC')
+  end
+
   # def requests_from
   #   @requests_from = User.find(params[:id]).requests_from
   # end
