@@ -8,6 +8,11 @@
 #---
 Depot::Application.routes.draw do
 
+  get "tag/show"
+  get "tag/cloud",  as: :tag_cloud
+
+  resources :tag
+
   resources :unreadcomments
 
   resources :audios
