@@ -81,6 +81,16 @@
           <i class="glyphicon glyphicon-th-large">&nbsp;Friends</i>
           <% end %>
         </li>
+        <li>
+          <%= link_to newfriend_path(session[:user_id])  do %>
+          <i class="glyphicon glyphicon-bell">&nbsp;Request</i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to notification_path(session[:user_id])  do %>
+          <i class="glyphicon glyphicon-envelope">&nbsp;Notification</i>
+          <% end %>
+        </li>
 
       <% else %>
           <li><%= link_to 'Log In',    login_url    %></li>

@@ -9,6 +9,11 @@ gem 'aws-sdk'
 
 # gem 'aws-s3', :require => 'aws/s3'
 
+
+# Pagination for Rails 3+, Sinatra, and Merb
+gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 

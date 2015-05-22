@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @unreadcomment.comment_id %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @unreadcomment.post_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @unreadcomment.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_unreadcomment_path(@unreadcomment) %> |
+<%= link_to 'Back', unreadcomments_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521230033) do
+ActiveRecord::Schema.define(version: 20150522044701) do
 
   create_table "audios", force: true do |t|
     t.text     "comment"
@@ -113,6 +113,14 @@ ActiveRecord::Schema.define(version: 20150521230033) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "unlikes", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "unreadcomments", force: true do |t|
+    t.integer  "comment_id"
     t.integer  "post_id"
     t.integer  "user_id"
     t.datetime "created_at"
