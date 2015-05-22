@@ -76,6 +76,10 @@ class MusicsController < ApplicationController
     end
   end
 
+  def view_comm
+    Unreadcomment.delete(params[:id])
+    redirect_to mytimeline_path
+  end
   # PATCH/PUT /musics/1
   # PATCH/PUT /musics/1.json
   def update

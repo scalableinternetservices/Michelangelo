@@ -5,8 +5,11 @@
         <% @mynotification.each do |notification| %>
         <tr>
         <td class="col-md-6">
-           <%="You have received a new comment."%>
-           <%= link_to "View", mytimeline_path, :class=>"btn btn-default" %>
+           <%=User.find(notification.commenter).name%>
+           <%=" comments on your post "%>
+           <%=notification.created_at.strftime("on %B %d at %I:%M %p")%>
+
+           <%= link_to "View", "viewcomm/"+notification.id.to_s%>
         </td>
         </tr>
       <% end %>

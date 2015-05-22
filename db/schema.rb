@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522044701) do
+ActiveRecord::Schema.define(version: 20150522154449) do
 
   create_table "audios", force: true do |t|
     t.text     "comment"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20150522044701) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "commenter"
   end
 
   create_table "users", force: true do |t|
