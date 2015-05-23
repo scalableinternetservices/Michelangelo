@@ -13,9 +13,16 @@
     </div>
   <% end %>
 
+  <br />
   <div class="field">
     <label class="sr-only">Comment:</label>
-    <%= f.text_area :comment,rows:4, placeholder: 'Say something to your friends...', :class => "form-control" %>
+    <%= f.text_area :comment,rows:4, :maxlength => 200, placeholder: 'Say something to your friends... (max 200 characters)', :class => "form-control" %>
+  </div>
+
+  <br>
+  <div class="field row">
+    <%= f.label :tag_list, "Tags", :class => "col-md-1" %>
+    <%= f.text_field :tag_list, :class => " col-md-10", placeholder: 'hashtags for this music (e.g. #tag1 #tag2)'%>
   </div>
 
   <br>

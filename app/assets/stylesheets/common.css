@@ -25,6 +25,11 @@ ul.music-item li{
 	height: 80px;
 }
 
+.profile-large-img {
+	width: 200px;
+	height: 200px;
+}
+
 .middle-page {
 	margin: 0 auto;
 	width: 80%;
@@ -38,3 +43,10 @@ ul.music-item li{
 .inline {
 	display: inline;
 }
+
+
+
+.css1 { font-size: 1.0em; }
+.css2 { font-size: 1.6em; }
+.css3 { font-size: 2.2em; }
+.css4 { font-size: 2.8em; }

@@ -1,6 +1,6 @@
 
 <div class="row">
-<div class="col-md-8"><h1>Discover music</h1></div>
+<div class="col-md-8"><h1>Explore music</h1></div>
 <!-- <button class="btn btn-default"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span><%= link_to 'New Music', new_music_path %></button> -->
 
 <div class="col-md-2"><%= link_to 'New Music', new_music_path, remote: true, class: "btn btn-primary" %></div>
@@ -32,10 +32,27 @@
             <% if music.sharetype == 1 %>
               <iframe frameborder="no" border="0" width=310 height=430 src="<%= music.link %>"></iframe>
             <% else %>
-              <iframe frameborder="no" border="0" width=320 height=90 src="<%= music.link %>"></iframe>
+              <iframe frameborder="no" border="0" width=320 height=80 src="<%= music.link %>"></iframe>
             <% end %>
           </p>
         </li>
+
+        <!-- <li style="color:grey"><%= music.created_at %></li> -->
+            <% 
+              dayDiff = (Time.zone.now - music.created_at).to_i / 1.day
+              if dayDiff == 0 
+                hourDiff = (Time.zone.now - music.created_at).to_i / 1.hour
+                if hourDiff == 0
+                  minDiff = (Time.zone.now - music.created_at).to_i / 1.minute
+            %>
+                <div style="color:grey"><%= minDiff%> min ago</div> 
+                <% else %>
+                <div style="color:grey"><%= hourDiff%> hours ago</div> 
+                <% end %>
+            <% else %>
+              <div style="color:grey"><%= dayDiff%> days ago</div>
+            <% end %>  
+
         <li>
             <%= link_to 'Add Comment',new_comment_path(:post_id => music.id), :class=> "add-comment", 
             :id => "add-comment" + music.id.to_s, :remote => true %> 
@@ -46,8 +63,8 @@
               <%= music.likecount %>
             </span>
  
-            <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div> 
-           <table>
+          <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div> 
+            <table>
              <% music.comments.each do |comment| %>
               <tr>
                 <td>
@@ -60,14 +77,14 @@
         </li>
 
 
-        <!-- <li style="color:grey"><%= music.created_at %></li> -->
+        
       </ul>
     </td>
-    <td>
+<!--     <td>
       <ul>
-        <li style="color:grey"><%= music.created_at %></li>
+        <li style="color:grey"><%= music.created_at %></li>      
       </ul>
-    </td>
+    </td> -->
 <!--     <td class="list_actions">
       <%= link_to 'Show', music %><br/>
       <%= link_to 'Edit', edit_music_path(music) %><br/>
@@ -77,17 +94,8 @@
   </tr>
 <% end %>
 </table>
+<%= will_paginate @musics, renderer: BootstrapPagination::Rails %>
 <br />
 
 </div>
 
-<script type="text/javascript">
-var add_comment_btns = document.getElementsByClassName("add-comment");
-
-var myFunction = function() {
-    var id = this.getAttribute("id");
-    alert(id);
-};
-
-add_comment_btns.addEventListener('click', myFunction(), false);     
-</script>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<h4>Notification</h4>
+
+<table class="table table-striped">
+        <% @mynotification.each do |notification| %>
+        <tr>
+        <td class="col-md-6">
+           <%=User.find(notification.commenter).name%>
+           <%=" comments on your post "%>
+           <%=notification.created_at.strftime("on %B %d at %I:%M %p")%>
+
+           <%= link_to "View", "viewcomm/"+notification.id.to_s%>
+        </td>
+        </tr>
+      <% end %>
+    </table>
+
+
+

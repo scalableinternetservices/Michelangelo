@@ -37,16 +37,17 @@
             <ul class="nav navbar-nav">
               <li><a href=<%=home_url%>>Home</a></li>
               <li><a href=<%=search_url%>>Search</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href=<%=tag_cloud_path%>><font color="#FF6262"><b>What's hot?</b></font></a></li>
+              <!-- <li><a href="#">Contact</a></li> -->
 
             </ul>
             <% if session[:user_id] %>
               <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to 'Logout', logout_path, method: :delete, class: "btn btn-default"  %></li>
+                <li><%= link_to 'Logout', logout_path, method: :delete  %></li>
               </ul>
             <% else %> 
               <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to 'Login', login_path, method: :get, class: "btn btn-default"    %></li>
+                <li><%= link_to 'Login', login_path, method: :get    %></li>
               </ul>       
             <% end %>
           </div><!--/.nav-collapse -->
@@ -78,6 +79,18 @@
         <li>
           <%= link_to friends_path(session[:user_id])  do %>
           <i class="glyphicon glyphicon-th-large">&nbsp;Friends</i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to newfriend_path(session[:user_id])  do %>
+          <i class="glyphicon glyphicon-bell">&nbsp;Request</i>
+          <span class="badge"><%=User.find(session[:user_id]).requests_from.size%>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to notification_path(session[:user_id])  do %>
+          <i class="glyphicon glyphicon-envelope">&nbsp;Notification</i>
+          <span class="badge"><%=Unreadcomment.where(user_id: User.find(session[:user_id])).size%>
           <% end %>
         </li>
 

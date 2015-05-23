@@ -11,10 +11,6 @@
   </div>
 </div>
 
-
-<br>
-<br>
-
 <div >
 <br />  
 
@@ -34,9 +30,22 @@
             <% if music.sharetype == 1 %>
               <iframe frameborder="no" border="0" width=310 height=430 src="<%= music.link %>"></iframe>
             <% else %>
-              <iframe frameborder="no" border="0" width=320 height=90 src="<%= music.link %>"></iframe>
+              <iframe frameborder="no" border="0" width=320 height=80 src="<%= music.link %>"></iframe>
             <% end %>
-            <div style="color:grey"><%= music.created_at %></div> 
+            <% 
+              dayDiff = (Time.zone.now - music.created_at).to_i / 1.day
+              if dayDiff == 0 
+                hourDiff = (Time.zone.now - music.created_at).to_i / 1.hour
+                if hourDiff == 0
+                  minDiff = (Time.zone.now - music.created_at).to_i / 1.minute
+            %>
+                <div style="color:grey"><%= minDiff%> min ago</div> 
+                <% else %>
+                <div style="color:grey"><%= hourDiff%> hours ago</div> 
+                <% end %>
+            <% else %>
+              <div style="color:grey"><%= dayDiff%> days ago</div>
+            <% end %>
           <li>
             <%= link_to 'Add Comment',new_comment_path(:post_id => music.id), :class=> "add-comment", 
             :id => "add-comment" + music.id.to_s, :remote => true %> 
@@ -71,6 +80,7 @@
       </tr>
     <% end %>
     </table>
+    <%= will_paginate @mymusics, renderer: BootstrapPagination::Rails %>
   <% end %>
 
 <br />

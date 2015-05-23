@@ -5,16 +5,16 @@ class MusicsController < ApplicationController
 
   # GET /musics
   # GET /musics.json
-  # def index
-  #   current_user = User.find(session[:user_id])
-  #   @musics = current_user.discover_musics
+  def index
+    current_user = User.find(session[:user_id])
+    @musics = current_user.discover_musics.paginate(:page => params[:page], per_page: 5)
 
-  #   respond_to do |format|
-  #     format.html
-  #     format.js
-  #   end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   
-  # end
+  end
 
   # GET /musics/1
   # GET /musics/1.json
@@ -29,6 +29,11 @@ class MusicsController < ApplicationController
 
   # GET /musics/1/edit
   def edit
+  end
+
+  def view_comm
+    Unreadcomment.delete(params[:id])
+    redirect_to mytimeline_path(session[:user_id])
   end
 
 
@@ -53,7 +58,7 @@ class MusicsController < ApplicationController
 
     respond_to do |format|
       if @music.save
-        format.html { redirect_to home_url, notice: 'Music was successfully created.' }
+        format.html { redirect_to home_url }
         # format.html { redirect_to @musics_url }
         format.json { render action: 'show', status: :created, location: @music }
       else
@@ -75,6 +80,19 @@ class MusicsController < ApplicationController
       redirect_to @music
     end
   end
+
+
+
+  #GET
+#   def comments
+#     @comments = self.comments.paginate(page => params[:page], per_page: 5)
+#     respond_to do |format|
+#       format.html # index.html.erb
+#       format.json { render json: @comments }
+#       format.js
+#   end
+# end
+
 
   # PATCH/PUT /musics/1
   # PATCH/PUT /musics/1.json
@@ -111,7 +129,7 @@ class MusicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def music_params
-      params.require(:music).permit( :comment, :link, :uid, :sharetype)
+      params.require(:music).permit( :comment, :link, :uid, :sharetype, :tag_list)
     end
 
     def all_musics

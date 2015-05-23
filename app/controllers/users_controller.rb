@@ -22,6 +22,8 @@ class UsersController < ApplicationController
     #   @searchedUsers = User.order("created_at DESC")
     # end
 
+    @current_user = User.find(session[:user_id])
+    # @friends = User.find(session[:user_id]).friends
   end
 
   # GET /users/1
@@ -29,6 +31,8 @@ class UsersController < ApplicationController
   def show
     @mymusics = Music.where(:uid => params[:id]).order('created_at DESC')
     @current_user = User.find(session[:user_id])
+
+    @date = @user.created_at.strftime('%B %d, %Y')
   end
 
   def friends
@@ -42,9 +46,23 @@ class UsersController < ApplicationController
 
   def mytimeline
     @current_user = User.find(session[:user_id])
-    @mymusics = Music.where(:uid => params[:id]).order('created_at DESC')
+    @mymusics = Music.where(:uid => params[:id]).paginate(:page => params[:page], per_page: 5).order('created_at DESC')
+
     #mymusic id->post_id->comment
     # @comments = Comment.all
+  end
+
+  def newfriend
+    @user = User.find(params[:id])
+    @current_user = User.find(session[:user_id])
+    @friends = User.find(params[:id]).friends
+    
+  end
+
+  def notification
+    @user = User.find(params[:id])
+    @current_user = User.find(session[:user_id])
+    @mynotification = Unreadcomment.where(:user_id => params[:id]).order('created_at DESC')
   end
 
   # def requests_from
@@ -67,7 +85,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to login_url, notice: 'User #{@user.name} was successfully created.' }
+        format.html { redirect_to login_url }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -81,7 +99,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_url, notice: 'User #{@user.name} was successfully updated.' }
+        format.html { redirect_to user_url }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

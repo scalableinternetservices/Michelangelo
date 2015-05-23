@@ -17,7 +17,7 @@
 
 User.delete_all
 Music.delete_all
-
+start = 0
 100.times do |i|
 
 	user = User.create(
@@ -40,7 +40,7 @@ end
 
 	k = start + i
 
-	10.times do |j|
+	100.times do |j|
 		music = Music.create(
 		  comment: "scaling test",
 		  sharetype: 0,
