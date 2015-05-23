@@ -33,7 +33,7 @@ class MusicsController < ApplicationController
 
   def view_comm
     Unreadcomment.delete(params[:id])
-    redirect_to mytimeline_path
+    redirect_to "/users/mytimeline/" + session[:user_id].to_s
   end
 
 
