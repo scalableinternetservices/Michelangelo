@@ -84,6 +84,7 @@
         <li>
           <%= link_to newfriend_path(session[:user_id])  do %>
           <i class="glyphicon glyphicon-bell">&nbsp;Request</i>
+          <span class="badge"><%=User.find(session[:user_id]).requests_from.size%>
           <% end %>
         </li>
         <li>
