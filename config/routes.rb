@@ -73,6 +73,8 @@ resources :musics
   get 'users/newfriend/:id',      to: 'users#newfriend',        as: :newfriend
   get 'users/notification/viewcomm/:id' => 'musics#view_comm'
 
+  get 'musics/comments/:id',      to: 'musics#allcomments',      as: :allcomments
+
   put 'musics/likes/:id', to: "musics#like", as: :like_music
   put 'audios/likes/:id', to: "audios#like", as: :like_audio
 

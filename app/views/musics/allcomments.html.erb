@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+        <td>All Comments:</td>
+             <% @comments.each do |comment| %>
+              <tr>
+                <td>
+                <%= link_to comment.user.name + ':', mytimeline_path(comment.user.id) %>
+                <%= comment.content %>  
+                </td>
+              </tr>
+              <% end %>  
+ </table>

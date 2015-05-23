@@ -48,9 +48,9 @@ class UsersController < ApplicationController
     @current_user = User.find(session[:user_id])
     @mymusics = Music.where(:uid => params[:id]).paginate(:page => params[:page], per_page: 5).order('created_at DESC')
 
-    #mymusic id->post_id->comment
-    # @comments = Comment.all
   end
+
+
 
   def newfriend
     @user = User.find(params[:id])
@@ -58,6 +58,7 @@ class UsersController < ApplicationController
     @friends = User.find(params[:id]).friends
     
   end
+
 
   def notification
     @user = User.find(params[:id])

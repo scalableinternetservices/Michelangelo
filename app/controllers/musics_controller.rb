@@ -16,6 +16,11 @@ class MusicsController < ApplicationController
   
   end
 
+  def allcomments
+    @comments = Music.find(params[:id]).allcomments
+  end
+
+
   # GET /musics/1
   # GET /musics/1.json
   def show  

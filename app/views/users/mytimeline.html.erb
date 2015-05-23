@@ -57,8 +57,10 @@
             </span>
  
             <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div> 
+
            <table>
-             <% music.comments.each do |comment| %>
+           <td>Comments:</td>
+             <% music.top3comments.each do |comment| %>
               <tr>
                 <td>
                 <%= link_to comment.user.name + ':', mytimeline_path(comment.user.id) %>
@@ -66,6 +68,9 @@
                 </td>
               </tr>
               <% end %>  
+              <td>
+              <%= link_to 'Show all comments', allcomments_path(music.id) %>
+              </td>
             </table>
         </li>
 

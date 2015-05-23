@@ -16,9 +16,15 @@ class Music < ActiveRecord::Base
   end
 
 
-  def comments
+  def allcomments
   	Comment.where(post_id: self.id).order("created_at DESC")
   end
+
+
+  def top3comments
+    Comment.where(post_id: self.id).order("created_at DESC").limit(3)
+  end
+
 
   def likecount
   	Like.where(post_id: self.id).count
