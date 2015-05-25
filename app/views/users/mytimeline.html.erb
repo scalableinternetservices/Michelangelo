@@ -25,8 +25,18 @@
         </td>
         <td class="list_description">
 
-          
-            <div><%= music.comment %></div>        
+        <div> 
+          <%= music.comment %> 
+          <div class="hashtag">
+            <!-- <%= music.tag_list %> -->
+            <% music.tags.any? %>
+                 <% music.tags.each do |tag| %>
+                    #<%= link_to tag.name, tag_path(tag) %>
+            <% end %>
+
+          </div> 
+        </div>
+
             <% if music.sharetype == 1 %>
               <iframe frameborder="no" border="0" width=310 height=430 src="<%= music.link %>"></iframe>
             <% else %>
