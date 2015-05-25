@@ -1,5 +1,6 @@
 class TagController < ApplicationController
   def cloud
+  	@threshold = 0
   end
 
   def show
