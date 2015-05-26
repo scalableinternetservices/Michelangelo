@@ -53,3 +53,9 @@ ul.music-item li{
 .css3 { font-size: 2.2em; }
 .css4 { font-size: 2.8em; }
 
+.quote {
+	font-family: Brush Script MT, Script;
+	/*font-weight: bold;*/
+	font-size: 2.0em;
+	color: #428bca;
+}

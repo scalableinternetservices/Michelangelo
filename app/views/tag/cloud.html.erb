@@ -1,4 +1,8 @@
-<h1>Tag Cloud</h1>
+<h1 class="middle-page">
+	Tag Cloud
+</h1>
+
+<br>
 
 <!-- sorted alphabetically -->
 <% tag_cloud(Music.tag_counts.sort { |x, y| x.name <=> y.name }.select { |x| x.taggings_count > @threshold }, %w(css1 css2 css3 css4)) do |tag, css_class| %>

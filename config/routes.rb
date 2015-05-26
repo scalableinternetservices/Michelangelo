@@ -56,6 +56,7 @@ resources :musics
     get 'register' => :new
     post 'profile' => :show
     get 'search' => :index
+    get 'contact' => :contact
   end
 
   get "sessions/create"
