@@ -36,7 +36,7 @@ class CommentsController < ApplicationController
     
     @comment.user = current_user
     @comment.save
-    redirect_to (:back)
+    redirect_to @comment
 end
 
   def destroy
