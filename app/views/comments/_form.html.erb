@@ -22,6 +22,10 @@
     <%= f.hidden_field :post_id, :value => params[:post_id]%>
   </div>
 
+    <div class="field">
+      <%= f.hidden_field :commenttype, :value => params[:commenttype] %>
+  </div>
+
   <div class="actions col-md-1">
     <%= f.submit "Submit", :class => 'btn btn-primary'%>
   </div>

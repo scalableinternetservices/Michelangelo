@@ -5,13 +5,19 @@ class AudiosController < ApplicationController
 
   # GET /audios
   # GET /audios.json
-  # def index
-  #   @audios = Audio.all
-  # end
+  def index
+    @audios = Audio.all
+    @commenttype = 1
+    @liketype = 1
+  end
 
   # GET /audios/1
   # GET /audios/1.json
   def show
+  end
+
+  def audioallcomments
+    @comments = Audio.find(params[:id]).audioallcomments
   end
 
   # GET /audios/new
@@ -86,7 +92,7 @@ class AudiosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def audio_params
-      params.require(:audio).permit(:comment, :uid, :audioFile)
+      params.require(:audio).permit(:comment, :uid, :audioFile, :commenttype)
     end
 
     def all_audios

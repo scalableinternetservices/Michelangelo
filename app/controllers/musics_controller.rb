@@ -8,7 +8,8 @@ class MusicsController < ApplicationController
   def index
     current_user = User.find(session[:user_id])
     @musics = current_user.discover_musics.paginate(:page => params[:page], per_page: 5)
-
+    @commenttype = 0
+    @liketype = 0
     respond_to do |format|
       format.html
       format.js
