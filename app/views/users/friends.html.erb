@@ -5,7 +5,7 @@
 
 
     <table class="table table-striped">
-        <% @user.friends.each do |friend| %>
+        <% @friends.each do |friend| %>
         <tr>
         <td class="col-md-6">
           <%= image_tag friend.image.url(:small), :class => "profile-img" %>
@@ -19,6 +19,8 @@
         </tr>
       <% end %>
     </table>
+
+<%= will_paginate @friends, renderer: BootstrapPagination::Rails %>
 
     
 

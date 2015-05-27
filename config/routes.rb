@@ -55,7 +55,8 @@ resources :musics
   controller :users do
     get 'register' => :new
     post 'profile' => :show
-    get 'search' => :index
+    # get 'search' => :index
+    get 'search' => :search
     get 'contact' => :contact
   end
 

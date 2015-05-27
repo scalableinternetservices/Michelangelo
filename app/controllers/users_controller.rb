@@ -26,6 +26,12 @@ class UsersController < ApplicationController
     # @friends = User.find(session[:user_id]).friends
   end
 
+  def search
+    @current_user = User.find(session[:user_id])
+
+
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
@@ -37,7 +43,7 @@ class UsersController < ApplicationController
 
   def friends
     @current_user = User.find(session[:user_id])
-    @friends = User.find(params[:id]).friends
+    @friends = @current_user.friends.paginate(:page => params[:page], per_page: 5)
     # if params[:id] != session[:user_id]
     #   redirect_to homepage_path(session[:user_id])
     # end
