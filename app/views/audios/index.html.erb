@@ -55,18 +55,19 @@
             <% end %> 
 
         <li>
-            <%= link_to 'Add Comment',new_comment_path(:post_id => audio.id), :class=> "add-comment", 
+            <%= link_to 'Add Comment',new_comment_path(:post_id => audio.id, :commenttype => @commenttype), :class=> "add-comment", 
             :id => "add-comment" + audio.id.to_s, :remote => true %> 
-            <%= audio.comments.size %>
+            <%= audio.audioallcomments.size %>
              
             <%= link_to 'Like', like_audio_path(audio.id), class:"like-vote", method: :put, remote: true%>
             <span class="like-count" data-id="<%= audio.id %>">
-              <%= audio.likecount %>
+              <%= audio.audiolikecount %>
             </span>
  
             <div id="comment-form-<%= audio.id %>" class="comment-form" style="display:none;"></div> 
            <table>
-             <% audio.comments.each do |comment| %>
+           <td>Comments:</td>
+             <% audio.audiotop3comments.each do |comment| %>
               <tr>
                 <td>
                 <%= link_to comment.user.name + ':', mytimeline_path(comment.user.id) %>
@@ -74,6 +75,9 @@
                 </td>
               </tr>
               <% end %>  
+              <td>
+              <%= link_to 'Show all comments', audioallcomments_path(audio.id) %>
+              </td>
             </table>
         </li>
 

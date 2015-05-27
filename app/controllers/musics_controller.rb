@@ -8,7 +8,8 @@ class MusicsController < ApplicationController
   def index
     current_user = User.find(session[:user_id])
     @musics = current_user.discover_musics.paginate(:page => params[:page], per_page: 5)
-
+    @commenttype = 0
+    @liketype = 0
     respond_to do |format|
       format.html
       format.js
@@ -77,7 +78,7 @@ class MusicsController < ApplicationController
   def like 
     @music = Music.find(params[:id])
     current_user = User.find(session[:user_id])
-    current_user.like(@music)
+    current_user.like(@music, params[:liketype])
 
     if request.xhr?
       render json: { count: @music.likecount, id: params[:id] }

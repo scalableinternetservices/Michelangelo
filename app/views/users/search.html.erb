@@ -5,11 +5,12 @@
         <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
+
 <%
     if params[:search]
-      @searchedUsers = User.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], per_page: 2)
+      @searchedUsers = User.search(params[:search])
     else
-      @searchedUsers = User.order("created_at DESC").paginate(:page => params[:page], per_page: 2)
+      @searchedUsers = User.paginate(:page => params[:page], per_page: 5)
     end    
 
     @current_user = User.find(session[:user_id])

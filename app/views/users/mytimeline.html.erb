@@ -57,9 +57,9 @@
               <div style="color:grey"><%= dayDiff%> days ago</div>
             <% end %>
           <li>
-            <%= link_to 'Add Comment',new_comment_path(:post_id => music.id), :class=> "add-comment", 
+            <%= link_to 'Add Comment',new_comment_path(:post_id => music.id, :commenttype => @commenttype), :class=> "add-comment", 
             :id => "add-comment" + music.id.to_s, :remote => true %> 
-            <%= music.comments.size %>
+            <%= music.allcomments.size %>
              
             <%= link_to 'Like', like_music_path(music.id), class:"like-vote", method: :put, remote: true%>
             <span class="like-count" data-id="<%= music.id %>">

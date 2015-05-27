@@ -16,12 +16,18 @@ class Audio < ActiveRecord::Base
   end
 
 
-  def comments
-  	Comment.where(post_id: self.id).order("created_at DESC")
+  def audioallcomments
+    Comment.where(post_id: self.id, commenttype: 1 ).order("created_at DESC")
   end
 
-  def likecount
-  	Like.where(post_id: self.id).count
+
+  def audiotop3comments
+    Comment.where(post_id: self.id, commenttype: 1).order("created_at DESC").limit(3)
+  end
+
+
+  def audiolikecount
+  	Like.where(post_id: self.id, liketype: 1).count
   end
 
 

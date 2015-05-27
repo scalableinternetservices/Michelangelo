@@ -55,7 +55,8 @@ resources :musics
   controller :users do
     get 'register' => :new
     post 'profile' => :show
-    get 'search' => :index
+    # get 'search' => :index
+    get 'search' => :search
     get 'contact' => :contact
   end
 
@@ -75,6 +76,7 @@ resources :musics
   get 'users/notification/viewcomm/:id' => 'musics#view_comm'
 
   get 'musics/comments/:id',      to: 'musics#allcomments',      as: :allcomments
+  get 'audios/comments/:id',      to: 'audios#audioallcomments',      as: :audioallcomments
 
   put 'musics/likes/:id', to: "musics#like", as: :like_music
   put 'audios/likes/:id', to: "audios#like", as: :like_audio

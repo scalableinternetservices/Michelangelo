@@ -5,6 +5,7 @@
     <tr>
       <th>Post</th>
       <th>User</th>
+      <th>Liketype</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= like.post_id %></td>
         <td><%= like.user_id %></td>
+        <td><%= like.liketype %></td>
         <td><%= link_to 'Show', like %></td>
         <td><%= link_to 'Edit', edit_like_path(like) %></td>
         <td><%= link_to 'Destroy', like, method: :delete, data: { confirm: 'Are you sure?' } %></td>

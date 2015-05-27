@@ -51,6 +51,6 @@ class LikesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def like_params
-      params.require(:like).permit(:post_id, :user_id)
+      params.require(:like).permit(:post_id, :user_id, :liketype)
     end
 end

@@ -86,9 +86,9 @@ class User < ActiveRecord::Base
     friendship.destroy
   end
 
-  def like(post)
+  def like(post, liketype)
 
-    like = Like.new(post_id: post.id, user_id: self.id)
+    like = Like.new(post_id: post.id, user_id: self.id, liketype: liketype)
     like.save
 
   end
@@ -104,7 +104,7 @@ def self.search(user_name)
     # else
     #     all
     # end
-    where("name like ?", "%#{user_name}%") 
+    User.where("name like ?", "%#{user_name}%").order("created_at DESC").paginate(:page => params[:page], per_page: 2)
 end
 
   private
