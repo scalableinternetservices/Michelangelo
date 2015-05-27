@@ -30,9 +30,9 @@ class Music < ActiveRecord::Base
   	Like.where(post_id: self.id, liketype: 0).count
   end
 
-  def unlikecount
-    Unlike.where(post_id: self.id).count
-  end
+  # def unlikecount
+  #   Unlike.where(post_id: self.id).count
+  # end
 
 
 end
