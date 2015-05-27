@@ -6,8 +6,23 @@
         <tr>
         <td class="col-md-6">
            <%=User.find(notification.commenter).name%>
-           <%=" comments on your post "%>
-           <%=notification.created_at.strftime("on %B %d at %I:%M %p")%>
+           <%=" commented on your post "%>
+           <!-- <%=notification.created_at.strftime("on %B %d at %I:%M %p")%> -->
+
+            <% 
+              dayDiff = (Time.zone.now - notification.created_at).to_i / 1.day
+              if dayDiff == 0 
+                hourDiff = (Time.zone.now - notification.created_at).to_i / 1.hour
+                if hourDiff == 0
+                  minDiff = (Time.zone.now - notification.created_at).to_i / 1.minute
+            %>
+                <%= minDiff%> min ago
+                <% else %>
+                <%= hourDiff%> hours ago
+                <% end %>
+            <% else %>
+              <%= dayDiff%> days ago
+            <% end %>             
 
            <%= link_to "View", "viewcomm/"+notification.id.to_s%>
         </td>

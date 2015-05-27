@@ -66,6 +66,10 @@ class UsersController < ApplicationController
     @mynotification = Unreadcomment.where(:user_id => params[:id]).order('created_at DESC')
   end
 
+  def viewPost
+
+  end
+
   # def requests_from
   #   @requests_from = User.find(params[:id]).requests_from
   # end
