@@ -86,9 +86,9 @@ class User < ActiveRecord::Base
     friendship.destroy
   end
 
-  def like(post)
+  def like(post, liketype)
 
-    like = Like.new(post_id: post.id, user_id: self.id)
+    like = Like.new(post_id: post.id, user_id: self.id, liketype: liketype)
     like.save
 
   end

@@ -78,7 +78,7 @@ class MusicsController < ApplicationController
   def like 
     @music = Music.find(params[:id])
     current_user = User.find(session[:user_id])
-    current_user.like(@music)
+    current_user.like(@music, params[:liketype])
 
     if request.xhr?
       render json: { count: @music.likecount, id: params[:id] }
