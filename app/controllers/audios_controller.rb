@@ -75,10 +75,10 @@ class AudiosController < ApplicationController
   def like 
     @audio = Audio.find(params[:id])
     current_user = User.find(session[:user_id])
-    current_user.like(@audio)
+    current_user.like(@audio, params[:liketype])
 
     if request.xhr?
-      render json: { count: @audio.likecount, id: params[:id] }
+      render json: { count: @audio.audiolikecount, id: params[:id] }
     else
       redirect_to @audio
     end
@@ -92,7 +92,7 @@ class AudiosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def audio_params
-      params.require(:audio).permit(:comment, :uid, :audioFile, :commenttype)
+      params.require(:audio).permit(:comment, :uid, :audioFile)
     end
 
     def all_audios

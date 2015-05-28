@@ -29,10 +29,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = current_user
 
-    @host = Music.find(@comment.post_id).uid
-    if (@host != current_user)
-      Unreadcomment.create(:comment_id => @comment.id, :post_id => @comment.post_id, :user_id => @host, :commenter => current_user.id)
-    end
+    # @host = Music.find(@comment.post_id).uid
+    # if (@host != current_user)
+    #   Unreadcomment.create(:comment_id => @comment.id, :post_id => @comment.post_id, :user_id => @host, :commenter => current_user.id)
+    # end
     
     @comment.user = current_user
     @comment.save

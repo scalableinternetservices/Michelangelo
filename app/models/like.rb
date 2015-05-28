@@ -13,7 +13,8 @@ class Like < ActiveRecord::Base
 
   def check_duplicate
     (Like.where(  post_id: self.post_id, 
-                  user_id: self.user_id ).exists?) ? false : true
+                  user_id: self.user_id,
+                  liketype: self.liketype).exists?) ? false : true
   end
 
 end
