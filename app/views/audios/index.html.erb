@@ -59,7 +59,7 @@
             :id => "add-comment" + audio.id.to_s, :remote => true %> 
             <%= audio.audioallcomments.size %>
              
-            <%= link_to 'Like', like_music_path(:id =>audio.id, :liketype => @liketype), class:"like-vote", method: :put, remote: true%>
+            <%= link_to 'Like', like_audio_path(:id =>audio.id, :liketype => @liketype), class:"like-vote", method: :put, remote: true%>
             <span class="like-count" data-id="<%= audio.id %>">
               <%= audio.audiolikecount %>
             </span>
