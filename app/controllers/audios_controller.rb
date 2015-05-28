@@ -9,6 +9,14 @@ class AudiosController < ApplicationController
     @audios = Audio.all
     @commenttype = 1
     @liketype = 1
+
+    current_user = User.find(session[:user_id])
+    @audios = current_user.discover_audios.paginate(:page => params[:page], per_page: 5)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end    
   end
 
   # GET /audios/1
