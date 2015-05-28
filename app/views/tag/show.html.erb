@@ -53,7 +53,8 @@
 	            </span>
 	 
 	            <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div> 
-	            <table>
+	          <table>
+          <% if music.allcomments.size != 0 %>
            <td>Comments:</td>
              <% music.top3comments.each do |comment| %>
               <tr>
@@ -62,10 +63,13 @@
                 <%= comment.content %>  
                 </td>
               </tr>
-              <% end %>  
+              <% end %> 
+              <% if music.allcomments.size >3 %> 
               <td>
               <%= link_to 'Show all comments', allcomments_path(music.id) %>
               </td>
+              <% end %>
+              <% end %>
             </table>
 	        </li>
 	        
