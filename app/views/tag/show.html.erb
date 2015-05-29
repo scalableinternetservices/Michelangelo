@@ -1,6 +1,8 @@
 <h1>#<%= @tag.name %></h1>
 <% if @musics.count > 0 %>
 
+<div>
+
   <table class="table table-striped">
 	<% @musics.each do |music| %>
 	  
@@ -15,7 +17,17 @@
 	        <li>
 	        <strong><%= link_to music.user.name, mytimeline_path(music.uid) %></strong>
 	        </li>
-	        <li> <%= music.comment %> </li>
+	        <li> 
+	          <%= music.comment %> 
+	          <div class="hashtag">
+	            <!-- <%= music.tag_list %> -->
+	            <% music.tags.any? %>
+	                 <% music.tags.each do |tag| %>
+	                    #<%= link_to tag.name, tag_path(tag) %>
+	            <% end %>
+
+	          </div> 
+	        </li>        	     
 	        <li> 
 	          <p>
 	            <% if music.sharetype == 1 %>
@@ -43,7 +55,7 @@
 	            <% end %>  
 	        
 	        <li>
-	            <%= link_to 'Add Comment',new_comment_path(:post_id => music.id, :commenttype => @commenttype), :class=> "add-comment", 
+	            <%= link_to 'Comment',new_comment_path(:post_id => music.id, :commenttype => @commenttype), :class=> "add-comment", 
 	            :id => "add-comment" + music.id.to_s, :remote => true %> 
 	            <%= music.allcomments.size %>
 	             
@@ -55,7 +67,7 @@
 	            <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div> 
 	          <table>
           <% if music.allcomments.size != 0 %>
-           <td>Comments:</td>
+           <!-- <td>Comments:</td> -->
              <% music.top3comments.each do |comment| %>
               <tr>
                 <td>
@@ -82,3 +94,7 @@
 <% else %>
   <p>This tag is not associated with any musics.</p>
 <% end %>
+
+<%= will_paginate @musics, renderer: BootstrapPagination::Rails %>
+
+</div>
