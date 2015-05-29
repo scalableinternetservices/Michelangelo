@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527083524) do
+ActiveRecord::Schema.define(version: 20150529030656) do
 
   create_table "audios", force: true do |t|
     t.text     "comment"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20150527083524) do
     t.integer  "audioFile_file_size"
     t.datetime "audioFile_updated_at"
   end
+
+  add_index "audios", ["uid"], name: "index_audios_on_uid"
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"
@@ -37,6 +39,8 @@ ActiveRecord::Schema.define(version: 20150527083524) do
     t.datetime "updated_at"
     t.integer  "commenttype"
   end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
 
   create_table "friendships", force: true do |t|
     t.integer  "friender_id"
@@ -75,6 +79,8 @@ ActiveRecord::Schema.define(version: 20150527083524) do
     t.integer  "uid"
     t.integer  "sharetype"
   end
+
+  add_index "musics", ["uid"], name: "index_musics_on_uid"
 
   create_table "orders", force: true do |t|
     t.string   "name"
@@ -129,6 +135,9 @@ ActiveRecord::Schema.define(version: 20150527083524) do
     t.datetime "updated_at"
     t.integer  "commenter"
   end
+
+  add_index "unreadcomments", ["commenter"], name: "index_unreadcomments_on_commenter"
+  add_index "unreadcomments", ["post_id"], name: "index_unreadcomments_on_post_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
