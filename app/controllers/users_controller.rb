@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     #   @searchedUsers = User.order("created_at DESC")
     # end
 
-    @current_user = User.find(session[:user_id])
+    @current_user = User.find(session[:user_id]).includes(:comments, :likes, :friendships)
     # @friends = User.find(session[:user_id]).friends
   end
 
