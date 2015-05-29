@@ -26,12 +26,6 @@ class UsersController < ApplicationController
     # @friends = User.find(session[:user_id]).friends
   end
 
-  def search
-    @current_user = User.find(session[:user_id])
-
-
-  end
-
   # GET /users/1
   # GET /users/1.json
   def show
@@ -43,7 +37,7 @@ class UsersController < ApplicationController
 
   def friends
     @current_user = User.find(session[:user_id])
-    @friends = @current_user.friends.paginate(:page => params[:page], per_page: 5)
+    @friends = User.find(params[:id]).friends
     # if params[:id] != session[:user_id]
     #   redirect_to homepage_path(session[:user_id])
     # end
@@ -52,8 +46,7 @@ class UsersController < ApplicationController
 
   def mytimeline
     @current_user = User.find(session[:user_id])
-    # @mymusics = Music.where(:uid => params[:id]).paginate(:page => params[:page], per_page: 5).order('created_at DESC')
-    @mymusics = Music.where(:uid => params[:id]).includes(:comments, :likes).paginate(:page => params[:page], per_page: 5).order('created_at DESC')
+    @mymusics = Music.where(:uid => params[:id]).paginate(:page => params[:page], per_page: 5).order('created_at DESC')
 
   end
 

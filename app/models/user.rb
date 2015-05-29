@@ -104,7 +104,7 @@ def self.search(user_name)
     # else
     #     all
     # end
-    User.where("name like ?", "%#{user_name}%").order("created_at DESC").paginate(:page => params[:page], per_page: 2)
+    User.where("name like ?", "%#{user_name}%").order("created_at DESC")
 end
 
   private
