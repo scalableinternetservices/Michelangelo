@@ -64,7 +64,7 @@
             <% end %>  
 
         <li>
-            <%= link_to 'Add Comment',new_comment_path(:post_id => music.id, :commenttype => @commenttype), :class=> "add-comment", 
+            <%= link_to 'Comment',new_comment_path(:post_id => music.id, :commenttype => @commenttype), :class=> "add-comment", 
             :id => "add-comment" + music.id.to_s, :remote => true %> 
             <%= music.allcomments.size %>
              
@@ -76,7 +76,7 @@
           <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div> 
             <table>
           <% if music.allcomments.size != 0 %>
-           <td>Comments:</td>
+           <!-- <td>Comments:</td> -->
              <% music.top3comments.each do |comment| %>
               <tr>
                 <td>

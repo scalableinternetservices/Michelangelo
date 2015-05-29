@@ -55,7 +55,7 @@
             <% end %> 
 
         <li>
-            <%= link_to 'Add Comment',new_comment_path(:post_id => audio.id, :commenttype => @commenttype), :class=> "add-comment", 
+            <%= link_to 'Comment',new_comment_path(:post_id => audio.id, :commenttype => @commenttype), :class=> "add-comment", 
             :id => "add-comment" + audio.id.to_s, :remote => true %> 
             <%= audio.audioallcomments.size %>
              
@@ -67,7 +67,7 @@
             <div id="comment-form-<%= audio.id %>" class="comment-form" style="display:none;"></div> 
            <table>
             <% if audio.audioallcomments.size != 0 %>
-           <td>Comments:</td>
+           <!-- <td>Comments:</td> -->
              <% audio.audiotop3comments.each do |comment| %>
               <tr>
                 <td>
