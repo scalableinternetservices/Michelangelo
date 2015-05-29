@@ -39,7 +39,6 @@ resources :musics
 #   end
 # end
 
-  get "admin/index"
   get "sessions/new"
   get 'admin' => 'admin#index'
   controller :sessions do
@@ -63,10 +62,6 @@ resources :musics
   get "sessions/create"
   get "sessions/destroy"
   resources :users
-  resources :orders
-  resources :line_items
-  resources :carts
-
 
   get 'users/friends/:id',        to: 'users#friends',         as: :friends
   get 'users/mytimeline/:id',        to: 'users#mytimeline',         as: :mytimeline
@@ -81,11 +76,6 @@ resources :musics
 
   put 'musics/likes/:id', to: "musics#like", as: :like_music
   put 'audios/likes/:id', to: "audios#like", as: :like_audio
-
-  get "store/index"
-  resources :products do
-    get :who_bought, on: :member
-  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
