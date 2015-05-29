@@ -17,12 +17,12 @@ class Music < ActiveRecord::Base
 
 
  def allcomments
-    Comment.where(post_id: self.id, commenttype: 0 ).order("created_at DESC")
+    Comment.where(post_id: self.id, commenttype: 0).includes(:users).order("created_at DESC")
   end
 
 
   def top3comments
-    Comment.where(post_id: self.id, commenttype: 0).order("created_at DESC").limit(3)
+    Comment.where(post_id: self.id, commenttype: 0).includes(:users).order("created_at DESC").limit(3)
   end
 
 
