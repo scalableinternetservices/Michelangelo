@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def friends
     @current_user = User.find(session[:user_id])
-    @friends = User.find(params[:id]).friends
+    @friends = User.find(params[:id]).friends.paginate(:page => params[:page], per_page: 10).order('created_at DESC')
     # if params[:id] != session[:user_id]
     #   redirect_to homepage_path(session[:user_id])
     # end
