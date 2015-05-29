@@ -70,6 +70,7 @@ resources :musics
 
   get 'users/friends/:id',        to: 'users#friends',         as: :friends
   get 'users/mytimeline/:id',        to: 'users#mytimeline',         as: :mytimeline
+  get 'users/audiotimeline/:id',        to: 'users#audiotimeline',         as: :audiotimeline
   get 'users/:id',        to: 'users#show',         as: :homepage
   get 'users/notification/:id',       to: 'users#notification',       as: :notification
   get 'users/newfriend/:id',      to: 'users#newfriend',        as: :newfriend

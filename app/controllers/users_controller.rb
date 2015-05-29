@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authorize
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :friends, :mytimeline, :requests]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :friends, :mytimeline, :audiotimeline, :requests]
 
 
 
@@ -46,10 +46,27 @@ class UsersController < ApplicationController
 
   def mytimeline
     @current_user = User.find(session[:user_id])
-    @mymusics = Music.where(:uid => params[:id]).paginate(:page => params[:page], per_page: 5).order('created_at DESC')
+    @mymusics = Music.where(:uid => params[:id]).paginate(:page => params[:page], per_page: 8).order('created_at DESC')
 
+    @commenttype = 0
+    @liketype = 0
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
+  def audiotimeline
+    @current_user = User.find(session[:user_id])
+    @myaudios = Audio.where(:uid => params[:id]).paginate(:page => params[:page], per_page: 8).order('created_at DESC')
+
+    @commenttype = 1
+    @liketype = 1
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
 
   def newfriend
