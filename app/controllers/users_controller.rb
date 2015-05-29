@@ -52,7 +52,8 @@ class UsersController < ApplicationController
 
   def mytimeline
     @current_user = User.find(session[:user_id])
-    @mymusics = Music.where(:uid => params[:id]).paginate(:page => params[:page], per_page: 5).order('created_at DESC')
+    # @mymusics = Music.where(:uid => params[:id]).paginate(:page => params[:page], per_page: 5).order('created_at DESC')
+    @mymusics = Music.where(:uid => params[:id]).includes(:comments, :likes).paginate(:page => params[:page], per_page: 5).order('created_at DESC')
 
   end
 
