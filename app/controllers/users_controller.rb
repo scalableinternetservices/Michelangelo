@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :friends, :mytimeline, :audiotimeline, :requests]
 
 
-
   # GET /users
   # GET /users.json
   # def index

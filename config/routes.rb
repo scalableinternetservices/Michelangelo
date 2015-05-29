@@ -6,7 +6,7 @@
 # We make no guarantees that this code is fit for any purpose. 
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
-Depot::Application.routes.draw do
+Musicloud::Application.routes.draw do
 
   get "tag/show"
   get "tag/cloud",  as: :tag_cloud
