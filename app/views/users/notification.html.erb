@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
-<h4>Notification</h4>
+<h3>New Comments</h3>
 
 <table class="table table-striped">
-        <% @mynotification.each do |notification| %>
+        <% @commentNotification.each do |notification| %>
         <tr>
         <td class="col-md-6">
            <%=User.find(notification.commenter).name%>
@@ -24,13 +24,38 @@
               <%= dayDiff%> days ago
             <% end %>             
 
-            <%= notification.id %>
-
            <%= link_to "View", viewcomm_path(notification.id) %>
         </td>
         </tr>
       <% end %>
-    </table>
+</table>
 
+<h3>New Likes</h3>
+<table class="table table-striped">
+        <% @likeNotification.each do |notification| %>
+        <tr>
+        <td class="col-md-6">
+           <%=User.find(notification.liker).name%>
+           <%=" liked your post "%>
 
+            <% 
+              dayDiff = (Time.zone.now - notification.created_at).to_i / 1.day
+              if dayDiff == 0 
+                hourDiff = (Time.zone.now - notification.created_at).to_i / 1.hour
+                if hourDiff == 0
+                  minDiff = (Time.zone.now - notification.created_at).to_i / 1.minute
+            %>
+                <%= minDiff%> min ago
+                <% else %>
+                <%= hourDiff%> hours ago
+                <% end %>
+            <% else %>
+              <%= dayDiff%> days ago
+            <% end %>             
+
+           <%= link_to "View", viewlike_path(notification.id) %>
+        </td>
+        </tr>
+      <% end %>
+</table>
 

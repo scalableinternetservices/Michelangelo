@@ -90,7 +90,9 @@
         <li>
           <%= link_to notification_path(session[:user_id])  do %>
           <i class="glyphicon glyphicon-envelope">&nbsp;Notification</i>
-          <span class="badge"><%=Unreadcomment.where(user_id: User.find(session[:user_id])).size%>
+          <span class="badge">
+            <%=Unreadcomment.where(user_id: User.find(session[:user_id])).size + Unreadlike.where(user_id: User.find(session[:user_id])).size %>
+          </span>
           <% end %>
         </li>
 

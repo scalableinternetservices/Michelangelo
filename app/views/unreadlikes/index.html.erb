@@ -1,0 +1,33 @@
+<h1>Listing unreadlikes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Post</th>
+      <th>User</th>
+      <th>Liker</th>
+      <th>Liketype</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unreadlikes.each do |unreadlike| %>
+      <tr>
+        <td><%= unreadlike.post_id %></td>
+        <td><%= unreadlike.user_id %></td>
+        <td><%= unreadlike.liker %></td>
+        <td><%= unreadlike.liketype %></td>
+        <td><%= link_to 'Show', unreadlike %></td>
+        <td><%= link_to 'Edit', edit_unreadlike_path(unreadlike) %></td>
+        <td><%= link_to 'Destroy', unreadlike, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Unreadlike', new_unreadlike_path %>

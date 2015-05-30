@@ -8,6 +8,8 @@
 #---
 Musicloud::Application.routes.draw do
 
+  # resources :unreadlikes
+
   get "tag/show"
   get "tag/cloud",  as: :tag_cloud
 
@@ -71,6 +73,7 @@ resources :musics
   get 'users/newfriend/:id',      to: 'users#newfriend',        as: :newfriend
   # get 'users/notification/viewcomm/:id' => 'musics#view_comm'
   get 'unreadcomments/view_comment/:id',    to: 'unreadcomments#view_comment',         as: :viewcomm
+  get 'unreadlikes/view_like/:id',    to: 'unreadlikes#view_like',         as: :viewlike
 
   get 'musics/comments/:id',      to: 'musics#allcomments',      as: :allcomments
   get 'audios/comments/:id',      to: 'audios#audioallcomments',      as: :audioallcomments

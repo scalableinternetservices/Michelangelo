@@ -64,11 +64,10 @@
             <% end %>  
 
         <li>
-            <%= link_to 'Comment',new_comment_path(:post_id => music.id, :commenttype => @commenttype), :class=> "add-comment", 
-            :id => "add-comment" + music.id.to_s, :remote => true %> 
+            <%= link_to 'Comment',new_comment_path(:post_id => music.id, :commenttype => @commenttype), :class=> "add-comment", :id => "add-comment" + music.id.to_s, :remote => true %> 
             <%= music.allcomments.size %>
              
-            <%= link_to 'Like', like_music_path(:id =>music.id, :liketype => @liketype), class:"like-vote", method: :put, remote: true%>
+            <%= link_to 'Like', like_music_path(:id => music.id, :liketype => @liketype), class:"like-vote", method: :put, remote: true %>
             <span class="like-count" data-id="<%= music.id %>">
               <%= music.likecount %>
             </span>

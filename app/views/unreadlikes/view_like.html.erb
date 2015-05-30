@@ -1,0 +1,172 @@
+<h3>Liked post</h3>
+
+<table class="table table-striped">
+
+<% if @thisLike.liketype == 0 %>  
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <td>
+      <div>
+      <%= image_tag(@music.user.image.url(:small), :class => "profile-img") %>
+      </div>
+    </td>
+    <td class="list_description">
+      <ul class="music-item">
+        <li>
+        <strong><%= link_to @music.user.name, mytimeline_path(@music.uid) %></strong>
+        </li>
+        <li> 
+          <%= @music.comment %> 
+          <div class="hashtag">
+            <!-- <%= @music.tag_list %> -->
+            <% @music.tags.any? %>
+                 <% @music.tags.each do |tag| %>
+                    #<%= link_to tag.name, tag_path(tag) %>
+            <% end %>
+
+          </div> 
+        </li>
+        <li> 
+          <p>
+            <% if @music.sharetype == 1 %>
+              <iframe frameborder="no" border="0" width=310 height=430 src="<%= @music.link %>"></iframe>
+            <% else %>
+              <iframe frameborder="no" border="0" width=320 height=80 src="<%= @music.link %>"></iframe>
+            <% end %>
+          </p>
+        </li>
+
+        <!-- <li style="color:grey"><%= @music.created_at %></li> -->
+            <% 
+              dayDiff = (Time.zone.now - @music.created_at).to_i / 1.day
+              if dayDiff == 0 
+                hourDiff = (Time.zone.now - @music.created_at).to_i / 1.hour
+                if hourDiff == 0
+                  minDiff = (Time.zone.now - @music.created_at).to_i / 1.minute
+            %>
+                <div style="color:grey"><%= minDiff%> min ago</div> 
+                <% else %>
+                <div style="color:grey"><%= hourDiff%> hours ago</div> 
+                <% end %>
+            <% else %>
+              <div style="color:grey"><%= dayDiff%> days ago</div>
+            <% end %>  
+
+        <li>
+            <%= link_to 'Comment',new_comment_path(:post_id => @music.id, :commenttype => @commenttype), :class=> "add-comment", 
+            :id => "add-comment" + @music.id.to_s, :remote => true %> 
+            <%= @music.allcomments.size %>
+             
+            <%= link_to 'Like', like_music_path(:id =>@music.id, :liketype => @liketype), class:"like-vote", method: :put, remote: true%>
+            <span class="like-count" data-id="<%= @music.id %>">
+              <%= @music.likecount %>
+            </span>
+ 
+          <div id="comment-form-<%= @music.id %>" class="comment-form" style="display:none;"></div> 
+            <table>
+          <% if @music.allcomments.size != 0 %>
+           <!-- <td>Comments:</td> -->
+             <% @music.top3comments.each do |comment| %>
+              <tr>
+                <td>
+                <%= link_to comment.user.name + ':', mytimeline_path(comment.user.id) %>
+                <%= comment.content %>  
+                </td>
+              </tr>
+              <% end %> 
+              <% if @music.allcomments.size >3 %> 
+              <td>
+              <%= link_to 'Show all comments', allcomments_path(@music.id) %>
+              </td>
+              <% end %>
+              <% end %>
+            </table>
+        </li>
+
+
+        
+      </ul>
+    </td>
+
+  </tr>
+
+<% else %>
+
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <td>
+      <div>
+      <%= image_tag(@audio.user.image.url(:small), :class => "profile-img") %>
+      </div>
+    </td>
+    <td class="list_description">
+      <ul class="music-item">
+        <li>
+        <strong><%= link_to @audio.user.name, mytimeline_path(@audio.uid) %></strong>
+        </li>
+        <li> 
+          <%= @audio.comment %> 
+        </li>
+        <li>  
+          <p>
+          <audio controls>
+          <source src=<%= @audio.audioFile.url %> type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          </p>
+        </li>
+
+        <!-- <li style="color:grey"><%= @audio.created_at %></li> -->
+            <% 
+              dayDiff = (Time.zone.now - @audio.created_at).to_i / 1.day
+              if dayDiff == 0 
+                hourDiff = (Time.zone.now - @audio.created_at).to_i / 1.hour
+                if hourDiff == 0
+                  minDiff = (Time.zone.now - @audio.created_at).to_i / 1.minute
+            %>
+                <div style="color:grey"><%= minDiff%> min ago</div> 
+                <% else %>
+                <div style="color:grey"><%= hourDiff%> hours ago</div> 
+                <% end %>
+            <% else %>
+              <div style="color:grey"><%= dayDiff%> days ago</div>
+            <% end %> 
+
+        <li>
+            <%= link_to 'Comment',new_comment_path(:post_id => @audio.id, :commenttype => @commenttype), :class=> "add-comment", 
+            :id => "add-comment" + @audio.id.to_s, :remote => true %> 
+            <%= @audio.audioallcomments.size %>
+             
+            <%= link_to 'Like', like_audio_path(:id =>@audio.id, :liketype => @liketype), class:"like-vote", method: :put, remote: true%>
+            <span class="like-count" data-id="<%= @audio.id %>">
+              <%= @audio.audiolikecount %>
+            </span>
+ 
+            <div id="comment-form-<%= @audio.id %>" class="comment-form" style="display:none;"></div> 
+           <table>
+            <% if @audio.audioallcomments.size != 0 %>
+           <!-- <td>Comments:</td> -->
+             <% @audio.audiotop3comments.each do |comment| %>
+              <tr>
+                <td>
+                <%= link_to comment.user.name + ':', mytimeline_path(comment.user.id) %>
+                <%= comment.content %>  
+                </td>
+              </tr>
+              <% end %>  
+              <% if @audio.audioallcomments.size >3 %> 
+              <td>
+              <%= link_to 'Show all comments', audioallcomments_path(@audio.id) %>
+              </td>
+               <% end %> 
+                <% end %> 
+            </table>
+        </li>
+
+
+        
+      </ul>
+    </td>        
+  </tr>
+
+<% end %>
+
+</table>

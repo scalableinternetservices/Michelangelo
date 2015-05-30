@@ -29,6 +29,19 @@ class LikesController < ApplicationController
     @like = Like.new(like_params)
     @like.user = current_user
     @like.save
+
+    # if @like.liketype == 0
+    #   @host = Music.find(@like.post_id).uid
+    #   if (@host != current_user.id)
+    #     @unreadlike = Unreadlike.create(:post_id => @like.post_id, :user_id => @host, :liker => current_user.id, :liketype => 0)
+    #   end
+    # else
+    #   @host = Audio.find(@comment.post_id).uid
+    #   if (@host != current_user.id)
+    #     @unreadlike = Unreadlike.create(:post_id => @like.post_id, :user_id => @host, :liker => current_user.id, :liketype => 1)
+    #   end
+    # end
+
     redirect_to (:back)
   end
 

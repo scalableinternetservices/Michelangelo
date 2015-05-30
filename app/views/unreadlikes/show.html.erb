@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @unreadlike.post_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @unreadlike.user_id %>
+</p>
+
+<p>
+  <strong>Liker:</strong>
+  <%= @unreadlike.liker %>
+</p>
+
+<p>
+  <strong>Liketype:</strong>
+  <%= @unreadlike.liketype %>
+</p>
+
+<%= link_to 'Edit', edit_unreadlike_path(@unreadlike) %> |
+<%= link_to 'Back', unreadlikes_path %>

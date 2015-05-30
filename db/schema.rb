@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530183817) do
+ActiveRecord::Schema.define(version: 20150530191236) do
 
   create_table "audios", force: true do |t|
     t.text     "comment"
@@ -93,6 +93,15 @@ ActiveRecord::Schema.define(version: 20150530183817) do
     t.datetime "updated_at"
     t.integer  "commenter"
     t.integer  "commenttype"
+  end
+
+  create_table "unreadlikes", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.integer  "liker"
+    t.integer  "liketype"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

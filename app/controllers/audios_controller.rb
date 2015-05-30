@@ -86,6 +86,11 @@ class AudiosController < ApplicationController
     current_user = User.find(session[:user_id])
     current_user.like(@audio, params[:liketype])
 
+      @host = @audio.uid
+      if (@host != current_user.id)
+        Unreadlike.create(:post_id => @audio.id, :user_id => @host, :liker => current_user.id, :liketype => 1)
+      end
+
     if request.xhr?
       render json: { count: @audio.audiolikecount, id: params[:id] }
     else
