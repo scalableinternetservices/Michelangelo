@@ -40,30 +40,38 @@ class UsersController < ApplicationController
     # if params[:id] != session[:user_id]
     #   redirect_to homepage_path(session[:user_id])
     # end
+    fresh_when(@friends)
   end
 
 
   def mytimeline
     @current_user = User.find(session[:user_id])
-    @mymusics = Music.where(:uid => params[:id]).paginate(:page => params[:page], per_page: 8).order('created_at DESC')
+    @music_collection = Music.where(:uid => params[:id])
+    @mymusics = @music_collection.paginate(:page => params[:page], per_page: 8).order('created_at DESC')
 
     @commenttype = 0
     @liketype = 0
-    respond_to do |format|
-      format.html
-      format.js
+
+    if @music_collection.empty? or stale?(@music_collection, last_modified: @music_collection.last.updated_at)
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   end
 
   def audiotimeline
     @current_user = User.find(session[:user_id])
-    @myaudios = Audio.where(:uid => params[:id]).paginate(:page => params[:page], per_page: 8).order('created_at DESC')
+    @audio_collection = Audio.where(:uid => params[:id])
+    @myaudios = @audio_collection.paginate(:page => params[:page], per_page: 8).order('created_at DESC')
 
     @commenttype = 1
     @liketype = 1
-    respond_to do |format|
-      format.html
-      format.js
+    if @audio_collection.empty? or stale?(@audio_collection, last_modified: @audio_collection.last.updated_at)
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   end
 

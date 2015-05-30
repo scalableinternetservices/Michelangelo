@@ -6,15 +6,18 @@ class MusicsController < ApplicationController
   # GET /musics
   # GET /musics.json
   def index
-    fresh_when @musics
     current_user = User.find(session[:user_id])
+    @music_collection = current_user.discover_musics
     # @musics = current_user.discover_musics.paginate(:page => params[:page], per_page: 5)
-    @musics = current_user.discover_musics.includes(:comments, :likes).paginate(:page => params[:page], per_page: 8)
+    @musics = @music_collection.includes(:comments, :likes).paginate(:page => params[:page], per_page: 8)
     @commenttype = 0
     @liketype = 0
-    respond_to do |format|
-      format.html
-      format.js
+    # byebug
+    if @music_collection.empty? or stale?(@music_collection, last_modified: @music_collection.last.updated_at)
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   
   end

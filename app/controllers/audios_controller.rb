@@ -11,13 +11,15 @@ class AudiosController < ApplicationController
     @liketype = 1
 
     current_user = User.find(session[:user_id])
+    @audio_collection = current_user.discover_audios
     # @audios = current_user.discover_audios.paginate(:page => params[:page], per_page: 5)
-    @audios = current_user.discover_audios.includes(:comments, :likes).paginate(:page => params[:page], per_page: 8)
-
-    respond_to do |format|
-      format.html
-      format.js
-    end    
+    @audios = @audio_collection.includes(:comments, :likes).paginate(:page => params[:page], per_page: 8)
+    if @audio_collection.empty? or stale?(@audio_collection, last_modified: @audio_collection.last.updated_at)
+      respond_to do |format|
+        format.html
+        format.js
+      end 
+    end   
   end
 
   # GET /audios/1
