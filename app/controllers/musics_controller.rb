@@ -1,11 +1,12 @@
 class MusicsController < ApplicationController
   before_action :set_music, only: [:show, :edit, :update, :destroy]
   before_action :all_musics, only: [:index, :create]
-  respond_to :html, :js
+  # respond_to :html, :js
 
   # GET /musics
   # GET /musics.json
   def index
+    fresh_when @musics
     current_user = User.find(session[:user_id])
     # @musics = current_user.discover_musics.paginate(:page => params[:page], per_page: 5)
     @musics = current_user.discover_musics.includes(:comments, :likes).paginate(:page => params[:page], per_page: 8)
