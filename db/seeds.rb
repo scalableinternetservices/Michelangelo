@@ -48,7 +48,7 @@ end
 		  link:   'http://music.163.com/outchain/player?type=2&id=29019227&auto=0&height=66')
 		music.save!
 
-    20.times do |m|
+    10.times do |m|
 		
 		comment = Comment.create(
 		  content: "scaling test scaling test scaling test",
