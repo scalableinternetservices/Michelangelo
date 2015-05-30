@@ -77,14 +77,11 @@ class UsersController < ApplicationController
 
 
   def notification
-    @user = User.find(params[:id])
-    @current_user = User.find(session[:user_id])
+    # @user = User.find(params[:id])
+    # @current_user = User.find(session[:user_id])
     @mynotification = Unreadcomment.where(:user_id => params[:id]).order('created_at DESC')
   end
-
-  def viewPost
-
-  end
+  
 
   # def requests_from
   #   @requests_from = User.find(params[:id]).requests_from

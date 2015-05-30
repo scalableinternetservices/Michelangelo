@@ -13,7 +13,7 @@ Musicloud::Application.routes.draw do
 
   resources :tag
 
-  resources :unreadcomments
+  # resources :unreadcomments
 
   resources :audios
   
@@ -69,7 +69,8 @@ resources :musics
   get 'users/:id',        to: 'users#show',         as: :homepage
   get 'users/notification/:id',       to: 'users#notification',       as: :notification
   get 'users/newfriend/:id',      to: 'users#newfriend',        as: :newfriend
-  get 'users/notification/viewcomm/:id' => 'musics#view_comm'
+  # get 'users/notification/viewcomm/:id' => 'musics#view_comm'
+  get 'unreadcomments/view_comment/:id',    to: 'unreadcomments#view_comment',         as: :viewcomm
 
   get 'musics/comments/:id',      to: 'musics#allcomments',      as: :allcomments
   get 'audios/comments/:id',      to: 'audios#audioallcomments',      as: :audioallcomments

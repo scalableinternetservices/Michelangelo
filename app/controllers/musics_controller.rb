@@ -38,12 +38,10 @@ class MusicsController < ApplicationController
   def edit
   end
 
-  def view_comm
-    Unreadcomment.delete(params[:id])
-    redirect_to mytimeline_path(session[:user_id])
-  end
-
-
+  # def view_comm
+  #   Unreadcomment.delete(params[:id])
+  #   redirect_to mytimeline_path(session[:user_id])
+  # end
 
   # POST /musics
   # POST /musics.json

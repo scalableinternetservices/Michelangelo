@@ -9,8 +9,10 @@ Musicloud::Application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
-  # Show full error reports and disable caching.
+  # Show full error reports
   config.consider_all_requests_local       = true
+
+  # enable caching
   config.action_controller.perform_caching = true
 
   # Don't care if the mailer can't send.
