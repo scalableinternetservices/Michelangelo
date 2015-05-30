@@ -5,7 +5,7 @@
   <%= form_tag('/login') do %>
   <div class="form-signin">
     <fieldset>
-      <legend>Please Log In</legend>
+      <legend>Log In</legend>
       <div>
         <%= label_tag :name, 'Name:' %>
         <!-- <%= text_field_tag :name, params[:name], place_holder: "username" %> -->
@@ -21,7 +21,9 @@
       </div>
       <div>
         <br />
-        <%= link_to 'New User', register_url %>
+        If you do not have an account by now, please 
+        <%= link_to 'sign up', register_url %>
+
       </div>      
     </fieldset>
 
