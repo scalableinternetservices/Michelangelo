@@ -6,14 +6,14 @@
 # We make no guarantees that this code is fit for any purpose. 
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
-Depot::Application.routes.draw do
+Musicloud::Application.routes.draw do
 
   get "tag/show"
   get "tag/cloud",  as: :tag_cloud
 
   resources :tag
 
-  resources :unreadcomments
+  # resources :unreadcomments
 
   resources :audios
   
@@ -39,7 +39,6 @@ resources :musics
 #   end
 # end
 
-  get "admin/index"
   get "sessions/new"
   get 'admin' => 'admin#index'
   controller :sessions do
@@ -63,10 +62,6 @@ resources :musics
   get "sessions/create"
   get "sessions/destroy"
   resources :users
-  resources :orders
-  resources :line_items
-  resources :carts
-
 
   get 'users/friends/:id',        to: 'users#friends',         as: :friends
   get 'users/mytimeline/:id',        to: 'users#mytimeline',         as: :mytimeline
@@ -74,18 +69,14 @@ resources :musics
   get 'users/:id',        to: 'users#show',         as: :homepage
   get 'users/notification/:id',       to: 'users#notification',       as: :notification
   get 'users/newfriend/:id',      to: 'users#newfriend',        as: :newfriend
-  get 'users/notification/viewcomm/:id' => 'musics#view_comm'
+  # get 'users/notification/viewcomm/:id' => 'musics#view_comm'
+  get 'unreadcomments/view_comment/:id',    to: 'unreadcomments#view_comment',         as: :viewcomm
 
   get 'musics/comments/:id',      to: 'musics#allcomments',      as: :allcomments
   get 'audios/comments/:id',      to: 'audios#audioallcomments',      as: :audioallcomments
 
   put 'musics/likes/:id', to: "musics#like", as: :like_music
   put 'audios/likes/:id', to: "audios#like", as: :like_audio
-
-  get "store/index"
-  resources :products do
-    get :who_bought, on: :member
-  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

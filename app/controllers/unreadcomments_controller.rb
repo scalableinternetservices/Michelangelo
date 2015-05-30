@@ -21,6 +21,21 @@ class UnreadcommentsController < ApplicationController
   def edit
   end
 
+  def view_comment
+    @thisComment = Unreadcomment.find(params[:id])
+
+    if @thisComment.commenttype == 0
+      @music = Music.find(@thisComment.post_id)
+    else
+      @audio = Audio.find(@thisComment.post_id)
+    end
+
+    Unreadcomment.delete(params[:id])
+
+    # redirect_to mytimeline_path(session[:user_id])
+  end
+
+
   # POST /unreadcomments
   # POST /unreadcomments.json
   def create
@@ -69,6 +84,6 @@ class UnreadcommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unreadcomment_params
-      params.require(:unreadcomment).permit(:comment_id, :post_id, :user_id, :commenter)
+      params.require(:unreadcomment).permit(:comment_id, :post_id, :user_id, :commenter, :commenttype)
     end
 end

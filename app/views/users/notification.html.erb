@@ -24,7 +24,9 @@
               <%= dayDiff%> days ago
             <% end %>             
 
-           <%= link_to "View", "viewcomm/"+notification.id.to_s%>
+            <%= notification.id %>
+
+           <%= link_to "View", viewcomm_path(notification.id) %>
         </td>
         </tr>
       <% end %>
