@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :unlikes, dependent: :destroy
 
-  has_attached_file :image, :styles => { :small => "150x150", :regular => "300x300" }
+  has_attached_file :image, :styles => { :small => "150x150", :regular => "300x300" },
+                    :default_url => 'missing.png'
+
                     # #for production uploads
                     # :storage=> :s3,
                     # :s3_credentials => "#{Rails.root}/config/aws.yml",
