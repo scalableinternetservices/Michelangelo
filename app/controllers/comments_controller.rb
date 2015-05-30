@@ -46,7 +46,7 @@ class CommentsController < ApplicationController
     end
     
     @comment.save
-    redirect_to (:back)
+    redirect_to @comment
 end
 
   def destroy
