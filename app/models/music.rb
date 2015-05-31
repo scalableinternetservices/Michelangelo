@@ -8,8 +8,14 @@ class Music < ActiveRecord::Base
 
   # has_many   :unlikes, :foreign_key => :post_id, dependent: :destroy
 
-  validates :link, presence: true
+  # regex = /http:\/\/music.163.com\/\#\/song\?id\=(.*)/
+  regex = /http:\/\/music.163.com\/outchain\/player\?type=2\&id=(.*)\&auto=0\&height=66|http:\/\/music.163.com\/outchain\/player\?type=0\&id=(.*)\&auto=0\&height=430/
+  # regex2 = /http:\/\/music.163.com\/outchain\/player?type=0&id=(.*)&auto=0&height=430/
+
+  validates :link, presence: true,
+                  format: { :with => regex }
   # validates :comment, presence: true
+
   validates :uid, presence: true
 
   def user
