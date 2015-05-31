@@ -47,7 +47,21 @@ end
 		  uid: k,
 		  link:   'http://music.163.com/outchain/player?type=2&id=29019227&auto=0&height=66')
 		music.save!
+
+    10.times do |m|
+		
+		comment = Comment.create(
+		  content: "scaling test scaling test scaling test",
+		  commenttype: 0,
+		  post_id: music.id,
+		  user_id: k
+		  )
+		comment.save!
+		# puts comment.id
+    end
+
 	end
+
 
 	if i % 10 == 0
 		puts "music for user ", i
