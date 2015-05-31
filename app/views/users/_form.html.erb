@@ -1,11 +1,7 @@
-<div class="depot_form">
-<br />
-<%= form_for(@user , :html => { :multipart => true 
-}) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %>
-        prohibited this user from being saved:</h2>
+      <h4>Failed to create this user</h4>
+
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -13,6 +9,11 @@
       </ul>
     </div>
   <% end %>
+
+<div class="depot_form">
+<br />
+<%= form_for(@user , :html => { :multipart => true 
+}) do |f| %>
 
   <fieldset>
   <div class="form-signin">

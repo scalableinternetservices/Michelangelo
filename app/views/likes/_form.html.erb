@@ -1,7 +1,6 @@
-<%= form_for(@like) do |f| %>
   <% if @like.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@like.errors.count, "error") %> prohibited this like from being saved:</h2>
+      <h4>Failed to post this like</h4>
 
       <ul>
       <% @like.errors.full_messages.each do |msg| %>
@@ -11,6 +10,7 @@
     </div>
   <% end %>
 
+<%= form_for(@like) do |f| %>
 
   <div class="field">
     <%= f.hidden_field :post_id, :value => params[:post_id]%>

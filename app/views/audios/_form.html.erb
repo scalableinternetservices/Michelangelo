@@ -1,11 +1,6 @@
-
-
-<div class="middle-page">
-<hr>
-<%= form_for(@audio, :html => {:multipart => true, :class => "form-group"}) do |f| %>
   <% if @audio.errors.any? %>
     <div id="error_explanation">
-      <h3><%= pluralize(@audio.errors.count, "error") %> prohibited this audio from being saved:</h3>
+      <h4>Failed to post this audio</h4>
 
       <ul>
       <% @audio.errors.full_messages.each do |msg| %>
@@ -14,6 +9,10 @@
       </ul>
     </div>
   <% end %>
+
+<div class="middle-page">
+<hr>
+<%= form_for(@audio, :html => {:multipart => true, :class => "form-group"}) do |f| %>
 
   <div class="field">
     <label class="sr-only">Comment:</label>

@@ -1,6 +1,6 @@
   <% if @music.errors.any? %>
     <div id="error_explanation">
-      <h4>Cannot post this music</h4>
+      <h4>Failed to post this music</h4>
 
       <ul>
       <% @music.errors.full_messages.each do |msg| %>
@@ -9,7 +9,7 @@
       </ul>
     </div>
   <% end %>
-  
+
 <div class="middle-page">
 <hr>
 <%= form_for(@music, :html => {:class => "form-group"}) do |f| %>
