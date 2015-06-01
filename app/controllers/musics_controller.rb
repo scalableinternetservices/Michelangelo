@@ -12,10 +12,11 @@ class MusicsController < ApplicationController
     @musics = current_user.discover_musics.includes(:comments, :likes).paginate(:page => params[:page], per_page: 8)
     @commenttype = 0
     @liketype = 0
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   
   end
 

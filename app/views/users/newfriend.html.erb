@@ -1,10 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 
-<h4>Friend Requests</h4>
+<h3>Friend Requests</h3>
+<br >
 
-
-    
     <% if @current_user == @user && @user.requests_from.any? %>
       
         <table class="table table-striped">

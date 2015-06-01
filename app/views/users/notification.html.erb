@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
-<h3>New Comments</h3>
+<h3>Comments</h3>
+<br >
 
 <table class="table table-striped">
         <% @commentNotification.each do |notification| %>
         <tr>
         <td class="col-md-6">
-           <%=User.find(notification.commenter).name%>
+           <b><%=User.find(notification.commenter).name%></b>
            <%=" commented on your post "%>
            <!-- <%=notification.created_at.strftime("on %B %d at %I:%M %p")%> -->
 
@@ -30,12 +31,16 @@
       <% end %>
 </table>
 
-<h3>New Likes</h3>
+<br >
+
+<h3>Likes</h3>
+<br >
+
 <table class="table table-striped">
         <% @likeNotification.each do |notification| %>
         <tr>
         <td class="col-md-6">
-           <%=User.find(notification.liker).name%>
+           <b><%=User.find(notification.liker).name%></b>
            <%=" liked your post "%>
 
             <% 
