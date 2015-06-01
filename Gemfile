@@ -60,3 +60,5 @@ gem 'byebug', group: [:development, :test]
 # act as taggable on
 gem 'acts-as-taggable-on'
 
+gem 'bullet', group: :development
+
