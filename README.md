@@ -1,5 +1,5 @@
-MusiCloud
-# Ruby on Rails Project for CS 219
+# MusiCloud
+Ruby on Rails Project for CS 219
 =======
 ## Team: Michelangelo
 
@@ -11,7 +11,7 @@ Are you tired of listening to radios and billboards over and over again? You'd e
 
 But don't worry! Our MusiCloud is the perfect solution to your dilemma. At MusiCloud, you can share songs with your friends, and like and comment on your friends' posted musics. What's more, you can even share playlists of songs, which shows your friends your music collections and your music tastes. Therefore, you can simply listen to your friends' playlists with similar music tastes when you want to listen to some music while you're working or studying, without having to live with your old playlists that you have listened to a million times, or take the trouble to discover new good songs.
 
-Moreover, if you do not have many friends, MusiCloud still have a handful for you. We have this feature called "What's hot", which shows you the trending hashtags of all the musics that our users post, and you can click into those hashtags to see all the trending musics. And for example, if you like Jazz, you can click into the tag "Jazz" and find all Jazz music.
+Moreover, if you do not have many friends, MusiCloud still have a handful for you. We have this feature called "What's hot", which shows you the trending hashtags of all the musics that our users post, and you can click into those hashtags to see all the trending musics. Agnd for example, if you like Jazz, you can click into the tag "Jazz" and find all Jazz music.
 
 ### Audio sharing
 
