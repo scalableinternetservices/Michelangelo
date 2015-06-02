@@ -4,7 +4,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions
   # GET /submissions.json
   def index
-    if stale?([Submission.all, Community.all, Comments.all])
+    if stale?([Submission.all, Community.all, Comment.all])
       @submissions = Submission.all
     end
   end
