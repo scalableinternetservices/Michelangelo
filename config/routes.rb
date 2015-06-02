@@ -10,10 +10,17 @@ Musicloud::Application.routes.draw do
 
   # resources :unreadlikes
 
-  get "tag/show"
-  get "tag/cloud",  as: :tag_cloud
+  # get "tag/show"
+  # get "tag/cloud",  as: :tag_cloud
 
-  resources :tag
+  # controller :tag do
+  #   get 'trends' => :cloud
+  # end
+
+  # resources :tag
+
+  get 'tag/cloud',        to: 'tag#cloud',         as: :trends  
+  get 'tag/search/:id',        to: 'tag#search',         as: :showtag  
 
   # resources :unreadcomments
 
@@ -42,7 +49,7 @@ resources :musics
 # end
 
   get "sessions/new"
-  get 'admin' => 'admin#index'
+  # get 'admin' => 'admin#index'
   controller :sessions do
     get  'login' => :new
     post 'login' => :create

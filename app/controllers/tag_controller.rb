@@ -3,7 +3,7 @@ class TagController < ApplicationController
   	@threshold = 0
   end
 
-  def show
+  def search
   	@tag = Tag.find(params[:id])
     @musics = Music.tagged_with(@tag.name).order("created_at DESC").paginate(:page => params[:page], per_page: 8)
 

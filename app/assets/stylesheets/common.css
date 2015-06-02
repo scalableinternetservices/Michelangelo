@@ -1606,7 +1606,7 @@ html {
     box-shadow: 0 0 5px rgba(230,232,240,1) , -4px -3px rgba(20,22,34,0.1) inset;
     border-radius: 26px;
     margin-top: 0px;
-    margin-left: -13px;
+    margin-left: -12px;
 }
 
 .mallet.right:after {
@@ -1618,10 +1618,10 @@ html {
 }
 
 .mallet:before {
-    width: 6px;
+    width: 5px;
     height: 100px;
     margin-left: -3px;
-    background-color: white;
+    background-color: gray;
     box-shadow: -2px 0 0 rgba(230,232,240,0.5) inset;
     border-radius: 6px;
 }

@@ -11,7 +11,7 @@
 
 <!-- sorted alphabetically -->
 <% tag_cloud(Music.tag_counts.sort { |x, y| x.name <=> y.name }.select { |x| x.taggings_count > @threshold }, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-  <%= link_to tag.name, tag_path(tag), :class => css_class %>
+  <%= link_to tag.name, showtag_path(tag), :class => css_class %>
 <% end %>
 
 	<section class="cd-intro">
