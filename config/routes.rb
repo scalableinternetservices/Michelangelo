@@ -13,12 +13,6 @@ Musicloud::Application.routes.draw do
   # get "tag/show"
   # get "tag/cloud",  as: :tag_cloud
 
-  # controller :tag do
-  #   get 'trends' => :cloud
-  # end
-
-  # resources :tag
-
   get 'tag/cloud',        to: 'tag#cloud',         as: :trends  
   get 'tag/search/:id',        to: 'tag#search',         as: :showtag  
 

@@ -38,7 +38,8 @@
               <li><a href=<%=home_url%>>Home</a></li>
               <li><a href=<%=search_url%>>Search</a></li>
               <li><a href=<%=contact_url%>>Contact</a></li>
-              <li><a href=<%=trends_url%>><font color="#FF6262"><b>What's hot?</b></font></a></li>
+              <!-- <li><a href=<%=trends_url%>><font color="#FF6262"><b>What's hot?</b></font></a></li> -->
+              <li><%= link_to "What's hot?", trends_url, {:style=>'color:#FF6262;font-weight: bold', method: :get }%></li>
 
             </ul>
             <% if session[:user_id] %>
