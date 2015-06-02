@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="ec2-52-25-243-126.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
+    <server host="ec2-52-24-20-8.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
   </servers>
 
 <!--   <servers>
@@ -104,6 +104,12 @@
        </http>
      </request>
 
+     <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->
+        io:format([126, $p, 126, $n, 126, $n], [DynVars]),
+        ok end.">
+        <var name="dump" />
+      </setdynvars>
+
       <thinktime value="1" random="true"></thinktime>
       <request>
         <http url='/users/%%_created_user_id%%' version='1.1' method='GET'></http>
@@ -141,12 +147,8 @@
       </request>
 
 
-<!--       <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->
-        io:format([126, $p, 126, $n, 126, $n], [DynVars]),
-        ok end.">
-        <var name="dump" />
-      </setdynvars>
-       -->
+ 
+      
 
      <thinktime value="1" random="true"></thinktime>
       <request>
@@ -255,14 +257,14 @@
        <http
        url='/comments'
        version='1.1'
-       method='POST' contents='comment%5Bcontent%5D=comment%%_dyn_post_content%%&amp;comment%5Bpost_id%5D=%%_created_music_id%%&amp;commit=Submit'>
+       method='POST' contents='comment%5Bcontent%5D=comment%%_dyn_post_content%%&amp;comment%5Bpost_id%5D=%%_created_music_id%%&amp;comment%commenttype%5D=0&amp;commit=Submit'>
        </http>
       </request>
 
       <thinktime value="1" random="true"></thinktime>
 
       <request subst="true">
-        <http url='/musics/likes/%%_created_music_id%%' version='1.1' method='PUT'></http>
+        <http url='/musics/likes/%%_created_music_id%%?liketype=0' version='1.1' method='PUT'></http>
       </request>
 
       
