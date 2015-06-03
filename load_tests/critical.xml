@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="ec2-52-25-243-126.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
+    <server host="ec2-52-24-125-18.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
   </servers>
 
 <!--   <servers>
@@ -55,7 +55,7 @@
 
   <options>
     <!-- Set connection timeout to 2 seconds -->
-    <option name="glocal_ack_timeout" value="2000"></option>
+    <option name="glocal_ack_timeout" value="3000"></option>
 
     <option type="ts_http" name="user_agent">
       <user_agent probability="100">Mozilla/5.0 (Windows; U; Windows NT 5.2; fr-FR; rv:1.7.8) Gecko/20050511 Firefox/1.0.4</user_agent>
@@ -64,6 +64,20 @@
 
   <sessions>
     <session name="new-user" probability="20" type="ts_http">
+
+       <setdynvars sourcetype="eval"
+            code='fun({Pid,DynVars})-> [[13, 10]] end.'>
+        <var name="nl" />
+      </setdynvars>
+
+      <setdynvars sourcetype="eval"
+            code='fun({Pid,DynVars})->
+                    {ok, Bin} = file:read_file("test.jpg"),
+                    Bin
+                  end.'>
+        <var name="attached_file" />
+      </setdynvars>
+
 
       <!-- start out at the dashboard. -->
       <request>
@@ -104,29 +118,23 @@
        </http>
      </request>
 
+     <!-- <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->
+        io:format([126, $p, 126, $n, 126, $n], [DynVars]),
+        ok end.">
+        <var name="dump" />
+      </setdynvars> -->
+
       <thinktime value="1" random="true"></thinktime>
-      <request>
+      <request subst="true">
         <http url='/users/%%_created_user_id%%' version='1.1' method='GET'></http>
       </request>
 
       <thinktime value="1" random="true"></thinktime>
-      <request>
+      <request subst="true">
         <http url='/users/%%_created_user_id%%/edit' version='1.1' method='GET'></http>
       </request>
 
-      <setdynvars sourcetype="eval"
-            code='fun({Pid,DynVars})-> [[13, 10]] end.'>
-        <var name="nl" />
-      </setdynvars>
-
-      <setdynvars sourcetype="eval"
-            code='fun({Pid,DynVars})->
-                    {ok, Bin} = file:read_file("test.jpg"),
-                    Bin
-                  end.'>
-        <var name="attached_file" />
-      </setdynvars>
-
+     
 
       <thinktime value="5" random="true"></thinktime>
       <request subst="true">
@@ -139,14 +147,7 @@
 '>
       </http>
       </request>
-
-
-<!--       <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->
-        io:format([126, $p, 126, $n, 126, $n], [DynVars]),
-        ok end.">
-        <var name="dump" />
-      </setdynvars>
-       -->
+     
 
      <thinktime value="1" random="true"></thinktime>
       <request>
@@ -228,7 +229,7 @@
        <http
        url='/musics'
        version='1.1'
-       method='POST' contents='music%5Bcomment%5D=postcomment%%_dyn_post_content%%&amp;music%5Blink%5D=52.25.62.242&amp;music%5Bsharetype%5D=0&amp;commit=Submit'>
+       method='POST' contents='music%5Bcomment%5D=postcomment%%_dyn_post_content%%&amp;music%5Blink%5D=http%3A%2F%2Fmusic.163.com%2Foutchain%2Fplayer%3Ftype%3D2%26id=29019227%26auto%3D0%26height%3D66&amp;music%5Bsharetype%5D=0&amp;commit=Submit'>
        </http>
      </request>
 
@@ -236,15 +237,22 @@
       <request>
         <http url='/musics' version='1.1' method='GET'></http>
       </request>
-      
-<!--      <setdynvars sourcetype="random_number" start="1" end="10000">
-        <var name="dyn_post_id" />
+
+
+     <!--  <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->
+        io:format([126, $p, 126, $n, 126, $n], [DynVars]),
+        ok end.">
+        <var name="dump" />
       </setdynvars> -->
+      
+     <setdynvars sourcetype="random_number" start="1" end="10000">
+        <var name="dyn_post_id" />
+      </setdynvars>
 
 
-
+     <thinktime value="1" random="true"></thinktime>
       <request subst="true">
-        <http url='/comments/new?post_id=%%_created_music_id%%' version='1.1' method='GET'></http>
+        <http url='/comments/new?post_id=%%_dyn_post_id%%' version='1.1' method='GET'></http>
       </request>
 
       <thinktime value="3" random="true"></thinktime>
@@ -255,23 +263,27 @@
        <http
        url='/comments'
        version='1.1'
-       method='POST' contents='comment%5Bcontent%5D=comment%%_dyn_post_content%%&amp;comment%5Bpost_id%5D=%%_created_music_id%%&amp;commit=Submit'>
+       method='POST' contents='comment%5Bcontent%5D=musiccomment%%_dyn_post_content%%&amp;comment%5Bpost_id%5D=%%_dyn_post_id%%&amp;comment%5Bcommenttype%5D=0&amp;commit=Submit'>
        </http>
       </request>
 
-      <thinktime value="1" random="true"></thinktime>
 
+     <thinktime value="1" random="true"></thinktime>
+      <request>
+        <http url='/musics' version='1.1' method='GET'></http>
+      </request>
+
+      <thinktime value="1" random="true"></thinktime>
       <request subst="true">
-        <http url='/musics/likes/%%_created_music_id%%' version='1.1' method='PUT'></http>
+        <http url='/musics/likes/%%_created_music_id%%?liketype=0' version='1.1' method='PUT'></http>
       </request>
 
       
     
-     <thinktime value="3" random="true"></thinktime>
-
+<!--      <thinktime value="3" random="true"></thinktime>
       <request>
         <http url='/audios' version='1.1' method='GET'></http>
-      </request>
+      </request> -->
 
 
       <thinktime value="3" random="true"></thinktime>
@@ -301,20 +313,15 @@
      
 
       <!-- Uncomment the following to debug print your dynamic variables  --> 
-      
-  <!--     <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->
+<!--       
+      <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->
         io:format([126, $p, 126, $n, 126, $n], [DynVars]),
         ok end.">
         <var name="dump" />
-      </setdynvars>
-       -->
+      </setdynvars> -->
+      
 
       <!-- delete the community we created -->
-
-      <request subst="true">
-        <http url="%%_created_comment_url%%" method="DELETE">
-        </http>
-      </request>
 
       <thinktime value="3" random="true"></thinktime>
          <request subst="true">
