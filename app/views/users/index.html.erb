@@ -18,9 +18,10 @@
 <div >
 
 <% if (@searchedUsers) %>
-
+<% cache(cache_key_for_searchedUser_table) do %>
     <table class="table table-striped">
       <% @searchedUsers.each do |searchedUser| %>
+      <% cache(cache_key_for_searchedUser_row(searchedUser)) do %>
         <% unless searchedUser == @current_user %>
 
         <tr>
@@ -37,11 +38,12 @@
         
         <% end %>
       <% end %>
+    <% end %>
     </table>
 
 <br />
 
 <% end %>
 <%= will_paginate @searchedUsers, renderer: BootstrapPagination::Rails %>
-
+<% end %>
 </div>

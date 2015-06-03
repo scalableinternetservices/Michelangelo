@@ -11,10 +11,10 @@
 <br>
 
 <div >
-
+<% cache(cache_key_for_music_table) do %>
 <table class="table table-striped">
 <% @musics.each do |music| %>
-  
+  <% cache(cache_key_for_music_row(music)) do %>
   <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td>
       <div>
@@ -111,9 +111,10 @@
     </td> -->
   </tr>
 <% end %>
+<% end %>
 </table>
 <%= will_paginate @musics, renderer: BootstrapPagination::Rails %>
 <br />
-
+<% end %>
 </div>
 

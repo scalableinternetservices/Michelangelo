@@ -17,10 +17,11 @@
 <br />  
 
   <% if @user == @current_user or @user.check_friendship(@current_user.id) %>
+  <% cache(cache_key_for_timeline_table) do %>
     <table class="table table-striped">
 
     <% @mymusics.each do |music| %>
-     
+      <% cache(cache_key_for_timeline_row(music)) do %>
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
         <td>
           <%= image_tag(@user.picurl, class: 'list_image') %>
@@ -100,9 +101,10 @@
 
       </tr>
     <% end %>
+    <% end %>
     </table>
     <%= will_paginate @mymusics, renderer: BootstrapPagination::Rails %>
   <% end %>
-
+<% end %>
 <br />
 </div>
