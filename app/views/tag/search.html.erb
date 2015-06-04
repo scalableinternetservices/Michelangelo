@@ -21,10 +21,20 @@
 	          <%= music.comment %> 
 	          <div class="hashtag">
 	            <!-- <%= music.tag_list %> -->
-	            <% music.tags.any? %>
+<!-- 	            <% music.tags.any? %>
 	                 <% music.tags.each do |tag| %>
 	                    #<%= link_to tag.name, showtag_path(tag) %>
-	            <% end %>
+	            <% end %> -->
+	        <% music.tags.any? %>
+                <% count = 0 %>
+                 <% music.tags.each do |tag| %>
+                 <% count += 1 %>
+                 <% if count%2 == 0 %>
+                    <%= link_to "#" + tag.name, showtag_path(tag), class:"label label-info" %>
+                  <% else %>
+                    <%= link_to "#" + tag.name, showtag_path(tag), class:"label label-primary" %>
+                  <% end %>
+            <% end %>
 
 	          </div> 
 	        </li>        	     
