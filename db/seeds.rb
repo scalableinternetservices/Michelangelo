@@ -15,67 +15,73 @@
 #---
 # encoding: utf-8
 
-User.delete_all
-Music.delete_all
-start = 0
-100.times do |i|
+# User.delete_all
+# Music.delete_all
+# start = 0
 
+number_of_users = 1000 
+number_of_musics = 10
+number_of_comments = 5
+
+number_of_users.times do |i|
+if User.count < number_of_users
 	user = User.create(
-	  name: "#{i}",
+	  name: User.count,
 	  password: "123",
 	  password_confirmation: "123")
-	user.save!
+	# user.save!
 
-	if i == 0
-		start = user.id
-		puts "start id: #{start}"
-	end
+	# if i == 0
+	# 	start = user.id
+	# 	puts "start id: #{start}"
+	# end
 
-	if i % 10 == 0
-		puts "user ", i
-	end
-end
+	# if i % 10 == 0
+	# 	puts "user ", i
+	# end
+# end
 
-100.times do |i|
+# 100.times do |i|
 
-	k = start + i
+	# k = start + i
+	# k = User.count
 
-	50.times do |j|
+	number_of_musics.times do |j|
 		music = Music.create(
 		  comment: "scaling test",
 		  sharetype: 0,
-		  uid: k,
+		  uid: user.id,
 		  link:   'http://music.163.com/outchain/player?type=2&id=29019227&auto=0&height=66')
-		music.save!
+		# music.save!
 
-		10.times do |m|	
+		number_of_comments.times do |m|	
 			comment = Comment.create(
 			  content: "scaling test scaling test scaling test",
 			  commenttype: 0,
 			  post_id: music.id,
-			  user_id: k
+			  user_id: user.id
 			  )
-			comment.save!
+			# comment.save!
 			# puts comment.id
 		end
 	end
 	
-	50.times do |j|
+	number_of_musics.times do |j|
 		audio = Audio.create(
 		  comment: "audio scaling test",
-		  uid: k,
+		  uid: user.id,
 		  audioFile_file_name:   'test.m4a',
 		  )
-		audio.save!
+		# audio.save!
 
-		10.times do |m|	
+		number_of_comments.times do |m|	
 			comment = Comment.create(
 			  content: "scaling test scaling test scaling test",
 			  commenttype: 1,
 			  post_id: audio.id,
-			  user_id: k
+			  user_id: user.id
 			  )
-			comment.save!
+			# comment.save!
 			# puts comment.id
 		end
 
@@ -87,7 +93,7 @@ end
 	end
 end
 
-
+end
 
 # Music.create!(title: 'See You Again',
 #   artist: 'Wiz Khalifa / Charlie Puth',
