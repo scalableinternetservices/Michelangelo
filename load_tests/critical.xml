@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="ec2-52-24-125-18.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
+    <server host="ec2-52-24-21-246.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
   </servers>
 
 <!--   <servers>
@@ -154,6 +154,11 @@
         <http url='/musics' version='1.1' method='GET'></http>
       </request>
 
+     <thinktime value="1" random="true"></thinktime>
+      <request>
+        <http url='/audios' version='1.1' method='GET'></http>
+      </request>
+
       <setdynvars sourcetype="random_number" start="0" end="99">
         <var name="dyn_search_name" />
       </setdynvars>
@@ -245,7 +250,7 @@
         <var name="dump" />
       </setdynvars> -->
       
-     <setdynvars sourcetype="random_number" start="1" end="10000">
+     <setdynvars sourcetype="random_number" start="1" end="5000">
         <var name="dyn_post_id" />
       </setdynvars>
 
@@ -280,16 +285,51 @@
 
       
     
-<!--      <thinktime value="3" random="true"></thinktime>
+     <thinktime value="3" random="true"></thinktime>
       <request>
         <http url='/audios' version='1.1' method='GET'></http>
-      </request> -->
+      </request>
 
+       <setdynvars sourcetype="eval"
+            code='fun({Pid,DynVars})-> [[13, 10]] end.'>
+        <var name="nl" />
+      </setdynvars>
+
+      <setdynvars sourcetype="eval"
+            code='fun({Pid,DynVars})->
+                    {ok, Bin} = file:read_file("test.m4a"),
+                    Bin
+                  end.'>
+        <var name="attached_file" />
+      </setdynvars>
+
+      <thinktime value="5" random="true"></thinktime>
+      <request subst="true">
+        <http
+          url='/audios'
+          version='1.1'
+          method='POST'
+          content_type='multipart/form-data; boundary=----FormBoundary'
+          contents='------FormBoundary%%_nl%%Content-Disposition: form-data; name="audio[comment]"%%_nl%%%%_nl%%Audio_comment%%_nl%%------FormBoundary%%_nl%%Content-Disposition: form-data; name="audio[audioFile]"; filename="test.m4a"%%_nl%%Content-Type: audio/x-m4a%%_nl%%%%_nl%%%%_attached_file%%%%_nl%%------FormBoundary%%_nl%%Content-Disposition: form-data; name="commit"%%_nl%%%%_nl%%Submit%%_nl%%------FormBoundary--%%_nl%%%%_nl%%
+'>
+      </http>
+      </request>
+
+    <thinktime value="3" random="true"></thinktime>
+      <request>
+        <http url='/audios' version='1.1' method='GET'></http>
+      </request>
 
       <thinktime value="3" random="true"></thinktime>
       <request subst="true">
         <http url='/users/mytimeline/%%_login_user_id%%' version='1.1' method='GET'></http>
       </request>
+
+      <thinktime value="3" random="true"></thinktime>
+      <request subst="true">
+        <http url='/users/audiotimeline/%%_login_user_id%%' version='1.1' method='GET'></http>
+      </request>
+
 
      <thinktime value="3" random="true"></thinktime>
       <request subst="true">
