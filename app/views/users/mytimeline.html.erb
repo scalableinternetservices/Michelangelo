@@ -58,7 +58,7 @@
             <% else %>
               <div style="color:grey"><%= dayDiff%> days ago</div>
             <% end %>
-          <li>
+
             <%= link_to 'Comment',new_comment_path(:post_id => music.id, :commenttype => @commenttype), :class=> "add-comment", 
             :id => "add-comment" + music.id.to_s, :remote => true %> 
             <%= music.allcomments.size %>
@@ -67,10 +67,9 @@
             <span class="like-count" data-id="<%= music.id %>">
               <%= music.likecount %>
             </span>
- 
-            <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div> 
 
-           <table>
+
+           <table id="music-top-comment-<%= music.id %>">
           <% if music.allcomments.size != 0 %>
            <!-- <td>Comments:</td> -->
              <% music.top3comments.each do |comment| %>
@@ -83,11 +82,12 @@
               <% end %> 
               <% if music.allcomments.size >3 %> 
               <td>
-              <%= link_to 'Show all comments', allcomments_path(music.id) %>
+              <%= link_to 'Show all comments', allcomments_path(music.id), remote: true %>
               </td>
               <% end %>
               <% end %>
             </table>
+            <div id="music-all-comment-<%= music.id %>">
         </li>
 
         </td>
