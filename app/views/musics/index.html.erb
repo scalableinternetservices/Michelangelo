@@ -1,3 +1,4 @@
+<% cache(cache_key_for_music_table(@current_user)) do %>
 
 <div class="row">
 <div class="col-md-8"><h1>Explore musics</h1></div>
@@ -15,6 +16,8 @@
 <table class="table table-striped">
 <% @musics.each do |music| %>
   
+  <% cache(cache_key_for_music_row(music)) do %>
+
   <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td>
       <div>
@@ -53,7 +56,7 @@
               if dayDiff == 0 
                 hourDiff = (Time.zone.now - music.created_at).to_i / 1.hour
                 if hourDiff == 0
-                  minDiff = (Time.zone.now - music.created_at).to_i / 1.minute
+                  minDiff = (Time.zone.now - music.updated_at).to_i / 1.minute
             %>
                 <div style="color:grey"><%= minDiff%> min ago</div> 
                 <% else %>
@@ -98,18 +101,11 @@
         
       </ul>
     </td>
-<!--     <td>
-      <ul>
-        <li style="color:grey"><%= music.created_at %></li>      
-      </ul>
-    </td> -->
-<!--     <td class="list_actions">
-      <%= link_to 'Show', music %><br/>
-      <%= link_to 'Edit', edit_music_path(music) %><br/>
-      <%= link_to 'Delete', music, method: :delete,
-                  data: { confirm: 'Are you sure?' } %>
-    </td> -->
+
   </tr>
+  
+  <% end %>
+
 <% end %>
 </table>
 <%= will_paginate @musics, renderer: BootstrapPagination::Rails %>
@@ -117,3 +113,4 @@
 
 </div>
 
+<% end %>

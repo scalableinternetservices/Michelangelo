@@ -1,3 +1,4 @@
+<% cache(cache_key_for_timeline_table(@current_user)) do %>
 
 <!-- <%= link_to 'Back', :back %> -->
 <div class="row">
@@ -20,6 +21,8 @@
     <table class="table table-striped">
 
     <% @mymusics.each do |music| %>
+
+      <% cache(cache_key_for_timeline_row(music)) do %>
      
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
         <td>
@@ -99,6 +102,9 @@
         </td>
 
       </tr>
+
+      <% end %>
+
     <% end %>
     </table>
     <%= will_paginate @mymusics, renderer: BootstrapPagination::Rails %>
@@ -106,3 +112,5 @@
 
 <br />
 </div>
+
+<% end %>

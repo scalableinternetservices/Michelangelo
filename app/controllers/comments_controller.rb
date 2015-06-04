@@ -30,6 +30,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.commenttype == 0
+      Music.find(@comment.post_id).update_attribute(:updated_at, Time.now)
       @host = Music.find(@comment.post_id).uid
       if (@host != current_user.id)
         @unreadcomment = Unreadcomment.create(:comment_id => @comment.id, :post_id => @comment.post_id, :user_id => @host, :commenter => current_user.id, :commenttype => 0)
@@ -37,6 +38,7 @@ class CommentsController < ApplicationController
         # @unreadcomment.save
       end
     else
+      Audio.find(@comment.post_id).update_attribute(:updated_at, Time.now)
       @host = Audio.find(@comment.post_id).uid
       if (@host != current_user.id)
         @unreadcomment = Unreadcomment.create(:comment_id => @comment.id, :post_id => @comment.post_id, :user_id => @host, :commenter => current_user.id, :commenttype => 1)

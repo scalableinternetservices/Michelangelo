@@ -1,3 +1,4 @@
+<% cache(cache_key_for_audio_table(@current_user)) do %>
 
 <div class="row">
 <div class="col-md-8"><h1>Explore audios</h1></div>
@@ -15,6 +16,8 @@
 <table class="table table-striped">
 <% @audios.each do |audio| %>
   
+  <% cache(cache_key_for_audio_row(audio)) do %>
+
   <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td>
       <div>
@@ -89,15 +92,15 @@
         
       </ul>
     </td>        
-<!--     <td class="list_actions">
-      <%= link_to 'Show', audio %><br/>
-      <%= link_to 'Edit', edit_audio_path(audio) %><br/>
-      <%= link_to 'Delete', audio, method: :delete,
-                  data: { confirm: 'Are you sure?' } %>
-    </td> -->
   </tr>
+
+  <% end %>
+
 <% end %>
 </table>
+<%= will_paginate @audios, renderer: BootstrapPagination::Rails %>
 <br />
 
 </div>
+
+<% end %>

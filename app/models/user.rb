@@ -48,11 +48,31 @@ class User < ActiveRecord::Base
     Music.where(:uid => valid_ids).order("created_at DESC")
   end
 
+  def music_lastupdate
+    valid_ids = self.friends.map {|friend| friend.id}
+    valid_ids.push(self.id)
+    Music.where(:uid => valid_ids).maximum(:updated_at)
+  end
+
+  def timeline_lastupdate
+    Music.where(:uid => self.id).maximum(:updated_at)
+  end  
+
   # Only display the sharing contents of the user and his friends
   def discover_audios
     valid_ids = self.friends.map {|friend| friend.id}
     valid_ids.push(self.id)
     Audio.where(:uid => valid_ids).order("created_at DESC")
+  end  
+
+  def audio_lastupdate
+    valid_ids = self.friends.map {|friend| friend.id}
+    valid_ids.push(self.id)
+    Audio.where(:uid => valid_ids).maximum(:updated_at)
+  end  
+
+  def audiotimeline_lastupdate
+    Audio.where(:uid => self.id).maximum(:updated_at)
   end  
 
   def requests_from

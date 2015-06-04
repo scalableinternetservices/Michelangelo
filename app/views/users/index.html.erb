@@ -4,40 +4,41 @@
         <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
-<%
-    if params[:search]
-      @searchedUsers = User.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], per_page: 8)
-    else
-      @searchedUsers = User.order("created_at DESC").paginate(:page => params[:page], per_page: 8)
-    end    
-    @current_user = User.find(session[:user_id])
-%>
-
 <br />
 
 <div >
 
 <% if (@searchedUsers) %>
 
+  <% cache(cache_key_for_searchedUser_table(params[:search])) do %>
+
     <table class="table table-striped">
       <% @searchedUsers.each do |searchedUser| %>
-        <% unless searchedUser == @current_user %>
 
-        <tr>
-        <td class="col-md-6">
-          <% if @current_user.check_friendship(searchedUser.id) %>
-            <%= image_tag searchedUser.image.url(:small), :class => "profile-img" %>
-            <%= link_to searchedUser.name, mytimeline_path(searchedUser.id) %> 
-          <% else %>
-            <%= image_tag searchedUser.image.url(:small), :class => "profile-img" %>
-            <%= link_to searchedUser.name, user_path(searchedUser.id) %> 
-          <% end %>
-        </td>
-        </tr>
-        
+        <% cache(cache_key_for_searchedUser_row(searchedUser)) do %>
+
+          <!-- <% unless searchedUser == @current_user %> -->
+
+          <tr>
+          <td class="col-md-6">
+            <% if @current_user.check_friendship(searchedUser.id) %>
+              <%= image_tag searchedUser.image.url(:small), :class => "profile-img" %>
+              <%= link_to searchedUser.name, mytimeline_path(searchedUser.id) %> 
+            <% else %>
+              <%= image_tag searchedUser.image.url(:small), :class => "profile-img" %>
+              <%= link_to searchedUser.name, user_path(searchedUser.id) %> 
+            <% end %>
+          </td>
+          </tr>
+          
+          <!-- <% end %> -->
+
         <% end %>
+
       <% end %>
     </table>
+
+  <% end %>
 
 <br />
 

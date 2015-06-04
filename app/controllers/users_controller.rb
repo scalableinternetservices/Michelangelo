@@ -13,16 +13,17 @@ class UsersController < ApplicationController
   # end
 
   def index
-    # @searchedUsers = User.order("created_at DESC")
-    
-    # if params[:search]
-    #   @searchedUsers = User.search(params[:search]).order("created_at DESC")
-    # else
-    #   @searchedUsers = User.order("created_at DESC")
-    # end
 
+    if params[:search]
+      @searchedUsers = User.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], per_page: 8)
+      # @lastUpdate = User.search(params[:search]).maximum(:updated_at)
+    else
+      @searchedUsers = User.order("created_at DESC").paginate(:page => params[:page], per_page: 8)
+      # @lastUpdate = User.maximum(:updated_at)
+    end    
+    
     @current_user = User.find(session[:user_id])
-    # @friends = User.find(session[:user_id]).friends
+
   end
 
   # GET /users/1
@@ -115,6 +116,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+
+    @user.update_attribute(:updated_at, Time.now)
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to user_url }
@@ -140,9 +144,10 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def index
-    @users=User.order(:name)
-  end
+
+  # def index
+  #   @users=User.order(:name)
+  # end
 
   def contact
 
