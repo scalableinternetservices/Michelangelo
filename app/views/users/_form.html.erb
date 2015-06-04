@@ -17,7 +17,7 @@
 
   <fieldset>
   <div class="form-signin">
-  <legend>Enter User Details</legend>
+  <legend>Enter Your Information</legend>
 
   <div class="field">
     <div><%= f.label :name, 'Name:' %></div>
@@ -61,8 +61,8 @@
     <%= f.file_field :image, size: 40, :class => "form-control" %>
   </div>
 
-  <div class="actions btn btn-submit">
-    <%= f.submit %>
+  <div>
+    <%= f.submit 'Update', class: "actions btn btn-primary btn-submit"%>
   </div>
 
   <%= link_to 'Back', login_url %>
