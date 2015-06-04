@@ -19,9 +19,9 @@
 # Music.delete_all
 # start = 0
 
-number_of_users = 100 
-number_of_musics = 50
-number_of_comments = 10
+number_of_users = 1000 
+number_of_musics = 10
+number_of_comments = 5
 
 number_of_users.times do |i|
 if User.count < number_of_users
