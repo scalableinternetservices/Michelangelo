@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authorize
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :friends, :mytimeline, :audiotimeline, :requests]
-
+  before_action :set_user, only: [:edit, :show, :friends, :update, :destroy, :newfriend, :mytimeline, :audiotimeline]
+  before_action :set_current_user, only: [:index, :show, :friends, :newfriend, :mytimeline, :audiotimeline]
 
   # GET /users
   # GET /users.json
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       # @lastUpdate = User.maximum(:updated_at)
     end    
     
-    @current_user = User.find(session[:user_id])
+    # @current_user = User.find(session[:user_id])
 
   end
 
@@ -30,14 +30,14 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @mymusics = Music.where(:uid => params[:id]).order('created_at DESC')
-    @current_user = User.find(session[:user_id])
+    # @current_user = User.find(session[:user_id])
 
     @date = @user.created_at.strftime('%B %d, %Y')
   end
 
   def friends
-    @current_user = User.find(session[:user_id])
-    @friends = User.find(params[:id]).friends.paginate(:page => params[:page], per_page: 10).order('created_at DESC')
+    # @current_user = User.find(session[:user_id])
+    @friends = @user.friends.paginate(:page => params[:page], per_page: 10).order('created_at DESC')
     # if params[:id] != session[:user_id]
     #   redirect_to homepage_path(session[:user_id])
     # end
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
 
   def mytimeline
-    @current_user = User.find(session[:user_id])
+    # @current_user = User.find(session[:user_id])
     @mymusics = Music.where(:uid => params[:id]).paginate(:page => params[:page], per_page: 8).order('created_at DESC')
 
     @commenttype = 0
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   end
 
   def audiotimeline
-    @current_user = User.find(session[:user_id])
+    # @current_user = User.find(session[:user_id])
     @myaudios = Audio.where(:uid => params[:id]).paginate(:page => params[:page], per_page: 8).order('created_at DESC')
 
     @commenttype = 1
@@ -70,9 +70,9 @@ class UsersController < ApplicationController
 
 
   def newfriend
-    @user = User.find(params[:id])
-    @current_user = User.find(session[:user_id])
-    @friends = User.find(params[:id]).friends
+    # @user = User.find(params[:id])
+    # @current_user = User.find(session[:user_id])
+    @friends = @user.friends
     
   end
 
@@ -157,6 +157,10 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def set_current_user
+      @current_user = User.find(session[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
