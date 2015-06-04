@@ -70,7 +70,7 @@
             <span class="like-count" data-id="<%= music.id %>">
               <%= music.likecount %>
             </span>
-
+            <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div> 
 
            <table id="music-top-comment-<%= music.id %>">
           <% if music.allcomments.size != 0 %>
