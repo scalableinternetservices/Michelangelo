@@ -59,11 +59,14 @@
                 <% end %> 
 
             <li>
-                <%= link_to 'Comment',new_comment_path(:post_id => audio.id, :commenttype => @commenttype), :class=> "add-comment", 
-                :id => "add-comment" + audio.id.to_s, :remote => true %> 
+                <%= link_to new_comment_path(:post_id => audio.id, :commenttype => @commenttype), :class=> "add-comment", :id => "add-comment" + audio.id.to_s, :remote => true do%> 
+                <i class="glyphicon glyphicon-comment"></i>
+                <% end %>
                 <%= audio.audioallcomments.size %>
                  
-                <%= link_to 'Like', like_audio_path(:id =>audio.id, :liketype => @liketype), class:"like-vote", method: :put, remote: true%>
+                <%= link_to like_audio_path(:id =>audio.id, :liketype => @liketype), class:"like-vote", method: :put, remote: true do %>
+                <i class="glyphicon glyphicon-thumbs-up"></i>
+                <% end %>
                 <span class="like-count" data-id="<%= audio.id %>">
                   <%= audio.audiolikecount %>
                 </span>
