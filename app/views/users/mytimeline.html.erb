@@ -73,6 +73,8 @@
             <i class="glyphicon glyphicon-comment"></i>
             <% end %>
             <%= music.allcomments.size %>
+
+            &nbsp
              
             <%= link_to like_music_path(music.id), class:"like-vote", method: :put, remote: true do%>
             <i class="glyphicon glyphicon-thumbs-up"></i>

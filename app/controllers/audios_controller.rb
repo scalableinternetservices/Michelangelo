@@ -74,6 +74,15 @@ class AudiosController < ApplicationController
   # DELETE /audios/1
   # DELETE /audios/1.json
   def destroy
+
+    if postComments = Unreadcomment.where(:post_id => @audio.id, :commenttype => 1)
+      Unreadcomment.delete(postComments)
+    end
+
+    if postLikes = Unreadlike.where(:post_id => @audio.id, :liketype => 1)
+      Unreadlike.delete(postLikes)
+    end
+
     @audio.destroy
     respond_to do |format|
       format.html { redirect_to audios_url }

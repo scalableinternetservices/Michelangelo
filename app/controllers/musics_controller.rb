@@ -128,6 +128,14 @@ class MusicsController < ApplicationController
   # DELETE /musics/1.json
   def destroy
     
+    if postComments = Unreadcomment.where(:post_id => @music.id, :commenttype => 0)
+      Unreadcomment.delete(postComments)
+    end
+
+    if postLikes = Unreadlike.where(:post_id => @music.id, :liketype => 0)
+      Unreadlike.delete(postLikes)
+    end
+
     @music.destroy
     respond_to do |format|
       format.html { redirect_to mytimeline_path(session[:user_id]) }

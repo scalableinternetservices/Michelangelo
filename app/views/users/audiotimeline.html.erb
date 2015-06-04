@@ -63,6 +63,8 @@
                 <i class="glyphicon glyphicon-comment"></i>
                 <% end %>
                 <%= audio.audioallcomments.size %>
+
+                &nbsp
                  
                 <%= link_to like_audio_path(:id =>audio.id, :liketype => @liketype), class:"like-vote", method: :put, remote: true do %>
                 <i class="glyphicon glyphicon-thumbs-up"></i>
