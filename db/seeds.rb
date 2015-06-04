@@ -29,7 +29,7 @@ if User.count < number_of_users
 	  name: User.count,
 	  password: "123",
 	  password_confirmation: "123")
-	user.save!
+	# user.save!
 
 	# if i == 0
 	# 	start = user.id
@@ -44,24 +44,24 @@ if User.count < number_of_users
 # 100.times do |i|
 
 	# k = start + i
-	k = User.count
+	# k = User.count
 
 	number_of_musics.times do |j|
 		music = Music.create(
 		  comment: "scaling test",
 		  sharetype: 0,
-		  uid: k,
+		  uid: user.id,
 		  link:   'http://music.163.com/outchain/player?type=2&id=29019227&auto=0&height=66')
-		music.save!
+		# music.save!
 
 		number_of_comments.times do |m|	
 			comment = Comment.create(
 			  content: "scaling test scaling test scaling test",
 			  commenttype: 0,
 			  post_id: music.id,
-			  user_id: k
+			  user_id: user.id
 			  )
-			comment.save!
+			# comment.save!
 			# puts comment.id
 		end
 	end
@@ -69,19 +69,19 @@ if User.count < number_of_users
 	number_of_musics.times do |j|
 		audio = Audio.create(
 		  comment: "audio scaling test",
-		  uid: k,
+		  uid: user.id,
 		  audioFile_file_name:   'test.m4a',
 		  )
-		audio.save!
+		# audio.save!
 
 		number_of_comments.times do |m|	
 			comment = Comment.create(
 			  content: "scaling test scaling test scaling test",
 			  commenttype: 1,
 			  post_id: audio.id,
-			  user_id: k
+			  user_id: user.id
 			  )
-			comment.save!
+			# comment.save!
 			# puts comment.id
 		end
 
