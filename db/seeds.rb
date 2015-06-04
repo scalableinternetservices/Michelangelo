@@ -40,27 +40,27 @@ end
 
 	k = start + i
 
-	# 100.times do |j|
-	# 	music = Music.create(
-	# 	  comment: "scaling test",
-	# 	  sharetype: 0,
-	# 	  uid: k,
-	# 	  link:   'http://music.163.com/outchain/player?type=2&id=29019227&auto=0&height=66')
-	# 	music.save!
+	50.times do |j|
+		music = Music.create(
+		  comment: "scaling test",
+		  sharetype: 0,
+		  uid: k,
+		  link:   'http://music.163.com/outchain/player?type=2&id=29019227&auto=0&height=66')
+		music.save!
 
-	# 	10.times do |m|	
-	# 		comment = Comment.create(
-	# 		  content: "scaling test scaling test scaling test",
-	# 		  commenttype: 0,
-	# 		  post_id: music.id,
-	# 		  user_id: k
-	# 		  )
-	# 		comment.save!
-	# 		# puts comment.id
-	# 	end
-	# end
+		10.times do |m|	
+			comment = Comment.create(
+			  content: "scaling test scaling test scaling test",
+			  commenttype: 0,
+			  post_id: music.id,
+			  user_id: k
+			  )
+			comment.save!
+			# puts comment.id
+		end
+	end
 	
-	100.times do |j|
+	50.times do |j|
 		audio = Audio.create(
 		  comment: "audio scaling test",
 		  uid: k,
