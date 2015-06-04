@@ -68,7 +68,7 @@
             </span>
  
             <div id="comment-form-<%= audio.id %>" class="comment-form" style="display:none;"></div> 
-           <table>
+           <table id="audio-top-comment-<%= audio.id %>">
             <% if audio.audioallcomments.size != 0 %>
            <!-- <td>Comments:</td> -->
              <% audio.audiotop3comments.each do |comment| %>
@@ -81,11 +81,12 @@
               <% end %>  
               <% if audio.audioallcomments.size >3 %> 
               <td>
-              <%= link_to 'Show all comments', audioallcomments_path(audio.id) %>
+              <%= link_to 'Show all comments', audioallcomments_path(audio.id), remote: true %>
               </td>
                <% end %> 
                 <% end %> 
             </table>
+            <div id="audio-all-comment-<%= audio.id %>"></div>
         </li>
 
 

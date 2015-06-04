@@ -6,7 +6,7 @@ class MusicsController < ApplicationController
   # GET /musics
   # GET /musics.json
   def index
-    fresh_when @musics
+    # fresh_when @musics
     current_user = User.find(session[:user_id])
     # @musics = current_user.discover_musics.paginate(:page => params[:page], per_page: 5)
     @musics = current_user.discover_musics.includes(:comments, :likes).paginate(:page => params[:page], per_page: 8)
@@ -21,6 +21,7 @@ class MusicsController < ApplicationController
   end
 
   def allcomments
+    @music_id = params[:id]
     @comments = Music.find(params[:id]).allcomments
   end
 

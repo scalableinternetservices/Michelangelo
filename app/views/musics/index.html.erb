@@ -75,8 +75,8 @@
               <%= music.likecount %>
             </span>
  
-          <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div> 
-            <table>
+          <!-- <div id="comment-form-<%= music.id %>" class="comment-form" style="display:none;"></div>  -->
+            <table id="music-top-comment-<%= music.id %>">
           <% if music.allcomments.size != 0 %>
            <!-- <td>Comments:</td> -->
              <% music.top3comments.each do |comment| %>
@@ -89,11 +89,12 @@
               <% end %> 
               <% if music.allcomments.size >3 %> 
               <td>
-              <%= link_to 'Show all comments', allcomments_path(music.id) %>
+              <%= link_to 'Show all comments', allcomments_path(music.id), class: "show-all-comments", remote: true %>
               </td>
               <% end %>
               <% end %>
             </table>
+            <div id="music-all-comment-<%= music.id %>"></div>
         </li>
 
 

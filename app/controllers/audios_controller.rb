@@ -26,6 +26,7 @@ class AudiosController < ApplicationController
   end
 
   def audioallcomments
+    @audio_id = params[:id]
     @comments = Audio.find(params[:id]).audioallcomments
   end
 

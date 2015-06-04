@@ -1,0 +1,2 @@
+$("#audio-all-comment-<%= @audio_id %>").html("<%= escape_javascript render(:partial => 'allcomments', :locals => { :comments => @comments }) %>");
+$("#audio-top-comment-<%= @audio_id %>").hide();
