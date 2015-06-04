@@ -25,8 +25,12 @@ class UnreadcommentsController < ApplicationController
     @thisComment = Unreadcomment.find(params[:id])
 
     if @thisComment.commenttype == 0
+      @commenttype = 0
+      @liketype = 0
       @music = Music.find(@thisComment.post_id)
     else
+      @commenttype = 1
+      @liketype = 1
       @audio = Audio.find(@thisComment.post_id)
     end
 

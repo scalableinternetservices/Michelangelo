@@ -25,8 +25,12 @@ class UnreadlikesController < ApplicationController
     @thisLike = Unreadlike.find(params[:id])
 
     if @thisLike.liketype == 0
+      @commenttype = 0
+      @liketype = 0
       @music = Music.find(@thisLike.post_id)
     else
+      @commenttype = 1
+      @liketype = 1
       @audio = Audio.find(@thisLike.post_id)
     end
 

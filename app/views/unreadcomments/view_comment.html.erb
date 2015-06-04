@@ -19,8 +19,14 @@
           <div class="hashtag">
             <!-- <%= @music.tag_list %> -->
             <% @music.tags.any? %>
+                <% count = 0 %>
                  <% @music.tags.each do |tag| %>
-                    #<%= link_to tag.name, showtag_path(tag) %>
+                 <% count += 1 %>
+                 <% if count%2 == 0 %>
+                    <%= link_to "#" + tag.name, showtag_path(tag), class:"label label-info" %>
+                  <% else %>
+                    <%= link_to "#" + tag.name, showtag_path(tag), class:"label label-primary" %>
+                  <% end %>
             <% end %>
 
           </div> 
@@ -35,28 +41,15 @@
           </p>
         </li>
 
-        <!-- <li style="color:grey"><%= @music.created_at %></li> -->
-            <% 
-              dayDiff = (Time.zone.now - @music.created_at).to_i / 1.day
-              if dayDiff == 0 
-                hourDiff = (Time.zone.now - @music.created_at).to_i / 1.hour
-                if hourDiff == 0
-                  minDiff = (Time.zone.now - @music.created_at).to_i / 1.minute
-            %>
-                <div style="color:grey"><%= minDiff%> min ago</div> 
-                <% else %>
-                <div style="color:grey"><%= hourDiff%> hours ago</div> 
-                <% end %>
-            <% else %>
-              <div style="color:grey"><%= dayDiff%> days ago</div>
-            <% end %>  
-
         <li>
-            <%= link_to 'Comment',new_comment_path(:post_id => @music.id, :commenttype => @commenttype), :class=> "add-comment", 
-            :id => "add-comment" + @music.id.to_s, :remote => true %> 
+            <%= link_to new_comment_path(:post_id => @music.id, :commenttype => @commenttype), :class=> "add-comment", :id => "add-comment" + @music.id.to_s, :remote => true do%> 
+            <i class="glyphicon glyphicon-comment"></i>
+            <% end %>
             <%= @music.allcomments.size %>
              
-            <%= link_to 'Like', like_music_path(:id =>@music.id, :liketype => @liketype), class:"like-vote", method: :put, remote: true%>
+            <%= link_to  like_music_path(:id => @music.id, :liketype => @liketype), class:"like-vote", method: :put, remote: true do%>
+            <i class="glyphicon glyphicon-thumbs-up"></i>
+            <% end %>
             <span class="like-count" data-id="<%= @music.id %>">
               <%= @music.likecount %>
             </span>
@@ -83,6 +76,21 @@
         </li>
 
 
+        <!-- <li style="color:grey"><%= @music.created_at %></li> -->
+            <% 
+              dayDiff = (Time.zone.now - @music.created_at).to_i / 1.day
+              if dayDiff == 0 
+                hourDiff = (Time.zone.now - @music.created_at).to_i / 1.hour
+                if hourDiff == 0
+                  minDiff = (Time.zone.now - @music.created_at).to_i / 1.minute
+            %>
+                <div style="color:grey"><%= minDiff%> min ago</div> 
+                <% else %>
+                <div style="color:grey"><%= hourDiff%> hours ago</div> 
+                <% end %>
+            <% else %>
+              <div style="color:grey"><%= dayDiff%> days ago</div>
+            <% end %>  
         
       </ul>
     </td>
@@ -114,28 +122,15 @@
           </p>
         </li>
 
-        <!-- <li style="color:grey"><%= @audio.created_at %></li> -->
-            <% 
-              dayDiff = (Time.zone.now - @audio.created_at).to_i / 1.day
-              if dayDiff == 0 
-                hourDiff = (Time.zone.now - @audio.created_at).to_i / 1.hour
-                if hourDiff == 0
-                  minDiff = (Time.zone.now - @audio.created_at).to_i / 1.minute
-            %>
-                <div style="color:grey"><%= minDiff%> min ago</div> 
-                <% else %>
-                <div style="color:grey"><%= hourDiff%> hours ago</div> 
-                <% end %>
-            <% else %>
-              <div style="color:grey"><%= dayDiff%> days ago</div>
-            <% end %> 
-
         <li>
-            <%= link_to 'Comment',new_comment_path(:post_id => @audio.id, :commenttype => @commenttype), :class=> "add-comment", 
-            :id => "add-comment" + @audio.id.to_s, :remote => true %> 
+            <%= link_to new_comment_path(:post_id => @audio.id, :commenttype => @commenttype), :class=> "add-comment", :id => "add-comment" + @audio.id.to_s, :remote => true do%> 
+            <i class="glyphicon glyphicon-comment"></i>
+            <% end %>
             <%= @audio.audioallcomments.size %>
              
-            <%= link_to 'Like', like_audio_path(:id =>@audio.id, :liketype => @liketype), class:"like-vote", method: :put, remote: true%>
+            <%= link_to like_audio_path(:id =>@audio.id, :liketype => @liketype), class:"like-vote", method: :put, remote: true do%>
+            <i class="glyphicon glyphicon-thumbs-up"></i>
+            <% end %>
             <span class="like-count" data-id="<%= @audio.id %>">
               <%= @audio.audiolikecount %>
             </span>
@@ -143,7 +138,7 @@
             <div id="comment-form-<%= @audio.id %>" class="comment-form" style="display:none;"></div> 
            <table>
             <% if @audio.audioallcomments.size != 0 %>
-           <!-- <td>Comments:</td> -->
+
              <% @audio.audiotop3comments.each do |comment| %>
               <tr>
                 <td>
@@ -161,6 +156,22 @@
             </table>
         </li>
 
+
+        <!-- <li style="color:grey"><%= @audio.created_at %></li> -->
+            <% 
+              dayDiff = (Time.zone.now - @audio.created_at).to_i / 1.day
+              if dayDiff == 0 
+                hourDiff = (Time.zone.now - @audio.created_at).to_i / 1.hour
+                if hourDiff == 0
+                  minDiff = (Time.zone.now - @audio.created_at).to_i / 1.minute
+            %>
+                <div style="color:grey"><%= minDiff%> min ago</div> 
+                <% else %>
+                <div style="color:grey"><%= hourDiff%> hours ago</div> 
+                <% end %>
+            <% else %>
+              <div style="color:grey"><%= dayDiff%> days ago</div>
+            <% end %> 
 
         
       </ul>
